@@ -189,6 +189,7 @@ main > .sec{width:100%;margin:0 auto;}
     .main-con-wrap .flex-wrap + .flex-wrap {margin-top:8px;}
     .main-con-wrap .flex-wrap + .flex-wrap.tablet-mo-flex-only {margin-top:0;}
     main {padding-top:60px;}
+    .flex-wrap.dynamic-col > .flex-wrap.top-flex + .flex-wrap {margin-top:0!important;}
     /* #sec1 */
     #sec1 {padding:20px 0 0;}
     #sec1 .title-wrap + .main-con-box.type1 {margin-top:0;height: 100%;}
