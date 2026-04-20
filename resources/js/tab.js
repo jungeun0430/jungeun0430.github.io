@@ -481,10 +481,11 @@ class TabManager {
                 return;
             }
 
-            const tabHeaderHeight = this.getOuterHeight(firstDepth);
+            const wrapTop = wrap.getBoundingClientRect().top;
+            const tabBoxTop = activeTabBox.getBoundingClientRect().top;
             const tabBoxHeight = this.getOuterHeight(activeTabBox);
 
-            const nextHeight = `${Math.ceil(tabHeaderHeight + tabBoxHeight)}px`;
+            const nextHeight = `${Math.ceil(tabBoxTop - wrapTop + tabBoxHeight)}px`;
 
 // [추가] 기존 높이와 같으면 다시 쓰지 않음
             if (wrap.style.height !== nextHeight) {

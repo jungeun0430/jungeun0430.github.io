@@ -154,7 +154,8 @@ main > .sec{width:100%;margin:0 auto;}
 
 /* 공지사항 */
 .notice-sub-list {margin-top:12px;margin-bottom:17px;}
-.notice-sub-list > li {font-size:var(--txt-size04);font-weight:var(--fw-medium);color:var(--color-gray5);}
+.notice-sub-list > li {font-size:var(--txt-size04);font-weight:var(--fw-medium);color:var(--color-text);}
+
 @media (max-width:1760px) {
     #sec1 > .content-wrap {width:100%;padding:20px;}
 }

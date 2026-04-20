@@ -848,6 +848,9 @@
                     arg.el.addEventListener('keydown', function (e) {
                         if (e.key === 'Enter' || e.key === ' ') {
                             e.preventDefault();
+                            var prev = calendarEl.querySelector('.fc-day.click-active');
+                            if (prev) prev.classList.remove('click-active');
+                            arg.el.classList.add('click-active');
                             selectedDate1 = dateStr;                          // ← 수정
                             showScheduleForCalendar(calendarEl, selectedDate1); // ← 수정
                         }
@@ -861,6 +864,10 @@
             dateClick: function (info) {
                 var dateStr = info.dateStr;
                 if (dateStr < ACTIVE_START || dateStr > ACTIVE_END) return; // ← 수정
+
+                var prev = calendarEl.querySelector('.fc-day.click-active');
+                if (prev) prev.classList.remove('click-active');
+                info.dayEl.classList.add('click-active');
 
                 if (selectedDate1 !== dateStr) {
                     resetSelectedSchedules('calendar');

@@ -122,6 +122,9 @@
 .fc .fc-daygrid-event-harness {display:inline-block;width:100%;}
 .fc .fc-daygrid-event-harness > a {}
 .fc .fc-daygrid-event-harness + .fc-daygrid-event-harness {margin-top:4px!important;}
+/* 클릭한 날짜 */
+/*.fc .fc-daygrid-day.click-active {background-color:var(--color-primary-light);border-radius:4px;}*/
+/*.fc .fc-daygrid-day.click-active .fc-daygrid-day-number {color:var(--color-white)!important;font-weight:var(--fw-bold);}*/
 /* 오늘날짜 */
 .fc .fc-daygrid-day.fc-day-today {background-color:inherit;}
 .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number{position:relative;color:var(--color-white)!important;font-weight:var(--fw-bold);}
@@ -166,8 +169,9 @@
 }
 
 /* 결제 */
-.enrollment-list > ul >  li {display:flex;align-items:center;gap:16px;padding:40px;border:1px solid var(--border-color);}
-.enrollment-list > ul >  li + li {margin-top:12px;border-top:1px solid var(--border-color);}
+.enrollment-list {padding:40px;border:1px solid var(--border-color);}
+.enrollment-list > ul >  li {display:flex;align-items:center;gap:16px;}
+.enrollment-list > ul >  li + li {margin-top:16px;}
 .enrollment-list > ul >  li > .desc-wrap {width:calc(100% - 53px - 12px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:var(--txt-size04);color:var(--color-black);font-weight:var(--fw-medium);}
 
 @media (max-width:767px) {

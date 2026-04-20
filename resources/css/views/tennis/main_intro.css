@@ -140,7 +140,7 @@
 .main-con-box.purple {background-color:#EAE3FF}
 .main-con-box.red {background-color:#FFEEED;}
 .main-con-box.gray {background-color:#EFEFEF}
-.main-con-box.type1 {padding:60px 40px;background-image:url(../../../images/mainPage/main1_soccer.png);background-repeat:no-repeat;background-position:calc(100% - 27px) calc(100% - 24px);}
+.main-con-box.type1 {padding:60px 40px;background-image:url(../../../images/mainPage/main1_tennis.png);background-repeat:no-repeat;background-position:calc(100% - 27px) calc(100% - 24px);}
 .main-con-box.type6 {flex:1;padding:27px 32px;}
 .main-con-box.type2 {background-image: url(../../../images/mainPage/main2.png);background-repeat:no-repeat;background-position:calc(100% - 32px) calc(100% - 23px);height:246px;}
 .main-con-box.type3 {background-image: url(../../../images/mainPage/main3.png);background-repeat:no-repeat;background-position:calc(100% - 32px) bottom;height:246px;}
@@ -154,7 +154,8 @@ main > .sec{width:100%;margin:0 auto;}
 
 /* 공지사항 */
 .notice-sub-list {margin-top:12px;margin-bottom:17px;}
-.notice-sub-list > li {font-size:var(--txt-size04);font-weight:var(--fw-medium);color:var(--color-gray5);}
+.notice-sub-list > li {font-size:var(--txt-size04);font-weight:var(--fw-medium);color:var(--color-text);}
+
 @media (max-width:1760px) {
     #sec1 > .content-wrap {width:100%;padding:20px;}
 }

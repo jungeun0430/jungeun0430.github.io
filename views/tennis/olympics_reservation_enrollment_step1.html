@@ -26,7 +26,7 @@
   <script src="../../resources/js/custom_select.js"></script>
   <!-- 탭 함수 -->
   <script src="../../resources/js/tab.js"></script>
-  <title>올팍축구장_예약신청(예약선택)</title>
+  <title>올림픽테니스장_예약신청(예약선택)</title>
 </head>
 <body data-text-size="normal">
 <!-- [웹 접근성] : 본문 바로가기 -->
@@ -171,7 +171,7 @@
     <div class="flex-wrap end breadcrumb-wrap">
       <ul class="breadcrumb">
         <li class="home">메인 화면</li>
-        <li>올팍축구장</li>
+        <li>올림픽테니스장</li>
         <li class="active">예약신청</li>
       </ul>
     </div>
@@ -205,30 +205,11 @@
     <!-- 탭 -->
     <div class="tab-wrap" data-tab="fraternal">
       <ul class="first-depth">
-        <!-- 1. 축구장 예약 -->
+        <!-- 1. 날짜별 예약-->
         <li class="active">
-          <button type="button" class="tab"><span>축구장 예약 </span></button>
+          <button type="button" class="tab"><span>날짜별 예약</span></button>
           <div class="tab-box pd-ver">
-            <!-- 1.장소선택 -->
-            <div class="sub-content-wrap">
-              <div class="sub-title-wrap">
-                <h3>장소선택</h3>
-              </div>
-              <div class="sub-content-box">
-                <div class="gray-img-box">
-                  <img src="../../resources/images/views/soccer/soccer_enrollment1.png" alt="올팍축구장 시설현황 이미지">
-                  <div class="visually-hidden">
-                    <p>축구장 장소선택에 관한 이미지 입니다.</p>
-                    <ul>
-                      <li>축구장의 한 구장당 너비는 가로 20m 세로 40m로 구성되어 있습니다.</li>
-                      <li>좌측에 출입문이 있으며, 출입문 안에 회원 휴게실이 있습니다.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 2. 날짜/시간 선택 -->
+            <!-- 1. 날짜/시간 선택 -->
             <div class="sub-content-wrap">
               <div class="sub-title-wrap">
                 <h4>날짜 / 시간 선택</h4>
@@ -330,9 +311,9 @@
 
           </div>
         </li>
-        <!-- 2. 풋살장 예약 -->
+        <!-- 2. 코트별 예약 -->
         <li>
-          <button type="button" class="tab"><span>풋살장 예약</span></button>
+          <button type="button" class="tab"><span>코트별 예약</span></button>
           <div class="tab-box pd-ver">
             <!-- 1.장소선택 -->
             <div class="sub-content-wrap">
@@ -848,6 +829,9 @@
                     arg.el.addEventListener('keydown', function (e) {
                         if (e.key === 'Enter' || e.key === ' ') {
                             e.preventDefault();
+                            var prev = calendarEl.querySelector('.fc-day.click-active');
+                            if (prev) prev.classList.remove('click-active');
+                            arg.el.classList.add('click-active');
                             selectedDate1 = dateStr;                          // ← 수정
                             showScheduleForCalendar(calendarEl, selectedDate1); // ← 수정
                         }
@@ -861,6 +845,10 @@
             dateClick: function (info) {
                 var dateStr = info.dateStr;
                 if (dateStr < ACTIVE_START || dateStr > ACTIVE_END) return; // ← 수정
+
+                var prev = calendarEl.querySelector('.fc-day.click-active');
+                if (prev) prev.classList.remove('click-active');
+                info.dayEl.classList.add('click-active');
 
                 if (selectedDate1 !== dateStr) {
                     resetSelectedSchedules('calendar');
