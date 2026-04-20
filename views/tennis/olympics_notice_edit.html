@@ -8,7 +8,7 @@
   <!-- css -->
   <link rel="stylesheet" href="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.css">
   <link rel="stylesheet" href="../../resources/lib/swiper/swiper.css">
-  <link rel="stylesheet" href="../../resources/css/views/tennis/olympics_notice_detail_tennis.css">
+  <link rel="stylesheet" href="../../resources/css/views/tennis/olympics_notice_edit_tennis.css">
 
   <!-- lib -->
   <script src="../../resources/lib/jquery-3.6.1/jquery-3.6.1.js"></script>
@@ -171,7 +171,7 @@
     <div class="flex-wrap end breadcrumb-wrap">
       <ul class="breadcrumb">
         <li class="home">메인 화면</li>
-        <li>올림픽테니스장</li>
+        <li>올팍축구장</li>
         <li class="active">공지사항</li>
       </ul>
     </div>
@@ -181,6 +181,101 @@
     </div>
 
     <!-- 공지사항 편집 관련 -->
+    <div class="custom-ui-table">
+      <!-- 구분 -->
+      <div class="row">
+        <div class="th">구분</div>
+        <div class="td mo-wrap">
+          <label class="select-wrap size-nm">
+            <select>
+              <option>올팍축구장</option>
+            </select>
+          </label>
+          <div class="notice-flex-wrap">
+            <label class="checkbox-wrap">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+              <span>공지</span>
+            </label>
+            <label class="checkbox-wrap">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+              <span>전체노출</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- 제목 -->
+      <div class="row">
+        <div class="th">제목</div>
+        <div class="td">
+          <label class="input-wrap size-full">
+            <input type="text" placeholder="제목을 입력해주세요">
+          </label>
+        </div>
+      </div>
+      <!-- 내용 -->
+      <div class="row">
+        <div class="th">내용</div>
+        <div class="td">
+          <!-- 에디터 삽입 시: style태그 지워주세요 -->
+          <div class="editor-wrap" style="display: flex;align-items:center;justify-content:center;color:#ababab;">
+            에디터 영역
+          </div>
+        </div>
+      </div>
+      <!-- 첨부파일 -->
+      <div class="row">
+        <div class="th">첨부파일</div>
+        <div class="td">
+          <div class="file-upload-wrap">
+            <div class="file-upload" data-max-files="3" data-max-size-mb="5">
+              <p class="file-guide">파일은 5개까지 첨부할 수 있으며, 각 파일별 용량은 10.0Mbytes를 넘을 수 없습니다.</p>
+              <div class="file-upload-empty">
+                <button type="button" class="btn xxsm bg-black file-select-btn">파일 선택</button>
+                <p class="file-empty-text">선택된 파일 없음</p>
+              </div>
+              <div class="file-upload-list">
+                <div class="file-upload-item">
+                  <span class="file-name download-text">ABCDEF.png</span>
+                  <button type="button" class="btn xxsm c-red outlined file-delete-btn">삭제</button>
+                </div>
+                <div class="file-upload-item">
+                  <span class="file-name download-text">ABCDEF.png</span>
+                  <button type="button" class="btn xxsm c-red outlined file-delete-btn">삭제</button>
+                </div>
+                <div class="file-upload-item">
+                  <span class="file-name download-text">ABCDEF.png</span>
+                  <button type="button" class="btn xxsm c-red outlined file-delete-btn">삭제</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 현재파일 -->
+      <div class="row">
+        <div class="th">현재파일</div>
+        <div class="td">
+          <div class="file-upload-wrap">
+            <div class="file-upload" data-max-files="3" data-max-size-mb="5">
+              <p class="file-guide">파일은 5개까지 첨부할 수 있으며, 각 파일별 용량은 10.0Mbytes를 넘을 수 없습니다.</p>
+              <div class="file-upload-empty">
+                <button type="button" class="btn xxsm bg-black file-select-btn">파일 선택</button>
+                <p class="file-empty-text">선택된 파일 없음</p>
+              </div>
+              <div class="file-upload-list" style="display:none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 버튼 -->
+    <div class="flex-wrap al-center center">
+      <button type="button" class="btn size-nm lg mo-turn-small bg-dark-primary br-dark-primary">저장</button>
+      <button type="button" class="btn size-nm lg mo-turn-small outlined br-dark-primary">취소</button>
+    </div>
 
   </div>
 
@@ -229,6 +324,143 @@
 
   </div>
 </footer>
+<script>
+    /*(function () {
+        function formatBytes(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+
+        function createFileUpload(root) {
+            var maxFiles    = parseInt(root.getAttribute('data-max-files'), 10) || 5;
+            var maxSizeMb   = parseFloat(root.getAttribute('data-max-size-mb')) || 10;
+            var maxSizeBytes = maxSizeMb * 1024 * 1024;
+
+            var selectBtn   = root.querySelector('.file-select-btn');
+            var countText   = root.querySelector('.file-count-text');
+            var list        = root.querySelector('.file-upload-list');
+            var emptyText   = root.querySelector('.file-empty-text');
+
+            if (!selectBtn || !list || !emptyText) {
+                console.warn('file-upload 필수 요소 누락', root);
+                return null;
+            }
+
+            var fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.multiple = true;
+            fileInput.style.display = 'none';
+            root.appendChild(fileInput);
+
+            var files = [];
+
+            function updateCountText() {
+                if (!countText) return;
+                countText.textContent = files.length > 0
+                    ? files.length + ' / ' + maxFiles + '개'
+                    : '';
+            }
+
+            function render() {
+                /!* 기존 아이템만 제거 (emptyText는 유지) *!/
+                var items = list.querySelectorAll('.file-upload-item');
+                Array.prototype.forEach.call(items, function (el) {
+                    list.removeChild(el);
+                });
+
+                if (files.length === 0) {
+                    emptyText.style.display = 'block';
+                    updateCountText();
+                    return;
+                }
+
+                emptyText.style.display = 'none';
+
+                files.forEach(function (file, index) {
+                    var item = document.createElement('div');
+                    item.className = 'file-upload-item';
+
+                    var nameSpan = document.createElement('span');
+                    nameSpan.className = 'file-name download-text';
+                    nameSpan.title = file.name;
+                    nameSpan.textContent = file.name;
+
+
+                    var delBtn = document.createElement('button');
+                    delBtn.type = 'button';
+                    delBtn.className = 'file-delete-btn btn xxsm c-red outlined';
+                    delBtn.textContent = '삭제';
+                    delBtn.addEventListener('click', function () {
+                        files.splice(index, 1);
+                        render();
+                    });
+
+                    item.appendChild(nameSpan);
+                    item.appendChild(sizeSpan);
+                    item.appendChild(delBtn);
+                    list.appendChild(item);
+                });
+
+                updateCountText();
+            }
+
+            function isDuplicate(file) {
+                return files.some(function (f) {
+                    return f.name === file.name
+                        && f.size === file.size
+                        && f.lastModified === file.lastModified;
+                });
+            }
+
+            selectBtn.addEventListener('click', function () {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', function (e) {
+                var selected = Array.prototype.slice.call(e.target.files);
+
+                for (var i = 0; i < selected.length; i++) {
+                    var file = selected[i];
+
+                    if (files.length >= maxFiles) {
+                        alert('파일은 최대 ' + maxFiles + '개까지 첨부할 수 있습니다.');
+                        break;
+                    }
+                    if (file.size > maxSizeBytes) {
+                        alert('"' + file.name + '" 파일이 ' + maxSizeMb + 'MB를 초과합니다. (' + formatBytes(file.size) + ')');
+                        continue;
+                    }
+                    if (isDuplicate(file)) {
+                        continue;
+                    }
+
+                    files.push(file);
+                }
+
+                fileInput.value = '';
+                render();
+            });
+
+            render();
+
+            return {
+                getFiles: function () { return files.slice(); },
+                clear: function () { files = []; render(); }
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var instances = [];
+            var uploadEls = document.querySelectorAll('.file-upload');
+            Array.prototype.forEach.call(uploadEls, function (el) {
+                var inst = createFileUpload(el);
+                if (inst) instances.push(inst);
+            });
+            window.fileUploadInstances = instances;
+        });
+    }());*/
+</script>
 <script>
     /* [공통] Footer */
     const footer1 = [

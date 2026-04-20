@@ -165,12 +165,12 @@
 </div>
 <main id="main">
   <!--  -->
-  <div class="inner-wrap sub-ver">
+  <div class="inner-wrap sub-ver ">
     <!-- 브레드크럼브(경로) -->
     <div class="flex-wrap end breadcrumb-wrap">
       <ul class="breadcrumb">
         <li class="home">메인 화면</li>
-        <li>올림픽테니스장</li>
+        <li>올팍축구장</li>
         <li class="active">결제바구니</li>
       </ul>
     </div>
@@ -179,10 +179,10 @@
       <h2>결제 바구니</h2>
     </div>
 
-    <div class="flex-wrap al-center between gap8 pc-tablet-flex-only mb-16">
+    <div class="table-btn-wrap">
       <div class="flex-wrap w-auto gap4">
-        <button type="button" class="btn sm outlined">전체선택</button>
-        <button type="button" class="btn sm outlined c-red">삭제</button>
+        <button type="button" class="btn xsm outlined js-check-all-btn no-turned">전체선택</button>
+        <button type="button" class="btn xsm outlined c-red js-delete-selected no-turned">삭제</button>
       </div>
       <p class="txt-sm fw-medium c-gray4">체크한 항목만 계산됨 (단위 : 원)</p>
     </div>
@@ -201,18 +201,25 @@
           </colgroup>
           <thead>
           <tr>
-            <th><div class="th-wrap"></div></th>
+            <th>
+              <div class="th-wrap">
+                <label class="checkbox-wrap">
+                  <input type="checkbox" class="js-check-all">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </th>
             <th><div class="th-wrap">예약일자</div></th>
             <th><div class="th-wrap">종목/내용</div></th>
             <th><div class="th-wrap">결제금액</div></th>
           </tr>
           </thead>
           <tbody>
-          <tr>
+          <tr data-item-id="item1">
             <td>
               <div class="td-wrap">
                 <label class="checkbox-wrap">
-                  <input type="checkbox">
+                  <input type="checkbox" class="js-check-item" data-item-id="item1">
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -224,154 +231,126 @@
             </td>
             <td>
               <div class="td-wrap">
-                <span class="fw-medium txt-sm">올림픽테니스장 / 17번코트, 08:00 ~ 09:00</span>
+                <span class="fw-medium txt-sm">올팍축구장  09:00 ~ 11:00</span>
               </div>
             </td>
             <td>
               <div class="td-wrap">
-                <span class="fw-medium txt-sm">10,000원</span>
+                <span class="fw-medium txt-sm">165,000원</span>
+              </div>
+            </td>
+          </tr>
+          <tr data-item-id="item2">
+            <td>
+              <div class="td-wrap">
+                <label class="checkbox-wrap">
+                  <input type="checkbox" class="js-check-item" data-item-id="item2">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                <span class="fw-medium txt-sm">2026.03.24</span>
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                <span class="fw-medium txt-sm">올팍축구장  09:00 ~ 11:00</span>
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                <span class="fw-medium txt-sm">165,000원</span>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 데이터가 없을 경우 -->
+          <tr class="no-data">
+            <td colspan="4" class="txt-center">
+              <div class="td-wrap">
+                결제 내역이 없습니다.
               </div>
             </td>
           </tr>
         </table>
       </div>
       <!-- mo -->
-      <div class="flex-wrap al-center between gap8 mo-flex-only mb-12">
-        <p class="txt-sm fw-medium c-gray4">체크한 항목만 계산됨(단위:원)</p>
-        <div class="flex-wrap w-auto al-center gap4">
-          <span class="txt-sm fw-medium c-gray4">전체선택</span>
-          <label class="checkbox-wrap">
-            <input type="checkbox" class="js-check-all">
-            <span class="checkmark"></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-table no-br mo-only">
+      <div class="custom-table no-br no-mo-bb  mo-only">
         <table>
           <colgroup>
             <col style="width:100%;">
           </colgroup>
           <tbody>
-          <tr>
+          <tr data-item-id="item1">
             <td>
               <div class="td-wrap column al-start">
-                <!-- 1. 뱃지 -->
-                <div class="flex-wrap mb-8">
-                  <span class="badge bg-primary">결제완료</span>
-                </div>
-                <!-- 2. 날짜/전체체크박스 -->
+                <!-- 1. 결제항목 -->
                 <div class="flex-wrap between">
-                  <span class="txt-rgl fw-bold">2026.03.17</span>
+                  <span class="txt-rgl fw-bold">올팍축구장</span>
                   <label class="checkbox-wrap">
                     <input type="checkbox" class="js-check-item" data-item-id="item1">
                     <span class="checkmark"></span>
                   </label>
                 </div>
-                <!-- 3. 상세내용 -->
+                <!-- 2. 상세내용 -->
                 <ul class="sub-table-list mt-12">
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">구분/접수처</span>
-                    <span class="txt-sm fw-semibold c-gray5">예약/온라인 접수</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">예약일자</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">2026.03.24</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">결제일자/예약일자</span>
-                    <span class="txt-sm fw-semibold c-gray5">2026.03.17/2026.03.19</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">종목/내용</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">올팍축구장/09:00~11:00</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">종목/내용</span>
-                    <span class="txt-sm fw-semibold c-gray5">올림픽테니스장/09:00~11:00</span>
-                  </li>
-                  <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">시작기간/종료기간</span>
-                    <span class="txt-sm fw-semibold c-gray5">2026.03.21/2026.03.21</span>
-                  </li>
-                  <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">결제상태/상태</span>
-                    <span class="txt-sm fw-semibold c-gray5">10,000원</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">결재금액</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">165,000원</span>
                   </li>
                 </ul>
               </div>
             </td>
           </tr>
-          <tr>
+          <tr data-item-id="item2">
             <td>
               <div class="td-wrap column al-start">
-                <!-- 1. 뱃지 -->
-                <div class="flex-wrap mb-8">
-                  <span class="badge bg-primary">결제완료</span>
-                </div>
-                <!-- 2. 날짜/전체체크박스 -->
+                <!-- 1. 결제항목 -->
                 <div class="flex-wrap between">
-                  <span class="txt-rgl fw-bold">2026.03.17</span>
+                  <span class="txt-rgl fw-bold">올팍축구장</span>
                   <label class="checkbox-wrap">
                     <input type="checkbox" class="js-check-item" data-item-id="item2">
                     <span class="checkmark"></span>
                   </label>
                 </div>
-                <!-- 3. 상세내용 -->
+                <!-- 2. 상세내용 -->
                 <ul class="sub-table-list mt-12">
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">구분/접수처</span>
-                    <span class="txt-sm fw-semibold c-gray5">예약/온라인 접수</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">예약일자</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">2026.03.24</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">결제일자/예약일자</span>
-                    <span class="txt-sm fw-semibold c-gray5">2026.03.17/2026.03.19</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">종목/내용</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">올팍축구장/09:00~11:00</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">종목/내용</span>
-                    <span class="txt-sm fw-semibold c-gray5">올림픽테니스장/09:00~11:00</span>
-                  </li>
-                  <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">시작기간/종료기간</span>
-                    <span class="txt-sm fw-semibold c-gray5">2026.03.21/2026.03.21</span>
-                  </li>
-                  <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">결제상태/상태</span>
-                    <span class="txt-sm fw-semibold c-gray5">10,000원</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">결재금액</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">165,000원</span>
                   </li>
                 </ul>
               </div>
             </td>
           </tr>
-          <!-- 버튼 -->
-          <tr class="no-br">
-            <td>
-              <div class="td-wrap column">
-                <div class="flex-wrap flex-identical gap4 mb-4">
-                  <button type="button" class="btn outlined sm c-red">결제취소</button>
-                  <button type="button" class="btn outlined sm ">영수증 출력</button>
-                </div>
-                <div class="flex-wrap flex-identical gap4">
-                  <button type="button" class="btn outlined sm ">취소영수증</button>
-                  <button type="button" class="btn outlined sm">날짜/시간변경</button>
-                </div>
+
+          <!-- 데이터가 없을 경우 -->
+          <tr class="no-data">
+            <td colspan="4" class="txt-center">
+              <div class="td-wrap">
+                결제 내역이 없습니다.
               </div>
             </td>
           </tr>
           </tbody>
-          <tfoot>
-          <tr class="bg-total">
-            <td>
-              <div class="td-wrap column">
-                <ul class="sub-table-list">
-                  <li class="flex-wrap between gap4">
-                    <span class="txt-sm fw-medium c-gray4">결제금액</span>
-                    <span class="txt-sm fw-semibold c-gray5">352,000원</span>
-                  </li>
-                  <li class="flex-wrap between gap4">
-                    <span class="txt-sm fw-medium c-gray4">합계금액</span>
-                    <span class="txt-sm fw-semibold c-gray5">352,000원</span>
-                  </li>
-                </ul>
-                <div class="flex-wrap between gap4 mt-8">
-                  <span class="txt-rgl fw-bold">총 결제금액</span>
-                  <span class="txt-rgl fw-bold c-red">352,000원</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-          </tfoot>
         </table>
       </div>
       <!-- 합계 -->
@@ -383,14 +362,14 @@
         <div class="sum-wrap">
           <span class="total-preset fw-medium">총 금액</span>
           <div class="flex-wrap w-auto al-center gap0">
-            <span class="total-text">20,000원</span>
-<!--            <span class="total-preset-sm">(VAT 포함)</span>-->
+            <span class="total-text">165,000원</span>
+            <span class="total-preset-sm">(VAT 포함)</span>
           </div>
         </div>
       </div>
       <!-- 결제 버튼 -->
       <div class="mo-fixed-btn-wrap">
-        <button type="button" class="btn size-nm md bg-dark-primary br-dark-primary">결제하기</button>
+        <button type="button" class="btn size-nm lg bg-dark-primary br-dark-primary">결제하기</button>
       </div>
     </div>
 
@@ -399,10 +378,13 @@
       <p class="notice-text">알려드립니다.</p>
       <ul class="dot-list">
         <li>
-          결제바구니에 담긴 예약 항목은 <span class="c-red">20분 동안 보관</span> 되며, <span class="c-red">20분이 경과할 경우 자동 취소</span>됩니다.
+          예약 가능한 항목만 선택 가능 합니다. 미결제 시 결제바구니에 추가된 예약은 30분 후 결제바구니에서 자동 삭제됩니다.
         </li>
-        <li>테니스 코트 예약은 동시간에 신청할 경우 먼저 결제한 고객에게 예약 처리가 됩니다.</li>
-        <li>실내/실외코트 구분없이 <span class="c-red">1인 1코트당 최대 2시간 또는 1인 2코트 각 1시간씩(총2시간)</span>만 예약이 가능합니다.</li>
+        <li>올팍축구장 경기 시간은 <span class="c-red">일일2시간으로 제한</span>합니다.
+        </li>
+        <li>
+          2020년도 부터는 <span class="c-red">본인 아이디로 1명(미성년자도 아이디 신규생성필요)만 신청이 가능</span>합니다.
+        </li>
       </ul>
     </div>
 

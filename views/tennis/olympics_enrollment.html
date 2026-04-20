@@ -173,13 +173,14 @@
     <div class="flex-wrap end breadcrumb-wrap">
       <ul class="breadcrumb">
         <li class="home">메인 화면</li>
-        <li>올림픽테니스장</li>
+        <li>올팍축구장</li>
         <li class="active">신청내역</li>
       </ul>
     </div>
     <!-- 페이지 제목 -->
     <div class="title-wrap sub-ver lg">
       <h2>신청내역</h2>
+      <p class="mo-flex-only">예약 신청내역 및 결제내역을 확인 가능합니다. </p>
     </div>
 
     <!-- 테이블 -->
@@ -196,8 +197,8 @@
             <input type="radio" checked name="radioGroup2">
             <span>1개월</span>
           </label>
-          <label class="radio-tab">
-            <input type="radio" name="radioGroup2">
+          <label class="radio-tab pc-tablet-inline-only">
+            <input type="radio" checked name="radioGroup2">
             <span>2개월</span>
           </label>
           <label class="radio-tab">
@@ -231,12 +232,14 @@
       </div>
     </div>
 
+    <div class="table-btn-wrap">
+      <div class="flex-wrap w-auto gap4">
+        <button type="button" class="btn xsm outlined js-check-all-btn no-turned">전체선택</button>
+      </div>
+      <p class="txt-sm fw-medium c-gray4"><span class="pc-tablet-inline-only">체크한 항목만 계산됨 </span>(단위 : 원)</p>
+    </div>
     <!-- 2. 테이블 (pc/mo) -->
     <div class="apply-table-group">
-      <!-- pc -->
-      <div class="flex-wrap al-center end gap8 pc-tablet-flex-only mb-16">
-        <p class="txt-sm fw-medium c-gray4">(단위:원)</p>
-      </div>
       <div class="custom-table pc-tablet-only">
         <table>
           <caption class="visually-hidden">신청내역 표 입니다.</caption>
@@ -267,12 +270,12 @@
               <div class="th-wrap">시작기간/종료기간</div>
             </th>
             <th>
-              <div class="th-wrap">결제상태/상태</div>
+              <div class="th-wrap">결제상태 / 상태</div>
             </th>
           </tr>
           </thead>
           <tbody>
-          <tr>
+          <tr data-item-id="item1">
             <td>
               <div class="td-wrap">
                 <label class="checkbox-wrap">
@@ -303,7 +306,7 @@
               </div>
             </td>
           </tr>
-          <tr>
+          <tr data-item-id="item2">
             <td>
               <div class="td-wrap">
                 <label class="checkbox-wrap">
@@ -367,23 +370,13 @@
         </table>
       </div>
       <!-- mo -->
-      <div class="flex-wrap al-center between gap8 mo-flex-only mb-12">
-        <p class="txt-sm fw-medium c-gray4">체크한 항목만 계산됨(단위:원)</p>
-        <div class="flex-wrap w-auto al-center gap4">
-          <span class="txt-sm fw-medium c-gray4">전체선택</span>
-          <label class="checkbox-wrap">
-            <input type="checkbox" class="js-check-all">
-            <span class="checkmark"></span>
-          </label>
-        </div>
-      </div>
       <div class="custom-table mo-only no-br">
         <table>
           <colgroup>
             <col style="width:100%;">
           </colgroup>
           <tbody>
-          <tr>
+          <tr data-item-id="item1">
             <td>
               <div class="td-wrap column al-start">
                 <!-- 1. 뱃지 -->
@@ -401,31 +394,31 @@
                 <!-- 3. 상세내용 -->
                 <ul class="sub-table-list mt-12">
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">구분/접수처</span>
-                    <span class="txt-sm fw-semibold c-gray5">예약/온라인 접수</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">구분/접수처</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">예약/온라인 접수</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">결제일자/예약일자</span>
-                    <span class="txt-sm fw-semibold c-gray5">2026.03.17/2026.03.19</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">결제일자/예약일자</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">2026.03.17/2026.03.19</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">종목/내용</span>
-                    <span class="txt-sm fw-semibold c-gray5">올팍축구장/09:00~11:00</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">종목/내용</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">올팍축구장/09:00~11:00</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">시작기간/종료기간</span>
-                    <span class="txt-sm fw-semibold c-gray5">2026.03.21/2026.03.21</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">시작기간/종료기간</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">2026.03.21/2026.03.21</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">결제상태/상태</span>
-                    <span class="txt-sm fw-semibold c-gray5">165,000원</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">결제상태/상태</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">165,000원</span>
                   </li>
                 </ul>
               </div>
             </td>
           </tr>
-          <tr>
-            <td>
+          <tr data-item-id="item2">
+            <td class="mo-no-pd">
               <div class="td-wrap column al-start">
                 <!-- 1. 뱃지 -->
                 <div class="flex-wrap mb-8">
@@ -442,24 +435,24 @@
                 <!-- 3. 상세내용 -->
                 <ul class="sub-table-list mt-12">
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">구분/접수처</span>
-                    <span class="txt-sm fw-semibold c-gray5">예약/온라인 접수</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">구분/접수처</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">예약/온라인 접수</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">결제일자/예약일자</span>
-                    <span class="txt-sm fw-semibold c-gray5">2026.03.17/2026.03.19</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">결제일자/예약일자</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">2026.03.17/2026.03.19</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">종목/내용</span>
-                    <span class="txt-sm fw-semibold c-gray5">올팍축구장/09:00~11:00</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">종목/내용</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">올팍축구장/09:00~11:00</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">시작기간/종료기간</span>
-                    <span class="txt-sm fw-semibold c-gray5">2026.03.21/2026.03.21</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">시작기간/종료기간</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">2026.03.21/2026.03.21</span>
                   </li>
                   <li class="flex-wrap between">
-                    <span class="txt-sm fw-medium c-gray4">결제상태/상태</span>
-                    <span class="txt-sm fw-semibold c-gray5">165,000원</span>
+                    <span class="txt-sm fw-medium c-gray4 text-left">결제상태/상태</span>
+                    <span class="txt-sm fw-semibold c-gray5 text-right">165,000원</span>
                   </li>
                 </ul>
               </div>
