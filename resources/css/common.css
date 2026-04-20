@@ -184,6 +184,7 @@ body.no-scroll {/*width:100%;position:fixed;left:0;*/overflow: hidden; touch-act
 .ellipsis2 {display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; word-break: break-word;}
 .text-center {text-align:center;}
 .text-left {text-align:left;}
+.text-right {text-align:right;}
 .no-wrap{white-space:nowrap;}
 .deco-line {text-decoration:line-through;}
 .under-line {text-decoration:underline;}
@@ -194,14 +195,14 @@ body.no-scroll {/*width:100%;position:fixed;left:0;*/overflow: hidden; touch-act
 .c-white{color:var(--color-white);}
 .c-red{color:var(--color-red);}
 .c-blue{color:var(--color-primary);}
-.c-green{color:var(--color-green);}
-.c-purple{color:var(--color-purple);}
+/*.c-green{color:var(--color-green);}*/
+/*.c-purple{color:var(--color-purple);}*/
 .c-gray{color:var(--color-gray);}
 .c-gray2{color:var(--color-gray2);}
 .c-gray3{color:var(--color-gray4);}
 .c-gray4{color:var(--color-gray5);}
 .c-gray5{color:var(--color-text);}
-.c-light-gray{color:var(--color-light-gray);}
+/*.c-light-gray{color:var(--color-light-gray);}*/
 
 /* 7. 간격 */
 /* 간격 (고정) - media 변경 없음 */
@@ -376,7 +377,7 @@ span.title-wrap > .h4,
 .radio-tab-wrap > .radio-tab:last-child > span {border-radius:0 4px 4px 0;overflow:hidden;border-right:1px solid var(--border-color2);}
 
 @media (max-width: 767px) {
-    .radio-tab span {padding:9px;height: 40px;}
+    .radio-tab span {padding:9px;height: 42px;}
 }
 
 /* 13. 데이트피커 */
@@ -402,7 +403,7 @@ span.title-wrap > .h4,
 
 /* 14. 셀렉트 */
 .select-wrap {display:block;position:relative;}
-.select-wrap > select {width:100%;height:48px;padding:13px 40px 13px 12px;font-size:var(--txt-size02);font-weight:var(--fw-medium);color:var(--color-black);border:1px solid var(--border-color);border-radius:4px;background:url('../images/ico/ico_select_arrow.svg') right 12px center no-repeat;background-size:20px;appearance: none}
+.select-wrap > select {width:100%;height:46px;padding:13px 40px 13px 12px;font-size:var(--txt-size02);font-weight:var(--fw-medium);color:var(--color-black);border:1px solid var(--border-color);border-radius:4px;background:url('../images/ico/ico_select_arrow.svg') right 12px center no-repeat;background-size:20px;appearance: none}
 .select-wrap.size-nm {width:240px;}
 @media (max-width:767px) {
     .select-wrap > select {height:42px;padding:11px 36px 11px 10px;}
@@ -410,7 +411,7 @@ span.title-wrap > .h4,
 
 /* 15. 인풋 */
 .input-wrap {position:relative;}
-.input-wrap > input {width:100%;height:48px;padding:13px 12px;font-size:var(--txt-size02);font-weight:var(--fw-medium);color:var(--color-black);border:1px solid var(--border-color);border-radius:4px;}
+.input-wrap > input {width:100%;height:46px;padding:13px 12px;font-size:var(--txt-size02);font-weight:var(--fw-medium);color:var(--color-black);border:1px solid var(--border-color);border-radius:4px;}
 .input-wrap.size-full {width:100%;}
 
 @media (max-width:767px) {
@@ -433,7 +434,7 @@ span.title-wrap > .h4,
 .bar-list > li + li::before {content:"";width:1px;height:10px;background-color:var(--color-gray5);position:absolute;left:8px;top:2px;}
 
 /* 19.뱃지 */
-.badge {display:inline-block;padding:4px 6px;font-size:var(--txt-sizesm);font-weight:var(--fw-medium);line-height:1.4;border-radius:4px;white-space:nowrap;text-align:center;}
+.badge {display:inline-block;padding:4px 6px;font-size:var(--txt-sizesm);font-weight:var(--fw-semi-bold);line-height:1.4;border-radius:4px;white-space:nowrap;text-align:center;}
 /* 뱃지 크기 */
 .badge.rgl {padding:6px 10px;font-size:var(--txt-size01);}
 /* 뱃지 색상 */
@@ -488,7 +489,7 @@ span.title-wrap > .h4,
 
 /* 21. dot-list */
 .dot-list {display:flex;flex-direction:column;gap:6px;}
-.dot-list > li {padding-left:12px;position:relative;font-size:var(--txt-size02);color:var(--color-gray4);font-weight:var(--fw-semi-bold);}
+.dot-list > li {padding-left:12px;position:relative;font-size:var(--txt-size02);color:var(--color-gray4);font-weight:var(--fw-medium);}
 .dot-list > li::before {content:"";width:4px;height:4px;border-radius:50%;background-color:var(--color-gray4);position:absolute;left:0;top:9px;}
 
 

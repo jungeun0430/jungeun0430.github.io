@@ -73,7 +73,7 @@ tr.no-data .td-wrap {padding:40px 20px 60px;font-size:var(--txt-size04)}
     .pg_last {background-size:34px;}
 }
 
-.table-btn-wrap {display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.table-btn-wrap {display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;  }
 
 @media (max-width:767px) {
     .table-btn-wrap {flex-direction:row-reverse;gap:12px;align-items:flex-end;}

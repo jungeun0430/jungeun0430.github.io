@@ -17,7 +17,7 @@
 .custom-ui-table .row > .td {width:calc(100% - 180px);display:flex;align-items:center;justify-content:flex-start;padding:12px 14px;text-align:center;font-size:var(--txt-size02);font-weight:var(--fw-medium);color:var(--color-black);}
 .custom-ui-table .row > .th + .td {border-left:1px solid var(--table-border-color);}
 .custom-ui-table .row + .row {border-top:1px solid var(--table-border-color);}
-.custom-ui-table + .flex-wrap {margin-top:40px;}
+.custom-ui-table + .flex-wrap {margin-top:40px;gap:12px;}
 @media(max-width:767px) {
     .custom-ui-table {border:0;}
     .custom-ui-table .row {flex-direction:column;}
@@ -28,6 +28,7 @@
     .custom-ui-table .row > .td.mo-wrap .select-wrap.size-nm {width:100%;}
     .custom-ui-table .row > .th + .td {border-left:0;margin-top:8px;}
     .custom-ui-table .row + .row {border-top:0;margin-top:20px;}
+    .custom-ui-table + .flex-wrap {margin-top:40px;gap:4px;}
 }
 
 /* 에디터 */

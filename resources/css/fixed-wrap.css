@@ -13,10 +13,12 @@
     .mo-fixed-bottom-wrap {position:fixed;bottom:0;left:0;width:100%;background-color:var(--color-white);z-index:100;}
     .mo-fixed-bottom-wrap > .total-wrap {justify-content:space-between;}
     .mo-fixed-bottom-wrap > .total-wrap > .sum-wrap {width: 100%;justify-content:space-between;}
-    .mo-fixed-bottom-wrap > .total-wrap > .sum-wrap > .flex-wrap {gap:4px;}
+
+    .mo-fixed-bottom-wrap > .total-wrap > .sum-wrap > .flex-wrap {gap:4px;flex-wrap:wrap;text-align:right;}
+    .mo-fixed-bottom-wrap > .total-wrap > .sum-wrap > .flex-wrap > span {text-align:right;}
     .mo-fixed-bottom-wrap.no-bt > .total-wrap {border-top:1px solid var(--border-color);}
     .total-preset {font-weight:var(--fw-semi-bold);font-size:var(--txt-size03);}
     .total-text {font-size:var(--txt-size03);}
-    .mo-fixed-btn-wrap {padding:20px 12px;width:100%;margin-top:0;}
+    .mo-fixed-btn-wrap {padding:20px 12px;width:100%;margin-top:0;gap:8px;}
     .mo-fixed-btn-wrap > .btn.size-nm {min-width:0;flex:1;}
 }
