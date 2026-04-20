@@ -384,7 +384,7 @@ span.title-wrap > .h4,
 .calendar {display:flex;position:relative;font-size:var(--txt-size04);color:var(--color-gray3);font-weight:var(--fw-bold);}
 .calendar > legend {position:absolute;left:0;top:50%;transform:translateY(-50%);}
 .date {width:220px;}
-.date > input {width:100%;height:48px;padding:10px 68px 10px 33px;font-size:var(--txt-size02);font-weight:var(--fw-medium);color:var(--color-black);border:1px solid var(--border-color2);border-radius:4px;background:url('../images/ico/ico_calendar.svg') right 12px center no-repeat;background-size:24px;}
+.date > input {width:100%;height:48px;padding:10px 68px 10px 33px;font-size:var(--txt-size02);font-weight:var(--fw-medium);color:var(--color-black);border:1px solid var(--border-color2);border-radius:4px;background:var(--color-white) url('../images/ico/ico_calendar.svg') right 12px center no-repeat;background-size:24px;}
 .calendar .date:first-child input {border-radius:4px 0 0 4px;border-right:0;}
 .calendar .date:last-child input {border-radius:0;border-right:0;}
 .calendar + .btn.fixed-md {border-radius:0 4px 4px 0;}
@@ -606,7 +606,8 @@ span.title-wrap > .h4,
 .download-text {font-size:var(--txt-size02);color:var(--color-gray5);font-weight:var(--fw-medium);padding-left:24px;background:url(../images/ico/ico_clip.svg) no-repeat 0 50%;background-size:20px auto;text-align:left;}
 /* 안내박스  */
 .gray-comment-box {display:flex;align-items:center;justify-content:center;flex-direction:column;border:1px solid var(--border-color);border-radius:4px;padding:60px 24px;background-color:var(--bg-light);}
-.gray-comment-box > p {font-size:var(--txt-size05);font-weight:var(--fw-bold);color:var(--color-black);text-align:center;}
+.gray-comment-box > p {font-size:var(--txt-size05);font-weight:var(--fw-medium);color:var(--color-black);text-align:center;}
+.gray-comment-box > p > .c-blue {font-weight:var(--fw-semi-bold);}
 .gray-comment-box.ver-text {background-color:var(--bg-light);padding:40px;align-items:flex-start;}
 .gray-comment-box.ver-text > p {font-size:var(--txt-size04);font-weight:var(--fw-medium);line-height:1.5;text-align:left;}
 
