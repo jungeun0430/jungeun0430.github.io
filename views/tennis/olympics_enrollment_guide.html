@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang=ko>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.css">
+  <link rel="stylesheet" href="../../resources/lib/swiper/swiper.css">
+  <link rel="stylesheet" href="../../resources/css/views/tennis/olympics_enrollment_guide_tennis.css">
+
+  <!-- lib -->
+  <script src="../../resources/lib/jquery-3.6.1/jquery-3.6.1.js"></script>
+  <script src="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.js"></script>
+  <script src="../../resources/lib/swiper/swiper.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js'></script>
+
+  <!-- js -->
+  <!-- 헤더 함수 -->
+  <script src="../../resources/js/header.js"></script>
+  <script src="../../resources/js/footer.js"></script>
+  <!-- 글자크기 변환 -->
+  <script src="../../resources/js/text_size.js"></script>
+  <!-- 커스텀 셀렉트 함수  -->
+  <script src="../../resources/js/custom_select.js"></script>
+  <!-- 탭 함수 -->
+  <script src="../../resources/js/tab.js"></script>
+  <title>올팍축구장_신청방법안내</title>
+</head>
+<body data-text-size="normal">
+<!-- [웹 접근성] : 본문 바로가기 -->
+<a href="#main" id="skip-nav">본문 바로가기</a>
+<!-- 헤더 -->
+<header>
+    <!-- [사이드바] dim 처리 영역 -->
+    <div id="dim-overlay" class="dim" onclick="closeSidebar();"></div>
+
+    <div class="content-wrap" id="main-content">
+        <div class="header-left">
+            <!-- 로고 -->
+            <div class="header-logo-wrap">
+                <h1 class="header-logo">
+                    <a href="#" class="img">
+                        <img src="../../resources/images/logo/kspo_logo_tennis.svg" alt="한국체육산업개발주식회사 올림픽테니스장">
+                    </a>
+                </h1>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn rounded header-pc-only">KSPO&CO 바로가기</a><!-- [20260415] 수정 -->
+            </div>
+
+            <!-- 메뉴 -->
+            <nav class="sidebar" aria-label="메뉴">
+                <!-- PC / Tablet GNB -->
+                <ul class="header-pc-tablet-flex-only"><!-- [20260415] 수정 -->
+                    <li><a href="#">예약신청</a></li>
+                    <li><a href="#">신청방법안내</a></li>
+                    <li><a href="#">시설이용안내</a></li>
+                    <li><a href="#">오시는길</a></li>
+                </ul>
+
+                <!-- Mobile Sidebar -->
+                <div class="header-mo-flex-only"><!-- [20260415] 수정 -->
+                    <div class="sidebar-title-wrap">
+                        <a href="#" target="_blank" rel="noopener noreferrer">KSPO&CO 바로가기</a>
+                        <button type="button" class="close-btn" onclick="closeSidebar();">
+                            <span class="visually-hidden">닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="sidebar-menu-wrap">
+                        <div class="sidebar-intro">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요!</p>
+                            <!-- <a href="#" class="ico-txt-btn txt-ver login"><span class="txt">로그인</span></a> -->
+                            <a href="#" class="ico-txt-btn txt-ver logout"><span class="txt">로그아웃</span></a>
+                        </div>
+
+                        <ul class="sidebar-list header-mo-only"><!-- [20260415] 수정 -->
+                            <li><a href="#">예약신청</a></li>
+                            <li><a href="#">신청방법안내</a></li>
+                            <li><a href="#">시설이용안내</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+
+                        <ul class="sidebar-list ico-ver header-mo-only">
+                            <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                            <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                            <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                            <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- PC / Tablet 우측 버튼 -->
+        <div class="btn-wrap header-pc-tablet-flex-only">
+            <!-- <a href="#" class="ico-user"><span>로그인</span></a> -->
+            <a href="#" class="ico-logout"><span>로그아웃</span></a>
+            <a href="#" class="ico-bag"><span>장바구니</span></a>
+            <a href="#" class="ico-pay"><span>신청내역</span></a>
+            <button type="button" class="ico-hamburger top-btn" onclick="openMenu()">
+                <span>메뉴</span>
+            </button>
+
+            <!-- 전체 메뉴 팝업 -->
+            <div class="header-popup">
+                <div class="header-popup-inner">
+                    <div class="h-pop-head">
+                        <p>전체 메뉴</p>
+                        <button type="button" class="close-btn" onclick="closeMenu()">
+                            <span>닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="h-pop-body">
+                        <div class="h-pop-user">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요</p>
+                            <a href="#" class="under-line c-gray txt-xs">로그아웃</a>
+                        </div>
+
+                        <div class="h-pop-menu">
+                            <ul class="sidebar-list">
+                                <li><a href="#">예약신청</a></li>
+                                <li><a href="#">신청방법안내</a></li>
+                                <li><a href="#">시설이용안내</a></li>
+                                <li><a href="#">오시는길</a></li>
+                            </ul>
+
+                            <ul class="sidebar-list ico-ver">
+                                <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                                <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                                <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                                <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile 우측 버튼 -->
+        <div class="btn-wrap sm header-mo-flex-only">
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="장바구니 페이지 이동">
+                <img src="../../../resources/images/ico/ico_bag.svg" alt="">
+            </a>
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="결제 페이지 이동">
+                <img src="../../../resources/images/ico/ico_paper.svg" alt="">
+            </a>
+            <button type="button" class="ico-btn size-sm ico-hamburger" onclick="openSideBar()">
+                <span class="visually-hidden">메뉴 열기</span>
+            </button>
+        </div>
+    </div>
+</header>
+<!-- [공통] 글자 텍스트 아이콘 -->
+<div class="fixed-btn-wrap">
+  <button type="button" class="txt-size-btn sm" onclick="changeTextSize('small')">
+    <span class="visually-hidden">글씨 작게</span>
+  </button>
+  <button type="button" class="txt-size-btn rg" onclick="changeTextSize('normal')">
+    <span class="visually-hidden">글씨 보통</span>
+  </button>
+  <button type="button" class="txt-size-btn lg" onclick="changeTextSize('large')">
+    <span class="visually-hidden">글씨 크게</span>
+  </button>
+</div>
+<main id="main">
+  <!--  -->
+  <div class="inner-wrap sub-ver no-pd">
+    <!-- 브레드크럼브(경로) -->
+    <div class="flex-wrap end breadcrumb-wrap">
+      <ul class="breadcrumb">
+        <li class="home">메인 화면</li>
+        <li>올림픽테니스장</li>
+        <li class="active">신청방법안내</li>
+      </ul>
+    </div>
+    <!-- 페이지 제목 -->
+    <div class="title-wrap sub-ver lg">
+      <h2>신청방법안내</h2>
+    </div>
+    <!-- 탭 -->
+    <div class="tab-wrap" data-tab="fraternal">
+      <ul class="first-depth">
+        <li class="active">
+          <button type="button" class="tab"><span>예약신청안내</span></button>
+          <div class="tab-box pd-ver">
+            <!-- 안내박스 -->
+            <div class="gray-comment-box">
+              <p>
+                올팍축구장에서 운영하는 <span class="c-blue">축구장 예약</span>에 대한 <span class="c-blue">신청안내 입니다.</span>
+              </p>
+              <p>올팍축구장의 ‘예약신청’에서 신청 하실 수 있습니다.</p>
+            </div>
+            <div class="spy-scroll-content-wrap">
+              <div class="spy-scroll-wrap">
+                <ul>
+                  <li>
+                    <button type="button" data-spy="spy1" class="spy-item spy1 active">
+                      <span>예약신청</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" data-spy="spy2" class="spy-item spy2">
+                      <span>날짜/시간선택</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" data-spy="spy3" class="spy-item spy3">
+                      <span>카드정보입력</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" data-spy="spy4" class="spy-item spy4">
+                      <span>신청내역</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div class="spy-scroll-content-wrap">
+                <ul class="us-list">
+                  <li data-spy-place="spy1">
+                    <p><span>01</span>예약신청</p>
+                    <ul class="us-sub-list">
+                      <li>
+                        로그인 후'올팍축구장'내 <span class="fw-bold c-red">'예약신청' 메뉴 클릭</span>하여, 예약신청 화면으로 이동합니다.
+                      </li>
+                    </ul>
+                    <div class="guide-image-box">
+                      <img class="pc-tablet-only" src="../../resources/images/views/soccer/enrollment1.png" alt="">
+                      <img class="mo-only" src="../../resources/images/views/soccer/enrollment1_mo.png" alt="">
+                    </div>
+                  </li>
+                  <li data-spy-place="spy2">
+                    <p><span>02</span>장소 / 날짜 / 시간선택</p>
+                    <ul class="us-sub-list">
+                      <li>
+                        예약신청 화면에서 장소,날짜,시간을 선택합니다.
+                      </li>
+                      <li>
+                        선택한 정보를 확인 하신 후 ‘바로 결제’ 클릭시, 약관 확인 동의 및 결제 후 예약신청이 완료됩니다.
+                      </li>
+                      <li>
+                        같은 방법으로 선택정보를 ‘결제바구니’에 담아, 신청하실 수 있습니다.
+                      </li>
+                    </ul>
+                    <div class="guide-image-box">
+                      <img class="pc-tablet-only" src="../../resources/images/views/soccer/enrollment2.png" alt="">
+                      <img class="mo-only" src="../../resources/images/views/soccer/enrollment2_mo.png" alt="">
+                    </div>
+                  </li>
+                  <li data-spy-place="spy3">
+                    <p><span>03</span>이용약관 동의</p>
+                    <ul class="us-sub-list">
+                      <li>
+                        올팍축구장 ‘예약신청’내 이용약관을 확인 후 동의 합니다.
+                      </li>
+                    </ul>
+                    <div class="guide-image-box">
+                      <img class="pc-tablet-only" src="../../resources/images/views/soccer/enrollment3.png" alt="">
+                      <img class="mo-only" src="../../resources/images/views/soccer/enrollment3_mo.png" alt="">
+                    </div>
+                  </li>
+                  <li data-spy-place="spy4">
+                    <p><span>04</span>신청내역</p>
+                    <ul class="us-sub-list">
+                      <li>
+                        예약신청 완료 후 ’신청내역’에서, 예약신청 내역 확인 가능합니다.
+                      </li>
+                    </ul>
+                    <div class="guide-image-box">
+                      <img class="pc-tablet-only" src="../../resources/images/views/soccer/enrollment4.png" alt="">
+                      <img class="mo-only" src="../../resources/images/views/soccer/enrollment4_mo.png" alt="">
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="tab"><span>취소/환불안내</span></button>
+          <div class="tab-box pd-ver">
+            <!-- 안내박스 -->
+            <div class="gray-comment-box">
+              <p>
+                올림픽공원에서 운영하는 <span class="c-blue">축구장 취소/환불</span>에 대한 <span class="c-blue">신청안내 입니다.</span>
+              </p>
+              <p>축구장의 ‘신청내역’에서 신청 하실 수 있습니다.</p>
+            </div>
+            <div class="spy-scroll-content-wrap">
+              <div class="spy-scroll-wrap">
+                <ul>
+                  <li>
+                    <button type="button" data-spy="spy1" class="spy-item spy1 active">
+                      <span>예약신청</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" data-spy="spy2" class="spy-item spy2">
+                      <span>날짜/시간선택</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" data-spy="spy3" class="spy-item spy3">
+                      <span>카드정보입력</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" data-spy="spy4" class="spy-item spy4">
+                      <span>신청내역</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <ul class="us-list">
+                  <li data-spy-place="spy1">
+                    <p><span>01</span>예약신청</p>
+                    <ul class="us-sub-list">
+                      <li>
+                        1. 로그인 후, 신청내역을 선택하여 이동합니다.
+                      </li>
+                      <li>
+                        2. 취소/환불 신청하실 내역의 선택박스를 선택 합니다.
+                      </li>
+                      <li>
+                        3. ‘결제취소’ 를 클릭해 다음 단계로 진행합니다.
+                      </li>
+                    </ul>
+                    <div class="guide-image-box">
+                      <img class="pc-tablet-only" src="../../resources/images/views/soccer/cancel1.png" alt="">
+                      <img class="mo-only" src="../../resources/images/views/soccer/cancel1_mo.png" alt="">
+                    </div>
+                  </li>
+                  <li data-spy-place="spy2">
+                    <p><span>02</span>환불동의 약관</p>
+                    <ul class="us-sub-list">
+                      <li>
+                        1. 개인정보 수집ㆍ제공 동의 내용에 ‘동의’ 합니다.
+                      </li>
+                      <li>
+                        2. 신용정보 수집ㆍ제공 동의 내용에 ‘동의’ 합니다.
+                      </li>
+                      <li>
+                        3. 진행 확인에 ‘동의’ 버튼을 선택하여 다음단계로
+                        진행합니다.
+                      </li>
+                    </ul>
+                    <div class="guide-image-box">
+                      <img class="pc-tablet-only" src="../../resources/images/views/soccer/cancel2.png" alt="">
+                      <img class="mo-only" src="../../resources/images/views/soccer/cancel2_mo.png" alt="">
+                    </div>
+                  </li>
+                  <li data-spy-place="spy3">
+                    <p><span>03</span>카드정보 입력</p>
+                    <ul class="us-sub-list">
+                      <li>
+                        1. 관리자가 확인할 수 있는 취소사유를 입력합니다.
+                      </li>
+                      <li>2. 카드취소 처리시, 발행되는 위약금 및 일할계산금 결제를 위한 카드정보(카드정보 및 카드유효기간)를 입력합니다.</li>
+                      <li>3. 모든 정보 입력 후 ‘확인’ 버튼을 클릭합니다.<br>
+                        ※ 잘못된 카드정보 입력시, 업무에 지연이 발생될 수 있으니 신중히 확인 후 정확히 입력바랍니다.
+                      </li>
+                    </ul>
+                    <div class="guide-image-box">
+                      <img class="pc-tablet-only" src="../../resources/images/views/soccer/cancel3.png" alt="">
+                      <img class="mo-only" src="../../resources/images/views/soccer/cancel3_mo.png" alt="">
+                    </div>
+                  </li>
+                  <li data-spy-place="spy4">
+                    <p><span>04</span>취소/환불신청 완료</p>
+                    <ul class="us-sub-list">
+                      <li>
+                        1. 취소신청 완료 직후, ‘신청내역‘ 에서, ‘관리자승인중’ 상태의 내역을 확인할 수 있습니다.
+                      </li>
+                      <li>
+                        2. 관리자 승인완료 시, 상태가 ‘취소완료’가 되며, 환불정보가 표기됩니다.
+                      </li>
+                    </ul>
+                    <div class="guide-image-box">
+                      <img class="pc-tablet-only" src="../../resources/images/views/soccer/cancel4.png" alt="">
+                      <img class="mo-only" src="../../resources/images/views/soccer/cancel4_mo.png" alt="">
+                    </div>
+                    <div class="gray-comment-box ver-text">
+                      <p>카드번호/유효기간 입력 오류 등의 이유로 실패한 경우, 상태란에 ‘재승인실패‘ 또는 ‘환불실패’ 의 오류내용이 표기됩니다. </p>
+                      <p>이때, 1Step부터 재시도 하여 다시
+                        취소진행을 하실 수 있습니다. 취소/환불진행 중 문의는 02-2180-3778 으로 문의바랍니다.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+</main>
+<!-- 푸터 -->
+<footer>
+  <div class="content-wrap">
+    <div class="flex-wrap al-start gap4 between mo-col">
+      <ul class="footer-terms-list">
+        <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10701000000" target="_blank" class="txt-sm fw-bold c-blue">개인정보처리방침</a></li>
+        <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10703000000" target="_blank" class="txt-sm fw-medium c-gray">이용약관</a></li>
+      </ul>
+      <div class="footer-select-wrap flex-wrap al-center gap8 w-auto">
+        <!-- 패밀리 사이트 : select 참조 변수명 = familySite -->
+        <div class="custom-select" data-options="familySite" data-select="footer">
+          <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-text"></span>
+          </button>
+          <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+        </div>
+        <!-- 관련사이트 : select 참조 변수명 = relatedSite -->
+        <div class="custom-select" data-options="relatedSite" data-select="footer">
+          <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-text"></span>
+          </button>
+          <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-bottom flex-wrap al-end between mo-col mo-al-start">
+      <ul class="footer-info-list">
+        <li class="txt-sm fw-regular c-gray">사업자등록번호 : 215-81-12034</li>
+        <li class="txt-sm fw-regular c-gray">(05540) 서울특별시 송파구 올림픽로 424(방이동) 올림픽역도경기장 내</li>
+        <li class="copyright">COPYRIGHT 2025 © KSPO&CO ALL RIGHTS RESERVED.</li>
+      </ul>
+      <!-- 임시 안보임 처리 -->
+      <!--
+      <div class="certification-wrap">
+        <div class="img-box">
+          <img src="../../resources/images/certification/certification_privacy_protection_certified_site.svg" alt="개인정보우수사이트 인증" />
+        </div>
+      </div>
+      -->
+    </div>
+
+  </div>
+</footer>
+<script>
+  $(function () {
+      /* 스파이 스크롤 실행문 */
+      const scrollOffset = 120;
+
+      function getActiveTabBox() {
+          return $('.tab-wrap .first-depth > li.active > .tab-box');
+      }
+
+      function updateSpyActive() {
+          const $activeTabBox = getActiveTabBox();
+          if (!$activeTabBox.length || !$activeTabBox.is(':visible')) return;
+
+          const $spyButtons = $activeTabBox.find('.spy-scroll-wrap .spy-item');
+          const $spySections = $activeTabBox.find('.us-list > li[data-spy-place]');
+          const currentTop = $(window).scrollTop() + scrollOffset + 20;
+
+          let currentSpy = '';
+
+          $spySections.each(function () {
+              const $section = $(this);
+
+              if (currentTop >= $section.offset().top) {
+                  currentSpy = $section.data('spy-place');
+              }
+          });
+
+          $spyButtons.removeClass('active');
+
+          if (currentSpy) {
+              $spyButtons.filter('[data-spy="' + currentSpy + '"]').addClass('active');
+          } else {
+              $spyButtons.first().addClass('active');
+          }
+      }
+
+      // spy 버튼 클릭
+      $(document).on('click', '.spy-scroll-wrap .spy-item', function () {
+          const $btn = $(this);
+          const targetSpy = $btn.data('spy');
+          const $tabBox = $btn.closest('.tab-box');
+          const $target = $tabBox.find('.us-list > li[data-spy-place="' + targetSpy + '"]');
+
+          if (!$target.length) return;
+
+          $tabBox.find('.spy-scroll-wrap .spy-item').removeClass('active');
+          $btn.addClass('active');
+
+          $('html, body').stop().animate({
+              scrollTop: $target.offset().top - scrollOffset
+          }, 300);
+      });
+
+      // 스크롤 시 active 갱신
+      $(window).on('scroll', updateSpyActive);
+
+      // 이미지 로드 완료 후 높이 재계산 (초기 로드 시 이미지 높이 미반영 문제 방지)
+      function initSpyAfterImages() {
+          const $imgs = getActiveTabBox().find('img');
+          let remaining = $imgs.length;
+
+          if (remaining === 0) {
+              updateSpyActive();
+              return;
+          }
+
+          $imgs.each(function () {
+              if (this.complete) {
+                  remaining--;
+                  if (remaining === 0) updateSpyActive();
+              } else {
+                  $(this).one('load error', function () {
+                      remaining--;
+                      if (remaining === 0) updateSpyActive();
+                  });
+              }
+          });
+      }
+
+      initSpyAfterImages();
+
+      /* 탭 실행 (제일 하단) */
+      setTimeout(function () {
+          new TabManager({
+              tabActions: {
+                  0: ({ index }) => {
+                      updateSpyActive();
+                  },
+                  1: ({ index }) => {
+                      updateSpyActive();
+                  }
+              }
+          });
+      },0);
+
+  });
+</script>
+</body>
+</html>

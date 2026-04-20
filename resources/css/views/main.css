@@ -1,0 +1,71 @@
+@charset "UTF-8";
+@import "../variable.css";
+@import "../font.css";
+@import "../reset.css";
+@import "../layout.css";
+@import "../common.css";
+@import "../table.css";
+@import "../responsive.css";
+
+/* 메인 페이지 입니다. */
+/* [공통: 입장 페이지] 올림픽 공원 온라인예약  사이트 intro */
+#main.online-intro {max-width:1920px;width:100%;margin:0 auto;padding-top:0;background-color:#F3F4F7;}
+#main.online-intro .title-wrap {display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:70px;}
+#main.online-intro .title-wrap > span {font-size:24px;font-weight:500;color:#454545;text-align:center;}
+#main.online-intro .title-wrap > h1 {font-size:44px;font-weight:700;color:#00458D;text-align:center;}
+/* [공통: 입장 페이지] 올림픽 공원 온라인예약  사이트 intro > 세부내용 */
+.sec-intro {width:100%;max-width:1388px;margin:0 auto;padding:115px 0;}
+.online-link-wrap > ul {display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.online-box {display:flex;flex-direction:column;align-items:center;gap:10px;padding:42px 20px;border-radius:20px;transition:all 0.3s;}
+.online-box .img-con-wrap {position:relative;display:flex;flex-direction:column;align-items:center;}
+.online-box .image-wrap {background-position:center center;background-size:contain;display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.online-box .desc-wrap {display:flex;flex-direction:column;align-items:center;gap:10px;}
+.online-box p {font-size:24px;font-weight:700;color:#353535;text-align:center;white-space: nowrap}
+.online-box span {height:32px;padding:6px;width:59px;display:inline-flex;align-items:center;justify-content:center;text-align:center;font-size:14px;font-weight:600;color:#00458D;background-color:#fff;border-radius:30px;border:2px solid #fff;;}
+.online-box:hover {box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1)}
+.online-box:hover span{border-color:#00458D;}
+.online-box.olympics-tennis {background-color:#FBE8FF;}
+.online-box.olympics-tennis .image-wrap {background-image:url("../../images/online-intro/olympics-soccer-sd.svg");}
+.online-box.olympics-soccer {background-color:#FFEEB8;}
+.online-box.olympics-soccer .image-wrap {background-image:url("../../images/online-intro/olympics-soccer-sd.svg");}
+.online-box.olympics-swim {background-color:#D2F2FF;}
+.online-box.olympics-swim .image-wrap {background-image:url("../../images/online-intro/olympics-swim-sd.svg");}
+.online-box.olympics-park {background-color:#E5F6D3;}
+.online-box.olympics-park .image-wrap {background-image:url("../../images/online-intro/olympics-park-sd.svg");}
+.online-box.olympics-ilsan {background-color:#E2ECFF;}
+.online-box.olympics-ilsan .image-wrap {background-image:url("../../images/online-intro/olympics-ilsan-sd.svg");}
+.online-box.olympics-bundang {background-color:#E9E9E9;}
+.online-box.olympics-bundang .image-wrap {background-image:url("../../images/online-intro/olympics-bundang-sd.svg");}
+.online-box.olympics-ad {background-color:#E5EAFF;}
+.online-box.olympics-ad .image-wrap {background-image:url("../../images/online-intro/olympics-ad-sd.svg");}
+.online-box.olympics-car {background-color:#FFE9D2;}
+.online-box.olympics-car .image-wrap {background-image:url("../../images/online-intro/olympics-parking-sd.svg");}
+@media (max-width: 1400px) {
+    .online-link-wrap {padding:0 20px;}
+    .online-box {padding:15px;}
+}
+
+@media (max-width: 1200px) {
+    .online-link-wrap > ul {grid-template-columns:repeat(2,1fr);}
+    .online-box p {font-size: 20px;}
+}
+@media (max-width: 767px) {
+    .sec-intro {padding-top:80px;padding-bottom: 40px;}
+    #main.online-intro .title-wrap {margin-bottom:20px;}
+    #main.online-intro .title-wrap > span {font-size:14px;}
+    #main.online-intro .title-wrap > h1 {font-size:20px;}
+    /* 올림픽공원 온라인예약 사이트 */
+    .sec-tennis {width:100%;padding:60px 0;}
+    .online-link-wrap {padding:0 20px;}
+    .online-box .image-wrap {width:74px;height:74px;margin-bottom:4px;}
+    .online-box .image-wrap > img {width:100%;}
+    .online-box p {font-size:16px;}
+    .online-box .desc-wrap {gap:8px;}
+    .online-link-wrap > ul {grid-template-columns:repeat(2,1fr);}
+}
+
+@media (max-width: 500px) {
+    .online-box .image-wrap {width:52px;height:52px;}
+    .online-box .image-wrap > img {width:100%;}
+    .online-link-wrap > ul {grid-gap: 8px;}
+}

@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang=ko>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.css">
+  <link rel="stylesheet" href="../../resources/lib/swiper/swiper.css">
+  <link rel="stylesheet" href="../../resources/css/views/soccer/olympics_enrollment_soccer.css">
+
+  <!-- lib -->
+  <script src="../../resources/lib/jquery-3.6.1/jquery-3.6.1.js"></script>
+  <script src="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.js"></script>
+  <script src="../../resources/lib/swiper/swiper.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js'></script>
+
+  <!-- js -->
+  <!-- 헤더 함수 -->
+  <script src="../../resources/js/header.js"></script>
+  <!-- 글자크기 변환 -->
+  <script src="../../resources/js/text_size.js"></script>
+  <!-- 커스텀 셀렉트 함수  -->
+  <script src="../../resources/js/custom_select.js"></script>
+  <!-- 테이블 체크박스 연동 함수  -->
+  <script src="../../resources/js/table_check.js"></script>
+  <!-- 데이트 피커 -->
+  <script src="../../resources/js/datepicekr.js"></script>
+  <title>올팍축구장_신청내역</title>
+</head>
+<body data-text-size="normal">
+<!-- [웹 접근성] : 본문 바로가기 -->
+<a href="#main" id="skip-nav">본문 바로가기</a>
+<!-- 헤더 -->
+<header>
+    <!-- [사이드바] dim 처리 영역 -->
+    <div id="dim-overlay" class="dim" onclick="closeSidebar();"></div>
+
+    <div class="content-wrap" id="main-content">
+        <div class="header-left">
+            <!-- 로고 -->
+            <div class="header-logo-wrap">
+                <h1 class="header-logo">
+                    <a href="#" class="img">
+                        <img src="../../resources/images/logo/kspo_logo_soccer.svg" alt="한국체육산업개발주식회사 올팍축구장">
+                    </a>
+                </h1>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn rounded header-pc-only">KSPO&CO 바로가기</a><!-- [20260415] 수정 -->
+            </div>
+
+            <!-- 메뉴 -->
+            <nav class="sidebar" aria-label="메뉴">
+                <!-- PC / Tablet GNB -->
+                <ul class="header-pc-tablet-flex-only"><!-- [20260415] 수정 -->
+                    <li><a href="#">예약신청</a></li>
+                    <li><a href="#">신청방법안내</a></li>
+                    <li><a href="#">시설이용안내</a></li>
+                    <li><a href="#">오시는길</a></li>
+                </ul>
+
+                <!-- Mobile Sidebar -->
+                <div class="header-mo-flex-only"><!-- [20260415] 수정 -->
+                    <div class="sidebar-title-wrap">
+                        <a href="#" target="_blank" rel="noopener noreferrer">KSPO&CO 바로가기</a>
+                        <button type="button" class="close-btn" onclick="closeSidebar();">
+                            <span class="visually-hidden">닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="sidebar-menu-wrap">
+                        <div class="sidebar-intro">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요!</p>
+                            <!-- <a href="#" class="ico-txt-btn txt-ver login"><span class="txt">로그인</span></a> -->
+                            <a href="#" class="ico-txt-btn txt-ver logout"><span class="txt">로그아웃</span></a>
+                        </div>
+
+                        <ul class="sidebar-list header-mo-only"><!-- [20260415] 수정 -->
+                            <li><a href="#">예약신청</a></li>
+                            <li><a href="#">신청방법안내</a></li>
+                            <li><a href="#">시설이용안내</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+
+                        <ul class="sidebar-list ico-ver header-mo-only">
+                            <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                            <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                            <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                            <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- PC / Tablet 우측 버튼 -->
+        <div class="btn-wrap header-pc-tablet-flex-only">
+            <!-- <a href="#" class="ico-user"><span>로그인</span></a> -->
+            <a href="#" class="ico-logout"><span>로그아웃</span></a>
+            <a href="#" class="ico-bag"><span>장바구니</span></a>
+            <a href="#" class="ico-pay"><span>신청내역</span></a>
+            <button type="button" class="ico-hamburger top-btn" onclick="openMenu()">
+                <span>메뉴</span>
+            </button>
+
+            <!-- 전체 메뉴 팝업 -->
+            <div class="header-popup">
+                <div class="header-popup-inner">
+                    <div class="h-pop-head">
+                        <p>전체 메뉴</p>
+                        <button type="button" class="close-btn" onclick="closeMenu()">
+                            <span>닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="h-pop-body">
+                        <div class="h-pop-user">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요</p>
+                            <a href="#" class="under-line c-gray txt-xs">로그아웃</a>
+                        </div>
+
+                        <div class="h-pop-menu">
+                            <ul class="sidebar-list">
+                                <li><a href="#">예약신청</a></li>
+                                <li><a href="#">신청방법안내</a></li>
+                                <li><a href="#">시설이용안내</a></li>
+                                <li><a href="#">오시는길</a></li>
+                            </ul>
+
+                            <ul class="sidebar-list ico-ver">
+                                <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                                <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                                <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                                <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile 우측 버튼 -->
+        <div class="btn-wrap sm header-mo-flex-only">
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="장바구니 페이지 이동">
+                <img src="../../../resources/images/ico/ico_bag.svg" alt="">
+            </a>
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="결제 페이지 이동">
+                <img src="../../../resources/images/ico/ico_paper.svg" alt="">
+            </a>
+            <button type="button" class="ico-btn size-sm ico-hamburger" onclick="openSideBar()">
+                <span class="visually-hidden">메뉴 열기</span>
+            </button>
+        </div>
+    </div>
+</header>
+<!-- [공통] 글자 텍스트 아이콘 -->
+<div class="fixed-btn-wrap">
+  <button type="button" class="txt-size-btn sm" onclick="changeTextSize('small')">
+    <span class="visually-hidden">글씨 작게</span>
+  </button>
+  <button type="button" class="txt-size-btn rg" onclick="changeTextSize('normal')">
+    <span class="visually-hidden">글씨 보통</span>
+  </button>
+  <button type="button" class="txt-size-btn lg" onclick="changeTextSize('large')">
+    <span class="visually-hidden">글씨 크게</span>
+  </button>
+</div>
+
+<main id="main">
+  <!--  -->
+  <div class="inner-wrap sub-ver">
+    <!-- 브레드크럼브(경로) -->
+    <div class="flex-wrap end breadcrumb-wrap">
+      <ul class="breadcrumb">
+        <li class="home">메인 화면</li>
+        <li>올팍축구장</li>
+        <li class="active">신청내역</li>
+      </ul>
+    </div>
+    <!-- 페이지 제목 -->
+    <div class="title-wrap sub-ver lg">
+      <h2>신청내역</h2>
+      <p class="mo-flex-only">예약 신청내역 및 결제내역을 확인 가능합니다. </p>
+    </div>
+
+    <!-- 테이블 -->
+    <!-- 안내영역 (pc) -->
+    <div class="flex-wrap pc-tablet-flex-only mb-16">
+      <p class="txt-sm fw-medium c-gray4">※ 예약 신청내역 및 결제내역을 확인 가능합니다.</p>
+    </div>
+    <!-- 1. 검색 영역 -->
+    <div class="gray-box">
+      <div class="double-search-wrap">
+        <!-- 단위 설정 -->
+        <div class="radio-tab-wrap">
+          <label class="radio-tab">
+            <input type="radio" checked name="radioGroup2">
+            <span>1개월</span>
+          </label>
+          <label class="radio-tab">
+            <input type="radio" name="radioGroup2">
+            <span>3개월</span>
+          </label>
+          <label class="radio-tab">
+            <input type="radio" name="radioGroup2">
+            <span>6개월</span>
+          </label>
+        </div>
+        <!-- 데이트피커 -->
+        <div class="calendar-search-wrap">
+          <fieldset class="calendar">
+            <legend class="visually-hidden">기간 선택</legend>
+            <div class="calendar-wrap flex-wrap al-center gap-auto">
+              <label class="date">
+                <input type="text" class="dates">
+              </label>
+              <span class="txt-sm fw-bold color-gray mo-flex-only">-</span>
+              <label class="date">
+                <input type="text" class="dates">
+              </label>
+            </div>
+          </fieldset>
+          <button type="button" class="btn fixed-md size-sm pc-tablet-flex-only">조회</button>
+        </div>
+
+        <!-- 모바일 조회 -->
+        <button type="button" class="btn size-sm mo-flex-only md">조회</button>
+      </div>
+    </div>
+
+    <div class="table-btn-wrap">
+      <div class="flex-wrap w-auto gap4">
+        <button type="button" class="btn xsm outlined js-check-all-btn no-turned">전체선택</button>
+      </div>
+      <p class="txt-sm fw-medium c-gray4"><span class="pc-tablet-inline-only">체크한 항목만 계산됨 </span>(단위 : 원)</p>
+    </div>
+    <!-- 2. 테이블 (pc/mo) -->
+    <div class="apply-table-group">
+      <div class="custom-table pc-tablet-only">
+        <table>
+          <caption class="visually-hidden">신청내역 표 입니다.</caption>
+          <colgroup>
+            <col style="width: 50px;">
+            <col style="width: 260px;">
+            <col style="width: calc((100% - 310px) * 3 / 7);">
+            <col style="width: calc((100% - 310px) * 2 / 7);">
+            <col style="width: calc((100% - 310px) * 2 / 7);">
+          </colgroup>
+          <thead>
+          <tr>
+            <th>
+              <div class="th-wrap">
+                <label class="checkbox-wrap">
+                  <input type="checkbox" class="js-check-all">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </th>
+            <th>
+              <div class="th-wrap">구분/접수처<br>결제일자/예약일자</div>
+            </th>
+            <th>
+              <div class="th-wrap">종목/내용</div>
+            </th>
+            <th>
+              <div class="th-wrap">시작기간/종료기간</div>
+            </th>
+            <th>
+              <div class="th-wrap">결제상태 / 상태</div>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr data-item-id="item1">
+            <td>
+              <div class="td-wrap">
+                <label class="checkbox-wrap">
+                  <input type="checkbox" class="js-check-item" data-item-id="item1">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                예약 / 온라인접수<br>
+                2026.03.17 . 2026.03.19
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                올팍축구장 / 17:00 ~ 18:00, 조명사용
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                2026.03.21 /  2026.03.21
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                187,000원 / 결제완료
+              </div>
+            </td>
+          </tr>
+          <tr data-item-id="item2">
+            <td>
+              <div class="td-wrap">
+                <label class="checkbox-wrap">
+                  <input type="checkbox" class="js-check-item" data-item-id="item2">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                예약 / 온라인접수<br>
+                2026.03.17 . 2026.03.19
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                올팍축구장 / 10:00 ~ 11:00
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                2026.03.19 /  2026.03.19
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                165,000원 / 결제완료
+              </div>
+            </td>
+          </tr>
+          <!-- 합계금액 -->
+          <tr>
+            <th colspan="2"><div class="th-wrap">합계금액</div></th>
+            <td colspan="3">
+              <div class="td-wrap">352,000원</div>
+            </td>
+          </tr>
+          <!-- 총 결제금액 -->
+          <tr>
+            <th colspan="2"><div class="th-wrap">총 결제금액</div></th>
+            <td colspan="3">
+              <div class="td-wrap"><span class="c-red">352,000원</span></div>
+            </td>
+          </tr>
+          <!-- 버튼들 -->
+          <tr>
+            <th colspan="2"><div class="th-wrap">신청/변경</div></th>
+            <td colspan="3">
+              <div class="td-wrap">
+                <div class="flex-wrap center gap8">
+                  <button type="button" class="btn outlined sm c-red">결제취소</button>
+                  <button type="button" class="btn sm bg-black c-red ">영수증 출력</button>
+                  <button type="button" class="btn sm bg-black c-red ">취소영수증</button>
+                  <button type="button" class="btn sm bg-black c-red">날짜/시간변경</button>
+                </div>
+
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- mo -->
+      <div class="custom-table mo-only no-br">
+        <table>
+          <colgroup>
+            <col style="width:100%;">
+          </colgroup>
+          <tbody>
+          <tr data-item-id="item1">
+            <td>
+              <div class="td-wrap column al-start">
+                <!-- 1. 뱃지 -->
+                <div class="flex-wrap mb-8">
+                  <span class="badge bg-primary">결제완료</span>
+                </div>
+                <!-- 2. 날짜/전체체크박스 -->
+                <div class="flex-wrap between">
+                  <span class="txt-rgl fw-bold">2026.03.17</span>
+                  <label class="checkbox-wrap">
+                    <input type="checkbox" class="js-check-item" data-item-id="item1">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <!-- 3. 상세내용 -->
+                <ul class="sub-table-list mt-12">
+                  <li class="flex-wrap between">
+                    <span class="txt-sm fw-medium c-gray4">구분/접수처</span>
+                    <span class="txt-sm fw-semibold c-gray5">예약/온라인 접수</span>
+                  </li>
+                  <li class="flex-wrap between">
+                    <span class="txt-sm fw-medium c-gray4">결제일자/예약일자</span>
+                    <span class="txt-sm fw-semibold c-gray5">2026.03.17/2026.03.19</span>
+                  </li>
+                  <li class="flex-wrap between">
+                    <span class="txt-sm fw-medium c-gray4">종목/내용</span>
+                    <span class="txt-sm fw-semibold c-gray5">올팍축구장/09:00~11:00</span>
+                  </li>
+                  <li class="flex-wrap between">
+                    <span class="txt-sm fw-medium c-gray4">시작기간/종료기간</span>
+                    <span class="txt-sm fw-semibold c-gray5">2026.03.21/2026.03.21</span>
+                  </li>
+                  <li class="flex-wrap between">
+                    <span class="txt-sm fw-medium c-gray4">결제상태/상태</span>
+                    <span class="txt-sm fw-semibold c-gray5">165,000원</span>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr data-item-id="item2">
+            <td class="mo-no-pd">
+              <div class="td-wrap column al-start">
+                <!-- 1. 뱃지 -->
+                <div class="flex-wrap mb-8">
+                  <span class="badge bg-primary">결제완료</span>
+                </div>
+                <!-- 2. 날짜/전체체크박스 -->
+                <div class="flex-wrap between">
+                  <span class="txt-rgl fw-bold">2026.03.17</span>
+                  <label class="checkbox-wrap">
+                    <input type="checkbox" class="js-check-item" data-item-id="item2">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <!-- 3. 상세내용 -->
+                <ul class="sub-table-list mt-12">
+                  <li class="flex-wrap between">
+                    <span class="txt-sm fw-medium c-gray4">구분/접수처</span>
+                    <span class="txt-sm fw-semibold c-gray5">예약/온라인 접수</span>
+                  </li>
+                  <li class="flex-wrap between">
+                    <span class="txt-sm fw-medium c-gray4">결제일자/예약일자</span>
+                    <span class="txt-sm fw-semibold c-gray5">2026.03.17/2026.03.19</span>
+                  </li>
+                  <li class="flex-wrap between">
+                    <span class="txt-sm fw-medium c-gray4">종목/내용</span>
+                    <span class="txt-sm fw-semibold c-gray5">올팍축구장/09:00~11:00</span>
+                  </li>
+                  <li class="flex-wrap between">
+                    <span class="txt-sm fw-medium c-gray4">시작기간/종료기간</span>
+                    <span class="txt-sm fw-semibold c-gray5">2026.03.21/2026.03.21</span>
+                  </li>
+                  <li class="flex-wrap between">
+                    <span class="txt-sm fw-medium c-gray4">결제상태/상태</span>
+                    <span class="txt-sm fw-semibold c-gray5">165,000원</span>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <!-- 버튼 -->
+          <tr class="no-br">
+            <td>
+              <div class="td-wrap column">
+                <div class="flex-wrap flex-identical gap4 mb-4">
+                  <button type="button" class="btn outlined sm c-red">결제취소</button>
+                  <button type="button" class="btn outlined sm ">영수증 출력</button>
+                </div>
+                <div class="flex-wrap flex-identical gap4">
+                  <button type="button" class="btn outlined sm ">취소영수증</button>
+                  <button type="button" class="btn outlined sm">날짜/시간변경</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr class="bg-total">
+            <td>
+              <div class="td-wrap column">
+                <ul class="sub-table-list">
+                  <li class="flex-wrap between gap4">
+                    <span class="txt-sm fw-medium c-gray4">결제금액</span>
+                    <span class="txt-sm fw-semibold c-gray5">352,000원</span>
+                  </li>
+                  <li class="flex-wrap between gap4">
+                    <span class="txt-sm fw-medium c-gray4">합계금액</span>
+                    <span class="txt-sm fw-semibold c-gray5">352,000원</span>
+                  </li>
+                </ul>
+                <div class="flex-wrap between gap4 mt-8">
+                  <span class="txt-rgl fw-bold">총 결제금액</span>
+                  <span class="txt-rgl fw-bold c-red">352,000원</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- 안내멘트 영역 -->
+    <div class="notice-text-wrap">
+      <p class="notice-text">알려드립니다.</p>
+      <ul class="dot-list">
+        <li>
+          온라인예약취소는 당일에는 수수료없이 취소가능 하나
+          <span class="c-red">결제 다음일 부터는 10%의 취소수수료가 발생</span>됩니다. (당일, 기상악화로 취소시 동일 적용)
+        </li>
+        <li>
+          <span class="c-red">환불은 사용예정의 24시간 전까지 가능합니다.</span>
+        </li>
+        <li>
+          당일날 기상악화등 사용이 불가할 경우는 관리자가 연장, 환불처리 해드립니다.
+        </li>
+        <li>
+          예약을 취소하시려면 '결제취소' 버튼을 눌러주시기 바랍니다.
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</main>
+<!-- 푸터 -->
+<footer>
+  <div class="content-wrap">
+    <div class="flex-wrap al-start gap4 between mo-col wrap">
+      <ul class="footer-terms-list">
+        <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10701000000" target="_blank" class="txt-sm fw-bold c-blue">개인정보처리방침</a></li>
+        <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10703000000" target="_blank" class="txt-sm fw-medium c-gray">이용약관</a></li>
+      </ul>
+      <div class="footer-select-wrap flex-wrap al-center gap8 w-auto">
+        <!-- 패밀리 사이트 : select 참조 변수명 = familySite -->
+        <div class="custom-select" data-options="familySite" data-select="footer">
+          <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-text"></span>
+          </button>
+          <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+        </div>
+        <!-- 관련사이트 : select 참조 변수명 = relatedSite -->
+        <div class="custom-select" data-options="relatedSite" data-select="footer">
+          <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-text"></span>
+          </button>
+          <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-bottom flex-wrap al-end between mo-col mo-al-start">
+      <ul class="footer-info-list">
+        <li class="txt-sm fw-regular c-gray">사업자등록번호 : 215-81-12034</li>
+        <li class="txt-sm fw-regular c-gray">(05540) 서울특별시 송파구 올림픽로 424(방이동) 올림픽역도경기장 내</li>
+        <li class="copyright">COPYRIGHT 2025 © KSPO&CO ALL RIGHTS RESERVED.</li>
+      </ul>
+      <!-- 임시 안보임 처리 -->
+      <!--
+      <div class="certification-wrap">
+        <div class="img-box">
+          <img src="../../resources/images/certification/certification_privacy_protection_certified_site.svg" alt="개인정보우수사이트 인증" />
+        </div>
+      </div>
+      -->
+    </div>
+
+  </div>
+</footer>
+<script>
+  /* [공통] Footer */
+  const footer1 = [
+      { value: '국민체육진흥공단',tag: 'a', href: 'http://www.kspo.or.kr/' },
+      { value: '문화체육관광부',tag: 'a', href: 'http://www.mcst.go.kr/main.jsp' },
+      { value: '경륜경정사업본부',tag: 'a', href: 'http://www.krace.or.kr/' },
+      { value: 'KCYCLE 경륜',tag: 'a', href: 'http://www.kcycle.or.kr/' },
+      { value: 'KBOAT 경정',tag: 'a', href: 'http://www.kboat.or.kr/' },
+      { value: '서울올림픽파크텔',tag: 'a', href: 'https://www.parktel.co.kr/' },
+      { value: '한국스포츠과학원',tag: 'a', href: 'http://www.sports.re.kr/' },
+      { value: '서울올림픽기념관',tag: 'a', href: 'https://88olympic.kspo.or.kr/' },
+      { value: '소마미술관',tag: 'a', href: 'https://soma.kspo.or.kr/' },
+      { value: '올림픽공원',tag: 'a', href: 'https://www.ksponco.or.kr/olympicpark' },
+      { value: '국민체력센터',tag: 'a', href: 'http://www.nfc.or.kr/' },
+      { value: '국민권익위원회',tag: 'a', href: 'http://www.acrc.go.kr/acrc/index.do"' },
+  ];
+  // 패밀리
+  const footer2 = [
+      { value: '한국체육산업개발(주)',tag: 'a', href: 'http://www.ksponco.or.kr/' },
+      { value: '올림픽공원스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparksports' },
+      { value: '올림픽수영장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparkswim' },
+      { value: '올림픽테니스장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparktennis' },
+      { value: '올팍축구장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparksoccer' },
+      { value: '일산올림픽스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/ilsansports' },
+      { value: '분당올림픽스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/bundangsports' },
+      { value: '올림픽홀 평생교육원',tag: 'a', href: 'https://www.ksponco.or.kr/edu' },
+      // { value: '대관예약시스템',tag: 'a', href: '"https://www2.ksponco.or.kr/culture/index.do' }, // as-is 운영 , to-be 운영
+      { value: '대관예약시스템',tag: 'a', href: 'https://www.ksponco.or.kr/culture/index.do' }, // 테스트 운영
+  ]
+  initializeCustomSelect(document.querySelector('.custom-select[data-options="familySite"]'), footer2, {
+      up:true,
+      preventSelectionOnLink: true, // 링크 이동의 역할만 할 경우 placeholder 변경 필요없음 지정 변수
+      placeholder: '패밀리 사이트',
+  });
+  initializeCustomSelect(document.querySelector('.custom-select[data-options="relatedSite"]'), footer1, {
+      up:true,
+      preventSelectionOnLink: true,// 링크 이동의 역할만 할 경우 placeholder 변경 필요없음 지정 변수
+      placeholder: '관련 사이트',
+  });
+</script>
+</body>
+</html>

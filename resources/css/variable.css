@@ -1,0 +1,164 @@
+@charset "UTF-8";
+:root {
+    /* fonts weight */
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+
+    /* color */
+    --color-white: #ffffff;
+    --color-black: #353535;
+    --color-red:#FF453A;
+    --color-text:#454545;
+    --color-yellow:#FFF9D9;
+    /*--color-green:#18972B;*/
+    --color-light-green:#A6E130;
+    /*--color-purple:#A02DB1;*/
+    /*--color-light-gray: #C2C2C2;*/
+    /*--color-light-gray2: #dddddd;*/
+    --color-light-gray3: #F2F2F2;
+    --color-gray:#979797;
+    --color-gray2:#7D7D7D;
+    --color-gray3:#A8A8A8;
+    --color-gray4:#595959;
+    --color-gray5:#727272;
+    --color-gray6:#666666;
+    /*--color-light-gray4: #fafafa;*/
+    /*--color-gray: #666666;*/
+    /*--color-gray2: #888888;*/
+    /*--color-gray3:#555555;*/
+    /*--color-gray4:#999999;*/
+    /*--color-light-blue:#6BBAFF;*/
+    --color-primary: #0189FF;
+    --color-primary-dark: #00458D;
+    --color-primary-light: #E6F3FF;
+    --color-transparent: transparent;
+    /*--color-disabled:#DEDEDE;*/
+
+    /* 보더 컬러 */
+    --border-color:#EFEFEF;
+    --border-color2:#D3D3D3;
+    /*--border-dash-color:#dbdbdb;*/
+    /*--border-color2:#dbdbdb;*/
+    /*--border-light-color: #ebebeb;*/
+
+    /* background color */
+    --bg-light: #fafafa;
+    --bg-light-red:#FFECEB;
+    --bg-dark: #454545;
+    /*--bg-light-red2:#FFF0F0;*/
+    /*--bg-light-blue:#CDE8FF;*/
+
+    /* table */
+    --table-text-color:#595959;
+    --table-cell-bg: #FAFAFA;
+    --table-thead-br: #454545;
+    --table-border-color: #EFEFEF;
+    /*--table-cell-td-bg: #ffffff;*/
+
+    /* hr */
+    /*--hr-color: #eaeaea;*/
+}
+body[data-text-size='large'] {
+    /* fonts size (크게) */
+    --txt-footer-size:14px;
+    --txt-sizesm : 13px;
+    --txt-size00 : 14px;
+    --txt-size01 : 16px;
+    --txt-size02 : 18px;
+    --txt-size03 : 20px;
+    --txt-size04 : 24px;
+    --txt-size05 : 28px;
+    --txt-size06 : 32px;
+    --txt-size07 : 36px;
+    --txt-size08 : 40px;
+    --txt-size09 : 48px;
+    --txt-size10 : 60px;
+    --txt-size11 : 68px;
+
+    @media (max-width: 767px) {
+        --txt-footer-size:13px;
+        --txt-sizesm : 12px;
+        --txt-size00 : 13px;
+        --txt-size01 : 14px;
+        --txt-size02 : 18px;
+        --txt-size03 : 20px;
+        --txt-size04 : 20px;
+        --txt-size05 : 24px;
+        --txt-size06 : 24px;
+        --txt-size07 : 26px;
+        --txt-size08 : 36px;
+        --txt-size09 : 30px;
+        --txt-size10 : 24px;
+        --txt-size11 : 38px;
+    }
+}
+body[data-text-size='normal'] {
+    /* fonts size (보통) */
+    --txt-footer-size:13px;
+    --txt-sizesm : 12px;
+    --txt-size00: 13px;
+    --txt-size01: 14px;
+    --txt-size02: 16px;
+    --txt-size03: 18px;
+    --txt-size04: 20px;
+    --txt-size05: 24px;
+    --txt-size06: 28px;
+    --txt-size07: 32px;
+    --txt-size08: 36px;
+    --txt-size09: 40px;
+    --txt-size10: 48px;
+    --txt-size11: 56px;
+
+    /* 너비조정 */
+    @media (max-width: 767px) {
+        --txt-footer-size:11px;
+        --txt-sizesm : 12px;
+        --txt-size00: 11px;
+        --txt-size01: 12px;
+        --txt-size02: 14px;
+        --txt-size03: 16px;
+        --txt-size04: 16px;
+        --txt-size05: 18px;
+        --txt-size06: 18px;
+        --txt-size07: 20px;
+        --txt-size08: 32px;
+        --txt-size09: 24px;
+        --txt-size10: 20px;
+        --txt-size11: 32px;
+    }
+}
+body[data-text-size='small'] {
+    /* fonts size (보통) */
+    --txt-footer-size:13px;
+    --txt-sizesm : 12px;
+    --txt-size00 : 12px;
+    --txt-size01 : 13px;
+    --txt-size02 : 14px;
+    --txt-size03 : 16px;
+    --txt-size04 : 18px;
+    --txt-size05 : 20px;
+    --txt-size06 : 24px;
+    --txt-size07 : 28px;
+    --txt-size08 : 32px;
+    --txt-size09 : 36px;
+    --txt-size10 : 40px;
+    --txt-size11 : 48px;
+    @media (max-width: 767px) {
+        --txt-footer-size:11px;
+        --txt-sizesm : 11px;
+        --txt-size00 : 11px;
+        --txt-size01 : 12px;
+        --txt-size02 : 13px;
+        --txt-size03 : 14px;
+        --txt-size04 : 14px;
+        --txt-size05 : 16px;
+        --txt-size06 : 16px;
+        --txt-size07 : 18px;
+        --txt-size08 : 26px;
+        --txt-size09 : 20px;
+        --txt-size10 : 18px;
+        --txt-size11 : 28px;
+    }
+}

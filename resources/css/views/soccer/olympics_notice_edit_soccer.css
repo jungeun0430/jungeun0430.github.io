@@ -1,0 +1,51 @@
+@charset "UTF-8";
+@import "../../variable.css";
+@import "../../font.css";
+@import "../../reset.css";
+@import "../../layout.css";
+@import "../../common.css";
+@import "../../responsive.css";
+/*-------------------------------------------------------------------*/
+.notice-flex-wrap {display:flex;align-items:center;gap:20px;margin-left:12px;}
+@media(max-width:767px) {
+    .notice-flex-wrap {gap:12px;margin-left:0;margin-top:6px;}
+}
+/* 공지사항 작성 */
+.custom-ui-table {border-top: 3px solid var(--table-thead-br);border-bottom:1px solid var(--table-border-color);border-left:1px solid var(--table-border-color);border-right:1px solid var(--table-border-color);}
+.custom-ui-table .row {display:flex;}
+.custom-ui-table .row > .th {width:180px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;background-color:var(--table-cell-bg);font-size:var(--txt-size02);font-weight:var(--fw-bold);color:var(--table-text-color);}
+.custom-ui-table .row > .td {width:calc(100% - 180px);display:flex;align-items:center;justify-content:flex-start;padding:12px 14px;text-align:center;font-size:var(--txt-size02);font-weight:var(--fw-medium);color:var(--color-black);}
+.custom-ui-table .row > .th + .td {border-left:1px solid var(--table-border-color);}
+.custom-ui-table .row + .row {border-top:1px solid var(--table-border-color);}
+.custom-ui-table + .flex-wrap {margin-top:40px;}
+@media(max-width:767px) {
+    .custom-ui-table {border:0;}
+    .custom-ui-table .row {flex-direction:column;}
+    .custom-ui-table .row > .th {justify-content:flex-start;width:100%;background-color:inherit;text-align:left;padding:0 0 0 7px;font-size:var(--txt-size02);color:var(--color-text);position:relative;}
+    .custom-ui-table .row > .th::before {content:'';width:7px;height:18px;background:url(../../../images/ico/ico_dash.svg) no-repeat center center;background-size:5px 12px;position:absolute;left:0;top:50%;transform:translateY(-50%);}
+    .custom-ui-table .row > .td {width:100%;padding:0;}
+    .custom-ui-table .row > .td.mo-wrap {flex-wrap:wrap;}
+    .custom-ui-table .row > .td.mo-wrap .select-wrap.size-nm {width:100%;}
+    .custom-ui-table .row > .th + .td {border-left:0;margin-top:8px;}
+    .custom-ui-table .row + .row {border-top:0;margin-top:20px;}
+}
+
+/* 에디터 */
+.editor-wrap {width:100%;border-radius:4px;border:1px solid var(--border-color);height:320px}
+
+/* 파일 업로드 */
+.file-upload {display:flex;flex-direction:column;gap:8px;}
+.file-guide {font-size:var(--txt-size01);font-weight:var(--fw-medium);color:var(--color-text);text-align:left;}
+.file-upload-empty {display:flex;align-items:center;gap:8px;}
+.file-empty-text {font-size:var(--txt-size02);font-weight:var(--fw-medium);color:var(--color-text);}
+.file-upload-list {display:flex;flex-direction:column;gap:8px;}
+.file-upload-item {display:flex;align-items:center;gap:8px;}
+
+@media(max-width:767px) {
+    .file-upload-wrap {width:100%;}
+    .file-guide {font-size:var(--txt-size02);}
+    .file-upload-list {width:100%;background-color:var(--bg-light);padding:7px 12px;gap:4px;}
+    .file-upload-item {width:100%;}
+    .file-name {width:calc(100% - 60px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .file-upload-item .file-delete-btn {margin-left:auto;}
+}

@@ -1,0 +1,1883 @@
+<!doctype html>
+<html lang=ko>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.css">
+  <link rel="stylesheet" href="../../resources/lib/swiper/swiper.css">
+  <link rel="stylesheet" href="../../resources/css/views/soccer/olympics_location_soccer.css">
+
+  <!-- lib -->
+  <script src="../../resources/lib/jquery-3.6.1/jquery-3.6.1.js"></script>
+  <script src="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.js"></script>
+  <script src="../../resources/lib/swiper/swiper.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js'></script>
+
+  <!-- js -->
+  <!-- 헤더 함수 -->
+  <script src="../../resources/js/header.js"></script>
+  <script src="../../resources/js/footer.js"></script>
+  <!-- 글자크기 변환 -->
+  <script src="../../resources/js/text_size.js"></script>
+  <!-- 커스텀 셀렉트 함수  -->
+  <script src="../../resources/js/custom_select.js"></script>
+  <!-- 테이블 체크박스 연동 함수  -->
+  <script src="../../resources/js/table_check.js"></script>
+  <title>올팍축구장_오시는길</title>
+</head>
+<body data-text-size="normal">
+<!-- [웹 접근성] : 본문 바로가기 -->
+<a href="#main" id="skip-nav">본문 바로가기</a>
+<!-- 헤더 -->
+<header>
+    <!-- [사이드바] dim 처리 영역 -->
+    <div id="dim-overlay" class="dim" onclick="closeSidebar();"></div>
+
+    <div class="content-wrap" id="main-content">
+        <div class="header-left">
+            <!-- 로고 -->
+            <div class="header-logo-wrap">
+                <h1 class="header-logo">
+                    <a href="#" class="img">
+                        <img src="../../resources/images/logo/kspo_logo_soccer.svg" alt="한국체육산업개발주식회사 올팍축구장">
+                    </a>
+                </h1>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn rounded header-pc-only">KSPO&CO 바로가기</a><!-- [20260415] 수정 -->
+            </div>
+
+            <!-- 메뉴 -->
+            <nav class="sidebar" aria-label="메뉴">
+                <!-- PC / Tablet GNB -->
+                <ul class="header-pc-tablet-flex-only"><!-- [20260415] 수정 -->
+                    <li><a href="#">예약신청</a></li>
+                    <li><a href="#">신청방법안내</a></li>
+                    <li><a href="#">시설이용안내</a></li>
+                    <li><a href="#">오시는길</a></li>
+                </ul>
+
+                <!-- Mobile Sidebar -->
+                <div class="header-mo-flex-only"><!-- [20260415] 수정 -->
+                    <div class="sidebar-title-wrap">
+                        <a href="#" target="_blank" rel="noopener noreferrer">KSPO&CO 바로가기</a>
+                        <button type="button" class="close-btn" onclick="closeSidebar();">
+                            <span class="visually-hidden">닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="sidebar-menu-wrap">
+                        <div class="sidebar-intro">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요!</p>
+                            <!-- <a href="#" class="ico-txt-btn txt-ver login"><span class="txt">로그인</span></a> -->
+                            <a href="#" class="ico-txt-btn txt-ver logout"><span class="txt">로그아웃</span></a>
+                        </div>
+
+                        <ul class="sidebar-list header-mo-only"><!-- [20260415] 수정 -->
+                            <li><a href="#">예약신청</a></li>
+                            <li><a href="#">신청방법안내</a></li>
+                            <li><a href="#">시설이용안내</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+
+                        <ul class="sidebar-list ico-ver header-mo-only">
+                            <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                            <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                            <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                            <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- PC / Tablet 우측 버튼 -->
+        <div class="btn-wrap header-pc-tablet-flex-only">
+            <!-- <a href="#" class="ico-user"><span>로그인</span></a> -->
+            <a href="#" class="ico-logout"><span>로그아웃</span></a>
+            <a href="#" class="ico-bag"><span>장바구니</span></a>
+            <a href="#" class="ico-pay"><span>신청내역</span></a>
+            <button type="button" class="ico-hamburger top-btn" onclick="openMenu()">
+                <span>메뉴</span>
+            </button>
+
+            <!-- 전체 메뉴 팝업 -->
+            <div class="header-popup">
+                <div class="header-popup-inner">
+                    <div class="h-pop-head">
+                        <p>전체 메뉴</p>
+                        <button type="button" class="close-btn" onclick="closeMenu()">
+                            <span>닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="h-pop-body">
+                        <div class="h-pop-user">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요</p>
+                            <a href="#" class="under-line c-gray txt-xs">로그아웃</a>
+                        </div>
+
+                        <div class="h-pop-menu">
+                            <ul class="sidebar-list">
+                                <li><a href="#">예약신청</a></li>
+                                <li><a href="#">신청방법안내</a></li>
+                                <li><a href="#">시설이용안내</a></li>
+                                <li><a href="#">오시는길</a></li>
+                            </ul>
+
+                            <ul class="sidebar-list ico-ver">
+                                <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                                <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                                <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                                <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile 우측 버튼 -->
+        <div class="btn-wrap sm header-mo-flex-only">
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="장바구니 페이지 이동">
+                <img src="../../../resources/images/ico/ico_bag.svg" alt="">
+            </a>
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="결제 페이지 이동">
+                <img src="../../../resources/images/ico/ico_paper.svg" alt="">
+            </a>
+            <button type="button" class="ico-btn size-sm ico-hamburger" onclick="openSideBar()">
+                <span class="visually-hidden">메뉴 열기</span>
+            </button>
+        </div>
+    </div>
+</header>
+<!-- [공통] 글자 텍스트 아이콘 -->
+<div class="fixed-btn-wrap">
+  <button type="button" class="txt-size-btn sm" onclick="changeTextSize('small')">
+    <span class="visually-hidden">글씨 작게</span>
+  </button>
+  <button type="button" class="txt-size-btn rg" onclick="changeTextSize('normal')">
+    <span class="visually-hidden">글씨 보통</span>
+  </button>
+  <button type="button" class="txt-size-btn lg" onclick="changeTextSize('large')">
+    <span class="visually-hidden">글씨 크게</span>
+  </button>
+</div>
+<main id="main">
+  <!--  -->
+  <div class="inner-wrap sub-ver">
+    <!-- 브레드크럼브(경로) -->
+    <div class="flex-wrap end breadcrumb-wrap">
+      <ul class="breadcrumb">
+        <li class="home">메인 화면</li>
+        <li>올팍축구장</li>
+        <li class="active">오시는 길</li>
+      </ul>
+    </div>
+    <!-- 페이지 제목 -->
+    <div class="title-wrap sub-ver lg">
+      <h2>오시는 길</h2>
+    </div>
+
+    <!-- 지도 -->
+    <div class="map-wrap">
+      <div class="map-box">
+        <!-- 지도 -->
+        <img src="../../resources/images/views/soccer/soccer_map.png" alt="올팍축구장 위치 지도">
+      </div>
+      <div class="map-desc-wrap">
+        <p>올팍 축구장</p>
+        <ul class="sub-list gap-md">
+          <li class="flex-wrap col-ver gap8">
+            <span class="ico-text dot">주소</span>
+            <span class="txt-sm fw-medium c-gray4">
+              (05540) 서울시 송파구 올림픽로 426(방이동)<br>
+              올림픽공원 벨로드롬 내
+            </span>
+          </li>
+          <li class="flex-wrap col-ver gap8">
+            <span class="ico-text phone">대표번호</span>
+            <span class="txt-sm fw-medium c-gray4">
+            02-2180-3786
+            </span>
+          </li>
+      </ul>
+        <div class="btn-wrap">
+          <div class="flex-wrap al-center">
+            <button type="button" class="btn size-full lg">올림픽공원 지도 보러가기</button>
+            <button type="button" class="btn size-full lg bg-green">네이버지도 보러가기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 지하철 이용 -->
+    <div class="sub-content-wrap">
+      <div class="sub-title-wrap">
+        <h3>지하철  이용</h3>
+      </div>
+      <div class="sub-content-box">
+        <ul class="sub-list">
+          <li class="flex-wrap al-center gap-md">
+            <span class="badge ico-ver bg-subway5">지하철 5호선</span>
+            <span>올림픽 공원역 3 · 4번 출구</span>
+          </li>
+          <li class="flex-wrap al-center gap-md">
+            <span class="badge ico-ver bg-subway9">지하철 9호선</span>
+            <span>올림픽 공원역 3 · 4번 출구</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 버스 이용 -->
+    <div class="sub-content-wrap">
+      <div class="sub-title-wrap">
+        <h3>버스 이용</h3>
+      </div>
+      <div class="sub-content-box">
+        <div class="flex-wrap">
+          <label class="select-wrap">
+            <select id="location_select" >
+              <option value="type1">동1문 (올림픽공원역)</option>
+              <option value="type2">올림픽공원 테니스장</option>
+              <option value="type3">올림픽공원 장미광장</option>
+              <option value="type4">남2문 (한성백제박물관)</option>
+              <option value="type5">남4문 (몽촌토성역,한성백제역)</option>
+              <option value="type6">올림픽회관</option>
+            </select>
+          </label>
+        </div>
+        <!-- 1. 동1문 (올림픽공원역)  -->
+        <div class="table-box" data-table-type="type1">
+          <!-- pc -->
+          <div class="custom-table pc-tablet-only">
+            <table>
+              <caption class="visually-hidden">동1문 (올림픽공원역) 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 15%;min-width:120px;">
+                <col style="width: 10%;min-width:120px;">
+                <col style="width: 30%;">
+                <col style="width: 45%;">
+              </colgroup>
+              <thead>
+              <tr>
+                <th><div class="th-wrap">공원출입구</div></th>
+                <th><div class="th-wrap">버스번호</div></th>
+                <th><div class="th-wrap">종점</div></th>
+                <th><div class="th-wrap">경유지</div></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td rowspan="9">
+                  <div class="td-wrap">
+                    동1문<br>
+                    지하철<br>
+                    5, 9호선<br>
+                    올림픽공원역
+                  </div>
+                </td>
+                <td><div class="td-wrap">3214</div></td>
+                <td><div class="td-wrap start text-left wrap">마천동 <span class="no-wrap">↔ 강변역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span class="text-left">방이역, 올림픽공원역, 둔촌동역, 천호역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3220</div></td>
+                <td><div class="td-wrap start text-left wrap">오금동 <span class="no-wrap">↔ 청량리</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span class="text-left">방이역, 올림픽공원역, 건대앞, 장한평역, 청량리</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3319</div></td>
+                <td><div class="td-wrap start text-left wrap">장지공영차고지 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span class="text-left">방이역, 올림픽공원역, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3323</div></td>
+                <td><div class="td-wrap start text-left wrap">강동공영차고지 <span class="no-wrap">↔ 잠실새내역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span class="text-left">방이역, 올림픽공원역, 중앙보훈병원역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3412</div></td>
+                <td><div class="td-wrap start text-left wrap">강동공영차고지 <span class="no-wrap">↔ 강남역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span class="text-left">상일동역, 둔촌동역, 올림픽공원역, 강남역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3413</div></td>
+                <td><div class="td-wrap start text-left wrap">강동공영차고지 <span class="no-wrap">↔ 수서경찰서</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span class="text-left">상일동역, 길동역, 올림픽공원역, 가락시장역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">30-5</div></td>
+                <td><div class="td-wrap start text-left wrap">하남시버스환승공영차고지 · 검단산입구 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span class="text-left">하남시청, 올림픽공원역, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">35</div></td>
+                <td><div class="td-wrap start text-left wrap">감일교차로 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span class="text-left">감일교차로, 올림픽공원남2문, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">6300</div></td>
+                <td><div class="td-wrap start text-left wrap">미사강병18단지강일리버10단지 <span class="no-wrap">↔ 인천공항</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-airport">공항버스</span>
+                    <span class="text-left">인천공항, 잠실역, 방이역, 올림픽선수촌아파트</span>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- mobile -->
+          <div class="sub-title-wrap mo-only">
+            <h4 class="dot-text">동1문 지하철 5, 9호선 올림픽공원역</h4>
+          </div>
+          <div class="custom-table card-ver mo-only">
+            <table>
+              <caption class="visually-hidden">동1문 (올림픽공원역) 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 100%;">
+              </colgroup>
+              <tbody>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3214</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">마천동 <span class="no-wrap">↔ 강변역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">방이역, 올림픽공원역, 둔촌동역, 천호역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3220</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">오금동 <span class="no-wrap">↔ 청량리</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">방이역, 올림픽공원역, 건대앞, 장한평역,
+                          청량리</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3319</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">장지공영차고지 <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">방이역, 올림픽공원역, 몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3323</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 잠실새내역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">방이역, 올림픽공원역, 중앙보훈병원역,
+                          잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3412</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 강남역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 둔촌동역, 올림픽공원역, 강남역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3413</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 수서경찰서</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 길동역, 올림픽공원역, 가락시장역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">30-5</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">하남시버스환승공영차고 · 검단산입구
+                          <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">하남시청, 올림픽공원역, 몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">35</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium">감일교차로 <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium">감일교차로, 올림픽공원남2문, 몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-airport">공항버스</span>
+                      <span class="txt-md fw-semibold">6300</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">미사강병18단지강일리버10단지
+                          <span class="no-wrap">↔ 인천공항</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">인천공항항, 잠실역, 방이역, 올림픽선수촌
+                          아파트</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 2. 올림픽공원테니스장 -->
+        <div class="table-box" data-table-type="type2">
+          <!-- pc -->
+          <div class="custom-table pc-tablet-only">
+            <table>
+              <caption class="visually-hidden">올림픽공원테니스장 출입구 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 15%;min-width:120px;">
+                <col style="width: 10%;min-width:120px;">
+                <col style="width: 30%;">
+                <col style="width: 45%;">
+              </colgroup>
+              <thead>
+              <tr>
+                <th><div class="th-wrap">공원출입구</div></th>
+                <th><div class="th-wrap">버스번호</div></th>
+                <th><div class="th-wrap">종점</div></th>
+                <th><div class="th-wrap">경유지</div></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td rowspan="2">
+                  <div class="td-wrap">
+                    올림픽공원<br>
+                    테니스장
+                  </div>
+                </td>
+                <td><div class="td-wrap">3220</div></td>
+                <td><div class="td-wrap start text-left">오금동 <span class="no-wrap">↔ 청량리</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>방이역, 올림픽공원역, 건대앞, 장한평역, 청량리</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3319</div></td>
+                <td><div class="td-wrap start text-left">장지공영차고지 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>하남시청, 올림픽공원역, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- mobile -->
+          <div class="sub-title-wrap mo-only">
+            <h5 class="dot-text">올림픽공원 테니스장</h5>
+          </div>
+          <div class="custom-table card-ver mo-only">
+            <table>
+              <caption class="visually-hidden">올림픽공원 테니스장 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 100%;">
+              </colgroup>
+              <tbody>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3320</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">오금동 <span class="no-wrap">↔ 청량리</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">방이역, 올림픽공원역, 건대앞, 장한평역,
+                          청량리</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3319</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">장지공영차고지 <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">하남시청, 올림픽공원역, 몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 3. 올림픽공원 장미광장 -->
+        <div class="table-box" data-table-type="type3">
+          <!-- pc -->
+          <div class="custom-table pc-tablet-only">
+            <table>
+              <caption class="visually-hidden">올림픽공원 장미광장 출입구 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 15%;min-width:120px;">
+                <col style="width: 10%;min-width:120px;">
+                <col style="width: 30%;">
+                <col style="width: 45%;">
+              </colgroup>
+              <thead>
+              <tr>
+                <th><div class="th-wrap">공원출입구</div></th>
+                <th><div class="th-wrap">버스번호</div></th>
+                <th><div class="th-wrap">종점</div></th>
+                <th><div class="th-wrap">경유지</div></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td rowspan="5">
+                  <div class="td-wrap">
+                    올림픽공원<br>
+                    장미광장
+                  </div>
+                </td>
+                <td><div class="td-wrap">3412</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 강남역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>상일동역, 등촌역, 올림픽공원 남2문, 강남역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3413</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 수서경찰서</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>상일동역, 올림픽공원 남2문, 석촌역, 가락시장역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3323</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 잠실새내역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>강일역, 상일동역, 중앙보훈병원역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">30-5</div></td>
+                <td><div class="td-wrap start text-left">하남시버스환승공영차고지 · 검단산입구 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span>하남, 올림픽공원세계평화의문광장, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">35</div></td>
+                <td><div class="td-wrap start text-left">감일교차로 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span>감일교차로, 올림픽공원남2문, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- mobile -->
+          <div class="sub-title-wrap mo-only">
+            <h5 class="dot-text">올림픽공원 장미광장</h5>
+          </div>
+          <div class="custom-table card-ver mo-only">
+            <table>
+              <caption class="visually-hidden">올림픽공원 장미광장 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 100%;">
+              </colgroup>
+              <tbody>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3412</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 강남역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 둔촌동역, 올림픽공원 남2문,
+                          강남역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3413</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 수서경찰서</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 올림픽공원 남2문, 석촌역,
+                          가락시장역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3323</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 잠실새내역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">강일역, 상일동역, 중앙보훈병원역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">30-5</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">하남시버스환승공영차고지 · 검단산입구
+                          <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">하남, 올림픽공원세계평화의문광장,
+                          몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">35</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">감일교차로 <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">감일교차로, 올림픽공원남2문, 몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 4. 남2문 (한성백제박물관) -->
+        <div class="table-box" data-table-type="type4">
+          <!-- pc -->
+          <div class="custom-table pc-tablet-only">
+            <table>
+              <caption class="visually-hidden">남2문 (한성백제박물관) 출입구 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 15%;min-width:120px;">
+                <col style="width: 10%;min-width:120px;">
+                <col style="width: 30%;">
+                <col style="width: 45%;">
+              </colgroup>
+              <thead>
+              <tr>
+                <th><div class="th-wrap">공원출입구</div></th>
+                <th><div class="th-wrap">버스번호</div></th>
+                <th><div class="th-wrap">종점</div></th>
+                <th><div class="th-wrap">경유지</div></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td rowspan="6">
+                  <div class="td-wrap">
+                    남2문<br>
+                    밸로드롬 입구<br>
+                    (올림픽공원 남2문 한성백제박물관)
+                  </div>
+                </td>
+                <td><div class="td-wrap">3412</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 강남역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>상일동역, 둔촌동역, 올림픽공원 남2문, 강남역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3413</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 수서경찰서</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>상일동역, 올림픽공원 남2문, 석촌역, 가락시장역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3323</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 잠실새내역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>강일역, 상일동역, 중앙보훈병원역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">30</div></td>
+                <td><div class="td-wrap start text-left">상산곡동 · 공영차고지 <span class="no-wrap">↔ 남한산성입구</span> · 양지파출소</div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span>하남, 올림픽회관, 올림픽공원세계평화의문광장, 남한산성</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">30-5</div></td>
+                <td><div class="td-wrap start text-left">하남시버스환승공영차고지 · 검단산입구 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span>하남, 올림픽공원세계평화의문광장, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">35</div></td>
+                <td><div class="td-wrap start text-left">감일교차로 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span>감일교차로, 올림픽공원 남2문, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- mobile -->
+          <div class="sub-title-wrap mo-only">
+            <h5 class="dot-text">남2문 (한성백제박물관) </h5>
+          </div>
+          <div class="custom-table card-ver mo-only">
+            <table>
+              <caption class="visually-hidden">올림픽공원 장미광장 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 100%;">
+              </colgroup>
+              <tbody>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3412</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 강남역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 둔촌동역, 올림픽공원 남2문,
+                          강남역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3413</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 수서경찰서</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 올림픽공원 남2문, 석촌역,
+                          가락시장역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3323</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 잠실새내역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">강일역, 상일동역, 중앙보훈병원역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">30</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">상산곡동 · 공영차고지
+                          <span class="no-wrap">↔ 남한산성입구</span> · 양지파출소</dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">하남, 올림픽회관, 올림픽공원세계평화의문광장, 남한산성</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">30-5</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">하남시버스환승공영차고지 · 검단산입구
+                          <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">하남, 올림픽공원세계평화의문광장,
+                          몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">35</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">감일교차로 <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">감일교차로, 올림픽공원 남2문, 몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 5. 남4문 (몽촌토성역, 한성백제역) -->
+        <div class="table-box" data-table-type="type5">
+          <!-- pc -->
+          <div class="custom-table pc-tablet-only">
+            <table>
+              <caption class="visually-hidden">남4문 (몽촌토성역, 한성백제역) 출입구 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 15%;min-width:120px;">
+                <col style="width: 10%;min-width:120px;">
+                <col style="width: 30%;">
+                <col style="width: 45%;">
+              </colgroup>
+              <thead>
+              <tr>
+                <th><div class="th-wrap">공원출입구</div></th>
+                <th><div class="th-wrap">버스번호</div></th>
+                <th><div class="th-wrap">종점</div></th>
+                <th><div class="th-wrap">경유지</div></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td rowspan="7">
+                  <div class="td-wrap">
+                    남4문<br>
+                    (올림픽공원<br>
+                    평화의문광장)<br>
+                    지하철 8호선<br>
+                    몽촌토성역<br>
+                    지하철 9호선<br>
+                    한성백제역
+                  </div>
+                </td>
+                <td><div class="td-wrap">3412</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 강남역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>상일동역, 올림픽공원세계평화의문광장, 강남역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3413</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 수서경찰서</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>상일동역, 올림픽공원세계평화의문광장, 가락시장역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3323</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 잠실새내역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>강일역, 상일동역, 중앙보훈병원역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">30</div></td>
+                <td><div class="td-wrap start text-left">상산곡동 · 공영차고지 <span class="no-wrap">↔ 남한산성입구</span> · 양지파출소</div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span>하남, 올림픽회관, 올림픽공원세계평화의문광장, 남한산성</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">30-5</div></td>
+                <td><div class="td-wrap start text-left">하남시버스환승공영차고지 · 검단산입구 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span>하남, 올림픽공원세계평화의문광장, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">35</div></td>
+                <td><div class="td-wrap start text-left">감일교차로 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span>감일교차로, 올림픽공원 남2문, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">340</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>상일동역, 천호역, 올림픽공원세계평화의문광장, 강남역</span>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- mobile -->
+          <div class="sub-title-wrap mo-only">
+            <h5 class="dot-text">남4문(올림픽공원 평화의문광장<br>
+              지하철 8호선 몽촌토성역, 지하철 9호선 한성백제역)</h5>
+          </div>
+          <div class="custom-table card-ver mo-only">
+            <table>
+              <caption class="visually-hidden">남4문 (몽촌토성역, 한성백제역) 출입구 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 100%;">
+              </colgroup>
+              <tbody>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3412</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 강남역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 올림픽공원세계평화의문광장,
+                          강남역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3413</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 수서경찰서</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 올림픽공원 남2문, 석촌역,
+                          가락시장역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3323</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 잠실새내역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">강일역, 상일동역, 중앙보훈병원역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">30</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">상산곡동 · 공영차고지
+                          <span class="no-wrap">↔ 남한산성입구</span> · 양지파출소</dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">하남, 올림픽회관, 올림픽공원세계평화의문광장, 남한산성</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">30-5</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">하남시버스환승공영차고지 · 검단산입구
+                          <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">하남, 올림픽공원세계평화의문광장,
+                          몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">35</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">감일교차로 <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">감일교차로, 올림픽공원 남2문, 몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">340</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 천호역, 올림픽공원세계평화의문광장, 강남역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 6. 올림픽회관 -->
+        <div class="table-box" data-table-type="type6">
+          <!-- pc -->
+          <div class="custom-table pc-tablet-only">
+            <table>
+              <caption class="visually-hidden">남2문 (한성백제박물관) 출입구 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 15%;min-width:120px;">
+                <col style="width: 10%;min-width:120px;">
+                <col style="width: 30%;">
+                <col style="width: 45%;">
+              </colgroup>
+              <thead>
+              <tr>
+                <th><div class="th-wrap">공원출입구</div></th>
+                <th><div class="th-wrap">버스번호</div></th>
+                <th><div class="th-wrap">종점</div></th>
+                <th><div class="th-wrap">경유지</div></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td rowspan="12">
+                  <div class="td-wrap">
+                    올림픽회관
+                  </div>
+                </td>
+                <td><div class="td-wrap">3318</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 마천동</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>상일동역, 천호역, 올림학회관, 잠실역, 남한산성</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3319</div></td>
+                <td><div class="td-wrap start text-left">장지공영차고지 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>방이역, 올림픽회관, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">3411</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 한티역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>강일역, 암사역, 천호역, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">4318</div></td>
+                <td><div class="td-wrap start text-left">남태령역 <span class="no-wrap">↔ 천호역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>남태령역, 고속터미널, 청담역, 삼성역, 잠실새내역, 잠실역, 잠실나루역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">N31</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 국민대</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>상일동역, 고덕역, 암사역, 천호역, 몽촌토성역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">16</div></td>
+                <td><div class="td-wrap start text-left">상산곡동 · 공영차고지 <span class="no-wrap">↔ 일원본동주민센터</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span>하남, 천호역, 올림픽회관, 가락시장, 삼성서울병원</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">30</div></td>
+                <td><div class="td-wrap start text-left">상산곡동 · 공영차고지 <span class="no-wrap">↔ 남한산성입구</span> · 양지
+                  파출소</div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span>하남, 올림픽회관, 올림픽공원남4문, 남한산성</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">30-3</div></td>
+                <td><div class="td-wrap start text-left">상산곡동 · 공영차고지 <span class="no-wrap">↔ 잠실역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-gyeonggi">경기버스</span>
+                    <span>하남, 천호역, 올림픽회관, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">340</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 강남역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>상일동역, 천호역, 올림픽회관</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">341</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 우면동</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>하남, 천호역, 몽촌토성역, 역삼역, 올림픽회관</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">342</div></td>
+                <td><div class="td-wrap start text-left">강동공영차고지 <span class="no-wrap">↔ 압구정로데오역</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-seoul">서울버스</span>
+                    <span>상일동역, 천호역, 올림픽회관, 고속터미널</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bl"><div class="td-wrap">6200</div></td>
+                <td><div class="td-wrap start text-left">황산 <span class="no-wrap">↔ 인천공항</span></div></td>
+                <td>
+                  <div class="td-wrap gap-sm start al-start">
+                    <span class="badge rgl bg-airport">공항버스</span>
+                    <span>천호역, 강동구청역, 잠실역</span>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- mobile -->
+          <div class="sub-title-wrap mo-only">
+            <h5 class="dot-text">올림픽회관</h5>
+          </div>
+          <div class="custom-table card-ver mo-only">
+            <table>
+              <caption class="visually-hidden">올림픽회관 출입구 기준으로 오시는 길 표 내역입니다.</caption>
+              <colgroup>
+                <col style="width: 100%;">
+              </colgroup>
+              <tbody>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3318</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 마천동</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 천호역, 올림학회관, 잠실역,
+                          남한산성</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3319</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">장지공영차고지 <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">방이역, 올림픽회관, 몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">3411</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 한티역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">강일역, 암사역, 천호역, 몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">4318</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">남태령역 <span class="no-wrap">↔ 천호역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">남태령역, 고속터미널, 청담역, 삼성역,
+                          잠실새내역, 잠실역, 잠실나루역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">N31</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 국민대</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 고덕역, 암사역, 천호역,
+                          몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">35</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">감일교차로 <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">감일교차로, 올림픽공원 남2문, 몽촌토성역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">16</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">상산곡동 · 공영차고지 <span class="no-wrap">↔ 일원본동주민센터</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">하남, 천호역, 올림픽회관, 가락시장,
+                          삼성서울병원</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">30</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">상산곡동 · 공영차고지
+                          <span class="no-wrap">↔ 남한산성입구</span> · 양지파출소</dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">하남, 올림픽회관, 올림픽공원남4문,
+                          남한산성</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-gyeonggi">경기버스</span>
+                      <span class="txt-md fw-semibold">30-3</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">상산곡동 · 공영차고지 <span class="no-wrap">↔ 잠실역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">하남, 천호역, 올림픽회관, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">340</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 강남역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 천호역, 올림픽회관</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">341</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 우면동</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">하남, 천호역, 몽촌토성역, 역삼역, 올림픽회관</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-seoul">서울버스</span>
+                      <span class="txt-md fw-semibold">342</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">강동공영차고지 <span class="no-wrap">↔ 압구정로데오역</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">상일동역, 천호역, 올림픽회관, 고속터미널</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-wrap column al-start">
+                    <div class="flex-wrap gap8 mb-16">
+                      <span class="badge bg-airport">공항버스</span>
+                      <span class="txt-md fw-semibold">6200</span>
+                    </div>
+                    <dl class="info-list">
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">종점</dt>
+                        <dd class="txt-sm fw-medium text-left">황산 <span class="no-wrap">↔ 인천공항</span></dd>
+                      </div>
+                      <div class="info-box">
+                        <dt class="txt-sm fw-medium c-gray4 text-left">경유지</dt>
+                        <dd class="txt-sm fw-medium text-left">천호역, 강동구청역, 잠실역</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- 푸터 -->
+<footer>
+  <div class="content-wrap">
+    <div class="flex-wrap al-start gap4 between mo-col wrap">
+      <ul class="footer-terms-list">
+        <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10701000000" target="_blank" class="txt-sm fw-bold c-blue">개인정보처리방침</a></li>
+        <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10703000000" target="_blank" class="txt-sm fw-medium c-gray">이용약관</a></li>
+      </ul>
+      <div class="footer-select-wrap flex-wrap al-center gap8 w-auto">
+        <!-- 패밀리 사이트 : select 참조 변수명 = familySite -->
+        <div class="custom-select" data-options="familySite" data-select="footer">
+          <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-text"></span>
+          </button>
+          <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+        </div>
+        <!-- 관련사이트 : select 참조 변수명 = relatedSite -->
+        <div class="custom-select" data-options="relatedSite" data-select="footer">
+          <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-text"></span>
+          </button>
+          <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-bottom flex-wrap al-end between mo-col mo-al-start">
+      <ul class="footer-info-list">
+        <li class="txt-sm fw-regular c-gray">사업자등록번호 : 215-81-12034</li>
+        <li class="txt-sm fw-regular c-gray">(05540) 서울특별시 송파구 올림픽로 424(방이동) 올림픽역도경기장 내</li>
+        <li class="copyright">COPYRIGHT 2025 © KSPO&CO ALL RIGHTS RESERVED.</li>
+      </ul>
+      <!-- 임시 안보임 처리 -->
+      <!--
+      <div class="certification-wrap">
+        <div class="img-box">
+          <img src="../../resources/images/certification/certification_privacy_protection_certified_site.svg" alt="개인정보우수사이트 인증" />
+        </div>
+      </div>
+      -->
+    </div>
+
+  </div>
+</footer>
+<script>
+    const select = document.getElementById('location_select');
+    const tables = document.querySelectorAll('.table-box');
+
+    function updateTable(type) {
+        tables.forEach(function (table) {
+            const isMatch = table.dataset.tableType === type;
+            table.style.display = isMatch ? 'block' : 'none';
+        });
+    }
+    /* 실행문 */
+    document.addEventListener('DOMContentLoaded', function () {
+
+
+        updateTable(select.value);
+
+        select.addEventListener('change', function () {
+            updateTable(this.value);
+        });
+    });
+</script>
+</body>
+</html>

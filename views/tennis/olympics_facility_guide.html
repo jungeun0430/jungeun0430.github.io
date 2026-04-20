@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang=ko>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.css">
+  <link rel="stylesheet" href="../../resources/lib/swiper/swiper.css">
+  <link rel="stylesheet" href="../../resources/css/views/tennis/olympics_facility_guide_tennis.css">
+
+  <!-- lib -->
+  <script src="../../resources/lib/jquery-3.6.1/jquery-3.6.1.js"></script>
+  <script src="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.js"></script>
+  <script src="../../resources/lib/swiper/swiper.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js'></script>
+
+  <!-- js -->
+  <!-- 헤더 함수 -->
+  <script src="../../resources/js/header.js"></script>
+  <script src="../../resources/js/footer.js"></script>
+  <!-- 글자크기 변환 -->
+  <script src="../../resources/js/text_size.js"></script>
+  <!-- 커스텀 셀렉트 함수  -->
+  <script src="../../resources/js/custom_select.js"></script>
+  <!-- 탭 함수 -->
+  <script src="../../resources/js/tab.js"></script>
+  <title>올팍축구장_시설이용안내</title>
+</head>
+<body data-text-size="normal">
+<!-- [웹 접근성] : 본문 바로가기 -->
+<a href="#main" id="skip-nav">본문 바로가기</a>
+<!-- 헤더 -->
+<header>
+    <!-- [사이드바] dim 처리 영역 -->
+    <div id="dim-overlay" class="dim" onclick="closeSidebar();"></div>
+
+    <div class="content-wrap" id="main-content">
+        <div class="header-left">
+            <!-- 로고 -->
+            <div class="header-logo-wrap">
+                <h1 class="header-logo">
+                    <a href="#" class="img">
+                        <img src="../../resources/images/logo/kspo_logo_tennis.svg" alt="한국체육산업개발주식회사 올림픽테니스장">
+                    </a>
+                </h1>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn rounded header-pc-only">KSPO&CO 바로가기</a><!-- [20260415] 수정 -->
+            </div>
+
+            <!-- 메뉴 -->
+            <nav class="sidebar" aria-label="메뉴">
+                <!-- PC / Tablet GNB -->
+                <ul class="header-pc-tablet-flex-only"><!-- [20260415] 수정 -->
+                    <li><a href="#">예약신청</a></li>
+                    <li><a href="#">신청방법안내</a></li>
+                    <li><a href="#">시설이용안내</a></li>
+                    <li><a href="#">오시는길</a></li>
+                </ul>
+
+                <!-- Mobile Sidebar -->
+                <div class="header-mo-flex-only"><!-- [20260415] 수정 -->
+                    <div class="sidebar-title-wrap">
+                        <a href="#" target="_blank" rel="noopener noreferrer">KSPO&CO 바로가기</a>
+                        <button type="button" class="close-btn" onclick="closeSidebar();">
+                            <span class="visually-hidden">닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="sidebar-menu-wrap">
+                        <div class="sidebar-intro">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요!</p>
+                            <!-- <a href="#" class="ico-txt-btn txt-ver login"><span class="txt">로그인</span></a> -->
+                            <a href="#" class="ico-txt-btn txt-ver logout"><span class="txt">로그아웃</span></a>
+                        </div>
+
+                        <ul class="sidebar-list header-mo-only"><!-- [20260415] 수정 -->
+                            <li><a href="#">예약신청</a></li>
+                            <li><a href="#">신청방법안내</a></li>
+                            <li><a href="#">시설이용안내</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+
+                        <ul class="sidebar-list ico-ver header-mo-only">
+                            <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                            <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                            <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                            <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- PC / Tablet 우측 버튼 -->
+        <div class="btn-wrap header-pc-tablet-flex-only">
+            <!-- <a href="#" class="ico-user"><span>로그인</span></a> -->
+            <a href="#" class="ico-logout"><span>로그아웃</span></a>
+            <a href="#" class="ico-bag"><span>장바구니</span></a>
+            <a href="#" class="ico-pay"><span>신청내역</span></a>
+            <button type="button" class="ico-hamburger top-btn" onclick="openMenu()">
+                <span>메뉴</span>
+            </button>
+
+            <!-- 전체 메뉴 팝업 -->
+            <div class="header-popup">
+                <div class="header-popup-inner">
+                    <div class="h-pop-head">
+                        <p>전체 메뉴</p>
+                        <button type="button" class="close-btn" onclick="closeMenu()">
+                            <span>닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="h-pop-body">
+                        <div class="h-pop-user">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요</p>
+                            <a href="#" class="under-line c-gray txt-xs">로그아웃</a>
+                        </div>
+
+                        <div class="h-pop-menu">
+                            <ul class="sidebar-list">
+                                <li><a href="#">예약신청</a></li>
+                                <li><a href="#">신청방법안내</a></li>
+                                <li><a href="#">시설이용안내</a></li>
+                                <li><a href="#">오시는길</a></li>
+                            </ul>
+
+                            <ul class="sidebar-list ico-ver">
+                                <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                                <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                                <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                                <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile 우측 버튼 -->
+        <div class="btn-wrap sm header-mo-flex-only">
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="장바구니 페이지 이동">
+                <img src="../../../resources/images/ico/ico_bag.svg" alt="">
+            </a>
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="결제 페이지 이동">
+                <img src="../../../resources/images/ico/ico_paper.svg" alt="">
+            </a>
+            <button type="button" class="ico-btn size-sm ico-hamburger" onclick="openSideBar()">
+                <span class="visually-hidden">메뉴 열기</span>
+            </button>
+        </div>
+    </div>
+</header>
+<!-- [공통] 글자 텍스트 아이콘 -->
+<div class="fixed-btn-wrap">
+  <button type="button" class="txt-size-btn sm" onclick="changeTextSize('small')">
+    <span class="visually-hidden">글씨 작게</span>
+  </button>
+  <button type="button" class="txt-size-btn rg" onclick="changeTextSize('normal')">
+    <span class="visually-hidden">글씨 보통</span>
+  </button>
+  <button type="button" class="txt-size-btn lg" onclick="changeTextSize('large')">
+    <span class="visually-hidden">글씨 크게</span>
+  </button>
+</div>
+<main id="main">
+  <!--  -->
+  <div class="inner-wrap sub-ver no-pd">
+    <!-- 브레드크럼브(경로) -->
+    <div class="flex-wrap end breadcrumb-wrap">
+      <ul class="breadcrumb">
+        <li class="home">메인 화면</li>
+        <li>올림픽테니스장</li>
+        <li class="active">시설이용안내</li>
+      </ul>
+    </div>
+    <!-- 페이지 제목 -->
+    <div class="title-wrap sub-ver lg">
+      <h2>시설이용안내</h2>
+    </div>
+    <!-- 탭 -->
+    <div class="tab-wrap" data-tab="fraternal">
+      <ul class="first-depth">
+        <!-- 1. 올팍축구장 시설현황 -->
+        <li class="active">
+          <button type="button" class="tab"><span>올팍축구장 시설현황</span></button>
+          <div class="tab-box pd-ver">
+            <div class="sub-content-wrap no-pd">
+              <div class="sub-title-wrap">
+                <h2>올팍축구장 전경</h2>
+              </div>
+              <div class="gray-img-box">
+                <img src="../../resources/images/views/soccer/soccer_facility1.png" alt="올팍축구장 전경 이미지">
+              </div>
+              <div class="sub-content-box">
+                <dl class="dash-dl column">
+                  <dt>시설현황</dt>
+                  <dd>
+                    <div class="gray-img-box">
+                      <img src="../../resources/images/views/soccer/soccer_facility2.png" alt="올팍축구장 시설현황 이미지">
+                      <div class="visually-hidden">
+                        <p>시설현황에 관한 이미지 입니다.</p>
+                        <ul>
+                          <li>축구장이 1구장/2구장/3구장/4구장 총 네 가지로 구성되어 있습니다.</li>
+                          <li>축구장의 한 구장당 너비는 가로 20m 세로 40m로 구성되어 있습니다.</li>
+                          <li>좌측에 출입문이 있으며, 출입문 안에 회원 휴게실이 있습니다.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </dd>
+                </dl>
+                <dl class="dash-dl">
+                  <dt>시설개요</dt>
+                  <dd>
+                    <ul>
+                      <li>- 규모 : 지하1층, 지상 2층, 옥외</li>
+                      <li>- 건축면적 : 7,755㎡</li>
+                      <li>- 연면적 : 14,323㎡</li>
+                      <li>- 수용인원 : 6,000명</li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="dash-dl">
+                  <dt>시설특징</dt>
+                  <dd>
+                    <ul>
+                      <li>- 사이클 트랙 설치 : 길이 333.3m, 폭 : 7m, 경사로 : 7∼38˚</li>
+                      <li>- 넓은 옥외 면적</li>
+                      <li>- 올림픽공원 출입문(남2문) 인접 및 대형주차장 완비</li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="dash-dl">
+                  <dt>부대시설</dt>
+                  <dd>
+                    <ul>
+                      <li>- 행사용 사무실 1개소</li>
+                      <li>- VIP 1개소</li>
+                    </ul>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+
+
+            <!-- 시설 현황 -->
+            <div class="sub-content-wrap">
+              <div class="sub-title-wrap">
+                <h3>시설현황</h3>
+              </div>
+              <div class="sub-content-box">
+                <!-- pc -->
+                <div class="custom-table pc-tablet-only">
+                  <table>
+                    <caption class="visually-hidden">시설현황에 관한 표 입니다.</caption>
+                    <colgroup>
+                      <col style="width:16%;">
+                      <col style="width:16%;">
+                      <col style="width:18%;">
+                      <col style="width:18%;">
+                      <col style="width:16%;">
+                      <col style="width:16%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                      <th><div class="th-wrap">명칭</div></th>
+                      <th><div class="th-wrap">장소</div></th>
+                      <th><div class="th-wrap">사용 구분</div></th>
+                      <th><div class="th-wrap">구장크기</div></th>
+                      <th><div class="th-wrap">부대시설</div></th>
+                      <th><div class="th-wrap">비고</div></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <th><div class="th-wrap">올팍 축구장<br>(인조잔디)</div></th>
+                      <td><div class="td-wrap">(경륜장) 벨로드롬 <br>(실외)</div></td>
+                      <td><div class="td-wrap">공연 및 행사, 축구경기,<br>
+                        유소년 축구 교실</div></td>
+                      <td><div class="td-wrap">
+                        80 * 40m (1면)<br>
+                        40 * 20m (4면)
+                      </div></td>
+                      <td><div class="td-wrap">회원 휴게실</div></td>
+                      <td><div class="td-wrap">성인, 초등, 중등,<br>
+                        유치원생</div></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- mo -->
+                <div class="custom-table sm ver-border mo-only">
+                  <table>
+                    <caption class="visually-hidden">시설현황에 관한 표 입니다.</caption>
+                    <colgroup>
+                      <col style="width:92px;">
+                      <col style="width:calc(100% - 92px);">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                      <th><div class="=th-wrap">명칭</div></th>
+                      <th><div class="=th-wrap">올팍 축구장<br>(인조잔디)</div></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <th><div class="th-wrap">장소</div></th>
+                      <td><div class="td-wrap">(경륜장) 벨로드롬<br>
+                        (실외)</div></td>
+                    </tr>
+                    <tr>
+                      <th><div class="th-wrap">사용 구분</div></th>
+                      <td>
+                        <div class="td-wrap">
+                          공연 및 행사, 축구경기,<br>
+                          유소년 축구 교실
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th><div class="th-wrap">구장 크기</div></th>
+                      <td>
+                        <div class="td-wrap">
+                          80 * 40m (1면)<br>
+                          40 * 20m (4면)
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th><div class="th-wrap">부대시설</div></th>
+                      <td>
+                        <div class="td-wrap">
+                          회원 휴게실
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th><div class="th-wrap">비고</div></th>
+                      <td>
+                        <div class="td-wrap">
+                          성인, 초등, 중등,
+                          유치원생
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 시설대여안내 -->
+            <div class="sub-content-wrap">
+              <div class="sub-title-wrap">
+                <h4>시설대여안내</h4>
+              </div>
+              <div class="sub-content-box">
+                <!-- pc -->
+                <div class="custom-table pc-tablet-only">
+                  <table>
+                    <caption class="visually-hidden">시설대여안내에 관한 표 입니다.</caption>
+                    <colgroup>
+                      <col style="width:25%;">
+                      <col style="width:25%;">
+                      <col style="width:25%;">
+                      <col style="width:25%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                      <th><div class="th-wrap">구분</div></th>
+                      <th><div class="th-wrap">내용</div></th>
+                      <th><div class="th-wrap">요금</div></th>
+                      <th><div class="th-wrap">비고</div></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <th rowspan="2"><div class="th-wrap">벨로드롭</div></th>
+                      <td><div class="td-wrap">전체대관(80*40m/ 1면)</div></td>
+                      <td><div class="td-wrap">165,000원 / 2시간</div></td>
+                      <td rowspan="2"><div class="td-wrap column center">
+                        이용시간<br>
+                        <span><span style="margin-right:12px">평</span>일 : 09:00 ~ 13:00</span>
+                        <span>일요일 : 09:00 ~ 17:00</span>
+                        <span>부가세(VAT) 포함</span>
+                      </div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="td-wrap">풋살대관(40*20m/ 4면)</div></td>
+                      <td><div class="td-wrap">100,000원 / 2시간</div></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- mo -->
+                <div class="custom-table sm ver-border mo-only">
+                  <table>
+                    <caption class="visually-hidden">시설대여안내에 관한 표 입니다.</caption>
+                    <colgroup>
+                      <col style="width:92px;">
+                      <col style="width:calc((100% - 92px) / 2);">
+                      <col style="width:calc((100% - 92px) / 2);">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                      <th><div class="=th-wrap">구분</div></th>
+                      <th colspan="2"><div class="=th-wrap">벨로드롭</div></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <th><div class="th-wrap">내용</div></th>
+                      <td><div class="td-wrap">전체대관<br>(80*40m/ 1면)</div></td>
+                      <td><div class="td-wrap">풋살대관<br>(40*20m/ 4면)</div></td>
+                    </tr>
+                    <tr>
+                      <th><div class="th-wrap">요금</div></th>
+                      <td><div class="td-wrap">165,000원/ <br>2시간</div></td>
+                      <td><div class="td-wrap">100,000원/<br>2시간</div></td>
+                    </tr>
+                    <tr>
+                      <th><div class="th-wrap">비고</div></th>
+                      <td colspan="2"><div class="td-wrap column center">
+                        이용시간<br>
+                        <span><span style="margin-right:12px">평</span>일 : 09:00 ~ 13:00</span>
+                        <span>일요일 : 09:00 ~ 17:00</span>
+                        <span>부가세(VAT) 포함</span>
+                      </div></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- 2. 사용 준수 사항 -->
+        <li>
+          <button type="button" class="tab"><span>사용 준수 사항</span></button>
+          <div class="tab-box pd-ver">
+            <!-- 안내박스 -->
+            <div class="gray-comment-box">
+              <p>
+                올림픽축구장 시설대여의 <span class="c-blue">사용 준수 사항</span>을 알려드립니다.
+              </p>
+            </div>
+            <div class="sub-content-wrap no-pd">
+              <div class="sub-content-box">
+                <dl class="dash-dl">
+                  <dt class="size-lg">사용 준수 사항</dt>
+                  <dd>
+                    <ol class="num-list mo-no-pd">
+                      <li>사용자는 사전 고지된 시설이용 준수사항 및 규정을 이행할 것을 확약하고 예약함으로 분쟁시 임대규정을 기준으로 한다.</li>
+                      <li>시설대여 중 축구장내에서 발생한 모든 법적인 문제(분실,상해등)는 본인의 귀책사유로써 본인 또는 신청시(단체)가 해결합니다.</li>
+                      <li>시설대여 규정을 준수하지 않은 개인 또는 단체는 임대인(직원)의 강제퇴장 명령에 응해야 하며 불 이행시 불이익이 발생될 수 있고 다른 예약건도 강제취소가 될 수 있습니다.</li>
+                      <li>사용 중 올팍축구장 시설물과 인명피해를 끼친 임차인(단체)은 물적/인적 피해액에 대한 배상을 모두 해야 합니다.</li>
+                      <li>입장시간은 예약시간 10분전에 가능하며, 종료 후 다음 사용자를 위해 주변정리 후 신속히 퇴장합니다.</li>
+                      <li>입장객은 모두(관중포함) 축구경기 대관 최대 35명, 풋살경기 대관 최대 20명까지만 입장할 수 있고 초과인원은 퇴장하셔야 합니다.</li>
+                      <li>축구장내에서의 흡연,음주가무,취사행위,노상방뇨,고성방가등 공원이용객의 기본교양에 어긋난 문란행위를 하지 않습니다.</li>
+                      <li>축구장내에 반려동물과 원동기 장치(드론,오토바이) 및 킥보드(전동포함)등은 반입을 금합니다.</li>
+                      <li>응급사고 발생시 119 및 공원청경에 신고하고 축구장 입구 회원안내실에 비치된 자동심장충격기(AED)로 응급조치 합니다.</li>
+                      <li>1다음의 경우 안전을 위해 축구장 이용을 제한합니다.
+                        <ul>
+                          <li>- 음주 후 또는 향정신성 약물을 투여했다고 판단되는 사람</li>
+                          <li>- 심장,또는 순환기 계통의 질병,정신질환자, 노약자, 임산부 등</li>
+                        </ul>
+                      </li>
+                      <li>올팍축구장에서 축구경기외 타종목 사용과 개인 및 단체의 축구강습/레슨을 금합니다.</li>
+                      <li>축구장내 참석자 모두는 스터드(징)가 있는 축구화 사용을 할 수 없습니다.</li>
+                      <li>올팍축구장 대여를 타인에게 이관 및 매매할 수 없고, 임대인(직원)의 신분증 대조와 당일 입장객 명단제출에 협조합니다.</li>
+                      <li>입장객의 주차비는 유료이며, 축구장 주변 출입제한 시 P1등 대형주차장을 이용합니다.</li>
+                      <li>축구장내 음향 사용은 불가 합니다.</li>
+                      <li>축구장내 출입제한 지역 이용 및 출입에 협조 합니다.</li>
+                    </ol>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="tab"><span>환불규정안내</span></button>
+          <div class="tab-box pd-ver">
+            <!-- 안내박스 -->
+            <div class="gray-comment-box">
+              <p>
+                예약 전 이용안내를 확인하시고 <span class="c-blue">결제 1일 경과 후 환불시 위약금 10% 공제</span>됩니다.
+              </p>
+            </div>
+            <div class="sub-content-wrap no-pd">
+              <div class="sub-content-box">
+                <dl class="dash-dl">
+                  <dt class="size-lg">가. 신청방법</dt>
+                  <dd>
+                    <ol class="num-list mo-no-pd">
+                      <li>환불은 예약 당시의 본인이 예약된 사용예정 시간의 24시간 전까지 해당 사이트(페이지화면)에서 신청.</li>
+                      <li>환불 : 환불요청 -> 관리자 승인 -> 기존 결제금액 취소 -> 위약금 결제.</li>
+                    </ol>
+                  </dd>
+                </dl>
+                <dl class="dash-dl">
+                  <dt class="size-lg">나. 전액활불</dt>
+                  <dd>
+                    <ol class="num-list mo-no-pd">
+                      <li>예약신청 당일 취소 시</li>
+                      <li>임대인(회사) 측의 실수나 문제로 사용을 못하거나 중단 되었을 때</li>
+                      <li>국가,시/기관의 일정이 대여일과 겹쳐 대여보다 우선하여 취소될 때</li>
+                    </ol>
+                  </dd>
+                </dl>
+                <dl class="dash-dl">
+                  <dt class="size-lg">다. 날짜변경/환불<br>
+                    불가(환불금 미지급)</dt>
+                  <dd>
+                    <ol class="num-list mo-no-pd">
+                      <li>사용자(단체)의 올팍축구장(올림픽공원) 규정 및 준수사항 위반 및 임대인(직원)의 요청등에 응하지 않아 강제퇴장 명령이 발생한 경우</li>
+                      <li>사용 중 임대인(회사)의 문제가 아닌 단순변심, 기상변화등</li>
+                      <li>사용시간중이나 경과 후 또는 환불/변경 요청 시간을 초과하여 신청 시</li>
+                    </ol>
+                  </dd>
+                </dl>
+                <dl class="dash-dl">
+                  <dt class="size-lg">라. 위약금 10%공제</dt>
+                  <dd>
+                    <ol class="num-list mo-no-pd">
+                      <li>결제 1일 경과 후 환불시</li>
+                      <li>사용예정일에 임대인(회사)의 문제가 아닌 이용자 사정이나 기상악화 취소 시</li>
+                    </ol>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+</main>
+<!-- 푸터 -->
+<footer>
+  <div class="content-wrap">
+    <div class="flex-wrap al-start gap4 between mo-col wrap">
+      <ul class="footer-terms-list">
+        <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10701000000" target="_blank" class="txt-sm fw-bold c-blue">개인정보처리방침</a></li>
+        <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10703000000" target="_blank" class="txt-sm fw-medium c-gray">이용약관</a></li>
+      </ul>
+      <div class="footer-select-wrap flex-wrap al-center gap8 w-auto">
+        <!-- 패밀리 사이트 : select 참조 변수명 = familySite -->
+        <div class="custom-select" data-options="familySite" data-select="footer">
+          <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-text"></span>
+          </button>
+          <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+        </div>
+        <!-- 관련사이트 : select 참조 변수명 = relatedSite -->
+        <div class="custom-select" data-options="relatedSite" data-select="footer">
+          <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-text"></span>
+          </button>
+          <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-bottom flex-wrap al-end between mo-col mo-al-start">
+      <ul class="footer-info-list">
+        <li class="txt-sm fw-regular c-gray">사업자등록번호 : 215-81-12034</li>
+        <li class="txt-sm fw-regular c-gray">(05540) 서울특별시 송파구 올림픽로 424(방이동) 올림픽역도경기장 내</li>
+        <li class="copyright">COPYRIGHT 2025 © KSPO&CO ALL RIGHTS RESERVED.</li>
+      </ul>
+      <!-- 임시 안보임 처리 -->
+      <!--
+      <div class="certification-wrap">
+        <div class="img-box">
+          <img src="../../resources/images/certification/certification_privacy_protection_certified_site.svg" alt="개인정보우수사이트 인증" />
+        </div>
+      </div>
+      -->
+    </div>
+
+  </div>
+</footer>
+<script>
+  $(function () {
+      /* 탭 실행 */
+      new TabManager();
+
+      /* 스파이 스크롤 실행문 */
+      const scrollOffset = 120;
+
+      function getActiveTabBox() {
+          return $('.tab-wrap .first-depth > li.active > .tab-box');
+      }
+
+      function updateSpyActive() {
+          const $activeTabBox = getActiveTabBox();
+          if (!$activeTabBox.length || !$activeTabBox.is(':visible')) return;
+
+          const $spyButtons = $activeTabBox.find('.spy-scroll-wrap .spy-item');
+          const $spySections = $activeTabBox.find('.us-list > li[data-spy-place]');
+          const currentTop = $(window).scrollTop() + scrollOffset + 20;
+
+          let currentSpy = '';
+
+          $spySections.each(function () {
+              const $section = $(this);
+
+              if (currentTop >= $section.offset().top) {
+                  currentSpy = $section.data('spy-place');
+              }
+          });
+
+          $spyButtons.removeClass('active');
+
+          if (currentSpy) {
+              $spyButtons.filter('[data-spy="' + currentSpy + '"]').addClass('active');
+          } else {
+              $spyButtons.first().addClass('active');
+          }
+      }
+
+      // spy 버튼 클릭
+      $(document).on('click', '.spy-scroll-wrap .spy-item', function () {
+          const $btn = $(this);
+          const targetSpy = $btn.data('spy');
+          const $tabBox = $btn.closest('.tab-box');
+          const $target = $tabBox.find('.us-list > li[data-spy-place="' + targetSpy + '"]');
+
+          if (!$target.length) return;
+
+          $tabBox.find('.spy-scroll-wrap .spy-item').removeClass('active');
+          $btn.addClass('active');
+
+          $('html, body').stop().animate({
+              scrollTop: $target.offset().top - scrollOffset
+          }, 300);
+      });
+
+      // 스크롤 시 active 갱신
+      $(window).on('scroll load', updateSpyActive);
+
+      // 탭 클릭 후 active 탭이 바뀐 다음 spy 다시 계산
+      $(document).on('click', '.tab-wrap .first-depth > li > .tab', function () {
+          setTimeout(function () {
+              updateSpyActive();
+          }, 0);
+      });
+
+      updateSpyActive();
+  });
+</script>
+</body>
+</html>

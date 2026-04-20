@@ -1,0 +1,17 @@
+@charset "UTF-8";
+@import "../../variable.css";
+@import "../../font.css";
+@import "../../reset.css";
+@import "../../layout.css";
+@import "../../common.css";
+@import "../../table.css";
+@import "../../tab.css";
+@import "../../responsive.css";
+/*-------------------------------------------------------------------*/
+/* 간격 */
+.gray-img-box + .sub-content-box {margin-top:24px;}
+.gray-comment-box + .sub-content-wrap {margin-top:40px;}
+@media (max-width:767px) {
+    .gray-img-box + .sub-content-box {margin-top:20px;}
+    .gray-comment-box + .sub-content-wrap {margin-top:20px;}
+}

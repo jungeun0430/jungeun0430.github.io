@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/* 고정 결제 */
+.mo-fixed-bottom-wrap {display:flex;align-items:center;justify-content:center;flex-direction:column;}
+.mo-fixed-btn-wrap {display:flex;align-items:center;gap:12px;margin-top:40px;}
+.mo-fixed-bottom-wrap > .total-wrap {display:flex;align-items:center;justify-content:center;width:100%;padding:14px;border:1px solid var(--border-color);}
+.mo-fixed-bottom-wrap.no-bt > .total-wrap{border-top:0;width:100%;}
+.total-preset {font-size:var(--txt-size04);font-weight:var(--fw-medium);color:var(--color-black);}
+.total-preset.fw-medium {font-weight:var(--fw-medium);}
+.total-text {font-size:var(--txt-size05);color:var(--color-red);font-weight:var(--fw-bold);}
+.total-preset-sm {font-size:var(--txt-size02);font-weight:var(--fw-medium);color:var(--color-black);}
+
+@media (max-width:767px) {
+    .mo-fixed-bottom-wrap {position:fixed;bottom:0;left:0;width:100%;background-color:var(--color-white);z-index:100;}
+    .mo-fixed-bottom-wrap > .total-wrap {justify-content:space-between;}
+    .mo-fixed-bottom-wrap > .total-wrap > .sum-wrap {width: 100%;justify-content:space-between;}
+    .mo-fixed-bottom-wrap > .total-wrap > .sum-wrap > .flex-wrap {gap:4px;}
+    .mo-fixed-bottom-wrap.no-bt > .total-wrap {border-top:1px solid var(--border-color);}
+    .total-preset {font-weight:var(--fw-semi-bold);font-size:var(--txt-size03);}
+    .total-text {font-size:var(--txt-size03);}
+    .mo-fixed-btn-wrap {padding:20px 12px;width:100%;margin-top:0;}
+    .mo-fixed-btn-wrap > .btn.size-nm {min-width:0;flex:1;}
+}

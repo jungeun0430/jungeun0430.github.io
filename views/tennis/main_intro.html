@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang=ko>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.css">
+    <link rel="stylesheet" href="../../resources/lib/swiper/swiper.css">
+    <link rel="stylesheet" href="../../resources/css/views/tennis/main_intro.css">
+
+    <!-- lib -->
+    <script src="../../resources/lib/jquery-3.6.1/jquery-3.6.1.js"></script>
+    <script src="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.js"></script>
+    <script src="../../resources/lib/swiper/swiper.js"></script>
+    <!-- js -->
+    <!-- 헤더 함수 -->
+    <script src="../../resources/js/header.js"></script>
+    <!-- 글자크기 변환 -->
+    <script src="../../resources/js/text_size.js"></script>
+    <!-- 커스텀 셀렉트 함수  -->
+    <script src="../../resources/js/custom_select.js"></script>
+    <title>메인 페이지</title>
+</head>
+<body data-text-size="normal">
+<!-- [웹 접근성] : 본문 바로가기 -->
+<a href="#main" id="skip-nav">본문 바로가기</a>
+<!-- 헤더 -->
+<header>
+    <!-- [사이드바] dim 처리 영역 -->
+    <div id="dim-overlay" class="dim" onclick="closeSidebar();"></div>
+
+    <div class="content-wrap" id="main-content">
+        <div class="header-left">
+            <!-- 로고 -->
+            <div class="header-logo-wrap">
+                <h1 class="header-logo">
+                    <a href="#" class="img">
+                        <img src="../../resources/images/logo/kspo_logo_tennis.svg" alt="한국체육산업개발주식회사 올림픽테니스장">
+                    </a>
+                </h1>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn rounded header-pc-only">KSPO&CO 바로가기</a><!-- [20260415] 수정 -->
+            </div>
+
+            <!-- 메뉴 -->
+            <nav class="sidebar" aria-label="메뉴">
+                <!-- PC / Tablet GNB -->
+                <ul class="header-pc-tablet-flex-only"><!-- [20260415] 수정 -->
+                    <li><a href="#">예약신청</a></li>
+                    <li><a href="#">신청방법안내</a></li>
+                    <li><a href="#">시설이용안내</a></li>
+                    <li><a href="#">오시는길</a></li>
+                </ul>
+
+                <!-- Mobile Sidebar -->
+                <div class="header-mo-flex-only"><!-- [20260415] 수정 -->
+                    <div class="sidebar-title-wrap">
+                        <a href="#" target="_blank" rel="noopener noreferrer">KSPO&CO 바로가기</a>
+                        <button type="button" class="close-btn" onclick="closeSidebar();">
+                            <span class="visually-hidden">닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="sidebar-menu-wrap">
+                        <div class="sidebar-intro">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요!</p>
+                            <!-- <a href="#" class="ico-txt-btn txt-ver login"><span class="txt">로그인</span></a> -->
+                            <a href="#" class="ico-txt-btn txt-ver logout"><span class="txt">로그아웃</span></a>
+                        </div>
+
+                        <ul class="sidebar-list header-mo-only"><!-- [20260415] 수정 -->
+                            <li><a href="#">예약신청</a></li>
+                            <li><a href="#">신청방법안내</a></li>
+                            <li><a href="#">시설이용안내</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+
+                        <ul class="sidebar-list ico-ver header-mo-only">
+                            <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                            <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                            <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                            <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- PC / Tablet 우측 버튼 -->
+        <div class="btn-wrap header-pc-tablet-flex-only">
+            <!-- <a href="#" class="ico-user"><span>로그인</span></a> -->
+            <a href="#" class="ico-logout"><span>로그아웃</span></a>
+            <a href="#" class="ico-bag"><span>장바구니</span></a>
+            <a href="#" class="ico-pay"><span>신청내역</span></a>
+            <button type="button" class="ico-hamburger top-btn" onclick="openMenu()">
+                <span>메뉴</span>
+            </button>
+
+            <!-- 전체 메뉴 팝업 -->
+            <div class="header-popup">
+                <div class="header-popup-inner">
+                    <div class="h-pop-head">
+                        <p>전체 메뉴</p>
+                        <button type="button" class="close-btn" onclick="closeMenu()">
+                            <span>닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="h-pop-body">
+                        <div class="h-pop-user">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요</p>
+                            <a href="#" class="under-line c-gray txt-xs">로그아웃</a>
+                        </div>
+
+                        <div class="h-pop-menu">
+                            <ul class="sidebar-list">
+                                <li><a href="#">예약신청</a></li>
+                                <li><a href="#">신청방법안내</a></li>
+                                <li><a href="#">시설이용안내</a></li>
+                                <li><a href="#">오시는길</a></li>
+                            </ul>
+
+                            <ul class="sidebar-list ico-ver">
+                                <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                                <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                                <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                                <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile 우측 버튼 -->
+        <div class="btn-wrap sm header-mo-flex-only">
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="장바구니 페이지 이동">
+                <img src="../../../resources/images/ico/ico_bag.svg" alt="">
+            </a>
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="결제 페이지 이동">
+                <img src="../../../resources/images/ico/ico_paper.svg" alt="">
+            </a>
+            <button type="button" class="ico-btn size-sm ico-hamburger" onclick="openSideBar()">
+                <span class="visually-hidden">메뉴 열기</span>
+            </button>
+        </div>
+    </div>
+</header>
+<!-- [공통] 글자 텍스트 아이콘 -->
+<div class="fixed-btn-wrap">
+    <button type="button" class="txt-size-btn sm" onclick="changeTextSize('small')">
+        <span class="visually-hidden">글씨 작게</span>
+    </button>
+    <button type="button" class="txt-size-btn rg" onclick="changeTextSize('normal')">
+        <span class="visually-hidden">글씨 보통</span>
+    </button>
+    <button type="button" class="txt-size-btn lg" onclick="changeTextSize('large')">
+        <span class="visually-hidden">글씨 크게</span>
+    </button>
+</div>
+<!-- [공통] : 바로가기-->
+<div class="fixed-direct-link-wrap">
+    <ul>
+        <li class="lightgreen">
+            <a href="#" target="_blank">
+                축구장<br>
+                예약신청<br>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- 메인 -->
+<main id="main">
+    <section id="sec1" class="sec">
+        <div class="content-wrap">
+            <div class="flex-wrap dynamic-col">
+                <div class="flex-wrap col-ver first ">
+                    <div class="flex-wrap col-ver same-height">
+                        <div class="title-wrap">
+                            <p>올팍축구장</p>
+                            <h2>온라인 예약시스템</h2>
+                        </div>
+                        <div class="notice-wrap">
+                            <p class="txt-lg fw-bold">고객센터 [올림픽테니스장 02-2108-3778]</p>
+                            <ul class="notice-sub-list">
+                                <li><a href="#">- 본인 확인 절차 없이 이용 및 양도·양수, 불법매크로 사용시 이용제한</a></li>
+                                <li><a href="#">- 1회 위반시: 환불없이 즉시 퇴장 및 한달간 이용제한</a></li>
+                                <li><a href="#">- 2회 위반시: 영구 제한(온라인 예약시스템 포함)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="#" class="main-con-box blue type1" aria-label="수강신청 페이지 이동">
+                        <div class="title-wrap">
+                            <p>수강신청</p>
+                            <h3 class="txt-big">올림픽테니스장<br>예약신청</h3>
+                            <span class="link-btn"></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex-wrap col-ver switch-ver">
+                    <!-- 공지사항 -->
+                    <div class="flex-wrap top-flex same-height">
+                        <div class="main-con-box gray type6">
+                            <div class="flex-wrap between col-ver al-start gap-auto">
+                                <div class="title-wrap">
+                                    <h3>공지사항</h3>
+                                </div>
+                                <ul class="notice-sub-list">
+                                    <li><a href="#">- 테니스 대회 안내 (2026년 4월)</a></li>
+                                    <li><a href="#">- 기상악화 환불 신청 안내</a></li>
+                                    <li><a href="#">- 테니스 대회 안내 (2026년 3월 추가)</a></li>
+                                    <li><a href="#">- 센터코트 공사 안내 (2026년 3월부터)</a></li>
+                                </ul>
+                                <a href="olympics_notice.html" target="_blank" class="link-btn"  aria-label="스포츠 센터 홈페이지 이동"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-wrap bottom-flex">
+                        <a href="#" class="main-con-box orange type2" aria-label="신청방법안내">
+                            <div class="title-wrap">
+                                <h3>신청방법<br class="mo-inline-only">안내</h3>
+                                <p class="txt-sm pc-only">수강신청이 어려우신가요?<br>안내 페이지에서 자세하게 설명드립니다.</p>
+                                <span class="link-btn"></span>
+                            </div>
+                        </a>
+                        <a href="#" class="main-con-box skyblue type3" aria-label="시설 이용안내 페이지 이동">
+                            <div class="title-wrap">
+                                <h3>시설이용<br class="mo-inline-only">안내</h3>
+                                <span class="link-btn"></span>
+                            </div>
+                        </a>
+                        <a href="#" class="main-con-box purple type4" aria-label="오시는 길 페이지 이동">
+                            <div class="title-wrap">
+                                <h3>오시는길</h3>
+                                <span class="link-btn"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- 푸터 -->
+<footer>
+    <div class="content-wrap">
+        <div class="flex-wrap al-start gap4 between mo-col wrap">
+            <ul class="footer-terms-list">
+                <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10701000000" target="_blank" class="txt-sm fw-bold c-blue">개인정보처리방침</a></li>
+                <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10703000000" target="_blank" class="txt-sm fw-medium c-gray">이용약관</a></li>
+            </ul>
+            <div class="footer-select-wrap flex-wrap al-center gap8 w-auto">
+                <!-- 패밀리 사이트 : select 참조 변수명 = familySite -->
+                <div class="custom-select" data-options="familySite" data-select="footer">
+                    <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="selected-text"></span>
+                    </button>
+                    <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+                </div>
+                <!-- 관련사이트 : select 참조 변수명 = relatedSite -->
+                <div class="custom-select" data-options="relatedSite" data-select="footer">
+                    <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="selected-text"></span>
+                    </button>
+                    <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="f-bottom flex-wrap al-end between mo-col mo-al-start">
+            <ul class="fo oter-info-list">
+                <li class="txt-sm fw-regular c-gray">사업자등록번호 : 215-81-12034</li>
+                <li class="txt-sm fw-regular c-gray">(05540) 서울특별시 송파구 올림픽로 424(방이동) 올림픽역도경기장 내</li>
+                <li class="copyright">COPYRIGHT 2025 © KSPO&CO ALL RIGHTS RESERVED.</li>
+            </ul>
+            <!-- 임시 안보임 처리 -->
+            <!--
+            <div class="certification-wrap">
+              <div class="img-box">
+                <img src="../../resources/images/certification/certification_privacy_protection_certified_site.svg" alt="개인정보우수사이트 인증" />
+              </div>
+            </div>
+            -->
+        </div>
+
+    </div>
+</footer>
+<script>
+    /* [공통] Footer */
+    const footer1 = [
+        { value: '국민체육진흥공단',tag: 'a', href: 'http://www.kspo.or.kr/' },
+        { value: '문화체육관광부',tag: 'a', href: 'http://www.mcst.go.kr/main.jsp' },
+        { value: '경륜경정사업본부',tag: 'a', href: 'http://www.krace.or.kr/' },
+        { value: 'KCYCLE 경륜',tag: 'a', href: 'http://www.kcycle.or.kr/' },
+        { value: 'KBOAT 경정',tag: 'a', href: 'http://www.kboat.or.kr/' },
+        { value: '서울올림픽파크텔',tag: 'a', href: 'https://www.parktel.co.kr/' },
+        { value: '한국스포츠과학원',tag: 'a', href: 'http://www.sports.re.kr/' },
+        { value: '서울올림픽기념관',tag: 'a', href: 'https://88olympic.kspo.or.kr/' },
+        { value: '소마미술관',tag: 'a', href: 'https://soma.kspo.or.kr/' },
+        { value: '올림픽공원',tag: 'a', href: 'https://www.ksponco.or.kr/olympicpark' },
+        { value: '국민체력센터',tag: 'a', href: 'http://www.nfc.or.kr/' },
+        { value: '국민권익위원회',tag: 'a', href: 'http://www.acrc.go.kr/acrc/index.do"' },
+    ];
+    // 패밀리
+    const footer2 = [
+        { value: '한국체육산업개발(주)',tag: 'a', href: 'http://www.ksponco.or.kr/' },
+        { value: '올림픽공원스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparksports' },
+        { value: '올림픽수영장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparkswim' },
+        { value: '올림픽테니스장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparktennis' },
+        { value: '올팍축구장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparksoccer' },
+        { value: '일산올림픽스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/ilsansports' },
+        { value: '분당올림픽스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/bundangsports' },
+        { value: '올림픽홀 평생교육원',tag: 'a', href: 'https://www.ksponco.or.kr/edu' },
+        // { value: '대관예약시스템',tag: 'a', href: '"https://www2.ksponco.or.kr/culture/index.do' }, // as-is 운영 , to-be 운영
+        { value: '대관예약시스템',tag: 'a', href: 'https://www.ksponco.or.kr/culture/index.do' }, // 테스트 운영
+    ]
+    initializeCustomSelect(document.querySelector('.custom-select[data-options="familySite"]'), footer2, {
+        up:true,
+        preventSelectionOnLink: true, // 링크 이동의 역할만 할 경우 placeholder 변경 필요없음 지정 변수
+        placeholder: '패밀리 사이트',
+    });
+    initializeCustomSelect(document.querySelector('.custom-select[data-options="relatedSite"]'), footer1, {
+        up:true,
+        preventSelectionOnLink: true,// 링크 이동의 역할만 할 경우 placeholder 변경 필요없음 지정 변수
+        placeholder: '관련 사이트',
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang=ko>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.css">
+    <link rel="stylesheet" href="../resources/lib/swiper/swiper.css">
+    <link rel="stylesheet" href="../resources/css/views/main.css">
+
+    <!-- lib -->
+    <script src="../resources/lib/jquery-3.6.1/jquery-3.6.1.js"></script>
+    <script src="../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.js"></script>
+    <script src="../resources/lib/swiper/swiper.js"></script>
+
+    <!-- js -->
+    <!-- 헤더 함수 -->
+    <script src="../resources/js/footer.js"></script>
+    <!-- 글자크기 변환 -->
+    <script src="../resources/js/text_size.js"></script>
+    <!-- 커스텀 셀렉트 함수  -->
+    <script src="../resources/js/custom_select.js"></script>
+
+    <title>메인 페이지</title>
+</head>
+<body data-text-size="normal">
+<!-- [웹 접근성] : 본문 바로가기 -->
+<a href="#main" id="skip-nav">본문 바로가기</a>
+
+<!-- 메인 -->
+<main id="main" class="online-intro"><!-- [260330] 클래스명 수정 -->
+    <section id="sec-olympics" class="sec-intro"><!-- [260330] 클래스명 수정, id 수정 -->
+        <div class="content-wrap">
+            <div class="title-wrap">
+                <span>Online Reservation</span>
+                <h1>올림픽공원 온라인 예약</h1>
+            </div>
+            <div class="online-link-wrap">
+                <ul>
+                    <li>
+                        <a href="#" class="online-box olympics-tennis">
+                            <div class="img-con-wrap">
+                                <div class="image-wrap">
+                                    <img src="../resources/images/online-intro/olympics-tennis.png" alt="올림픽 테니스장"/>
+                                </div>
+                                <div class="desc-wrap">
+                                    <p>올림픽 테니스장</p>
+                                    <span class="">Go</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="soccer/main_intro.html" class="online-box olympics-soccer">
+                            <div class="img-con-wrap">
+                                <div class="image-wrap">
+                                    <img src="../resources/images/online-intro/olympics-soccer.svg" alt="올팍축구장"/>
+                                </div>
+                                <div class="desc-wrap">
+                                    <p>올팍축구장</p>
+                                    <span class="">Go</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="online-box olympics-swim">
+                            <div class="img-con-wrap">
+                                <div class="image-wrap">
+                                    <img src="../resources/images/online-intro/olympics-swim.svg" alt="수영장레인대여"/>
+                                </div>
+                                <div class="desc-wrap">
+                                    <p>수영장레인대여</p>
+                                    <span class="">Go</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="online-box olympics-park">
+                            <div class="img-con-wrap">
+                                <div class="image-wrap">
+                                    <img src="../resources/images/online-intro/olympics-park.svg" alt="미사경정공원"/>
+                                </div>
+                                <div class="desc-wrap">
+                                    <p>미사경정공원</p>
+                                    <span class="">Go</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="online-box olympics-ilsan">
+                            <div class="img-con-wrap">
+                                <div class="image-wrap">
+                                    <img src="../resources/images/online-intro/olympics-ilsan.png" alt="일산시설대여"/>
+                                </div>
+                                <div class="desc-wrap">
+                                    <p>일산시설대여</p>
+                                    <span class="">Go</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="online-box olympics-bundang">
+                            <div class="img-con-wrap">
+                                <div class="image-wrap">
+                                    <img src="../resources/images/online-intro/olympics-bundang.svg" alt="분당시설대여"/>
+                                </div>
+                                <div class="desc-wrap">
+                                    <p>분당시설대여</p>
+                                    <span class="">Go</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="online-box olympics-ad">
+                            <div class="img-con-wrap">
+                                <div class="image-wrap">
+                                    <img src="../resources/images/online-intro/olympics-ad.svg" alt="옥외광고신청"/>
+                                </div>
+                                <div class="desc-wrap">
+                                    <p>옥외광고신청</p>
+                                    <span class="">Go</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="online-box olympics-car">
+                            <div class="img-con-wrap">
+                                <div class="image-wrap">
+                                    <img src="../resources/images/online-intro/olympics-car.svg" alt="월주차"/>
+                                </div>
+                                <div class="desc-wrap">
+                                    <p>월 주차</p>
+                                    <span class="">Go</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- 푸터 -->
+<footer>
+    <div class="content-wrap">
+        <div class="flex-wrap al-start gap4 between mo-col wrap">
+            <ul class="footer-terms-list">
+                <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10701000000" target="_blank" class="txt-sm fw-bold c-blue">개인정보처리방침</a></li>
+                <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10703000000" target="_blank" class="txt-sm fw-medium c-gray">이용약관</a></li>
+            </ul>
+            <div class="footer-select-wrap flex-wrap al-center gap8 w-auto">
+                <!-- 패밀리 사이트 : select 참조 변수명 = familySite -->
+                <div class="custom-select" data-options="familySite" data-select="footer">
+                    <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="selected-text"></span>
+                    </button>
+                    <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+                </div>
+                <!-- 관련사이트 : select 참조 변수명 = relatedSite -->
+                <div class="custom-select" data-options="relatedSite" data-select="footer">
+                    <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="selected-text"></span>
+                    </button>
+                    <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="f-bottom flex-wrap al-end between mo-col mo-al-start">
+            <ul class="footer-info-list">
+                <li class="txt-sm fw-regular c-gray">사업자등록번호 : 215-81-12034</li>
+                <li class="txt-sm fw-regular c-gray">(05540) 서울특별시 송파구 올림픽로 424(방이동) 올림픽역도경기장 내</li>
+                <li class="copyright">COPYRIGHT 2025 © KSPO&CO ALL RIGHTS RESERVED.</li>
+            </ul>
+            <!-- 임시 안보임 처리 -->
+            <!--
+            <div class="certification-wrap">
+              <div class="img-box">
+                <img src="../../resources/images/certification/certification_privacy_protection_certified_site.svg" alt="개인정보우수사이트 인증" />
+              </div>
+            </div>
+            -->
+        </div>
+
+    </div>
+</footer>
+<script>
+    /* [푸터] ------------------- */
+    /* 푸터 (패밀리사이트/관련사이트) */
+    // 관련
+    const footer1 = [
+        { value: '국민체육진흥공단',tag: 'a', href: 'http://www.kspo.or.kr/' },
+        { value: '문화체육관광부',tag: 'a', href: 'http://www.mcst.go.kr/main.jsp' },
+        { value: '경륜경정사업본부',tag: 'a', href: 'http://www.krace.or.kr/' },
+        { value: 'KCYCLE 경륜',tag: 'a', href: 'http://www.kcycle.or.kr/' },
+        { value: 'KBOAT 경정',tag: 'a', href: 'http://www.kboat.or.kr/' },
+        { value: '서울올림픽파크텔',tag: 'a', href: 'https://www.parktel.co.kr/' },
+        { value: '한국스포츠과학원',tag: 'a', href: 'http://www.sports.re.kr/' },
+        { value: '서울올림픽기념관',tag: 'a', href: 'https://88olympic.kspo.or.kr/' },
+        { value: '소마미술관',tag: 'a', href: 'https://soma.kspo.or.kr/' },
+        { value: '올림픽공원',tag: 'a', href: 'https://www.ksponco.or.kr/olympicpark' },
+        { value: '국민체력센터',tag: 'a', href: 'http://www.nfc.or.kr/' },
+        { value: '국민권익위원회',tag: 'a', href: 'http://www.acrc.go.kr/acrc/index.do"' },
+    ];
+    // 패밀리
+    const footer2 = [
+        { value: '한국체육산업개발(주)',tag: 'a', href: 'http://www.ksponco.or.kr/' },
+        { value: '올림픽공원스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparksports' },
+        { value: '올림픽수영장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparkswim' },
+        { value: '올림픽테니스장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparktennis' },
+        { value: '올팍축구장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparksoccer' },
+        { value: '일산올림픽스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/ilsansports' },
+        { value: '분당올림픽스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/bundangsports' },
+        { value: '올림픽홀 평생교육원',tag: 'a', href: 'https://www.ksponco.or.kr/edu' },
+        // { value: '대관예약시스템',tag: 'a', href: '"https://www2.ksponco.or.kr/culture/index.do' }, // as-is 운영 , to-be 운영
+        { value: '대관예약시스템',tag: 'a', href: 'https://www.ksponco.or.kr/culture/index.do' }, // 테스트 운영
+    ]
+    initializeCustomSelect(document.querySelector('.custom-select[data-options="familySite"]'), footer2, {
+        up:true,
+        preventSelectionOnLink: true, // 링크 이동의 역할만 할 경우 placeholder 변경 필요없음 지정 변수
+        placeholder: '패밀리 사이트',
+    });
+    initializeCustomSelect(document.querySelector('.custom-select[data-options="relatedSite"]'), footer1, {
+        up:true,
+        preventSelectionOnLink: true,// 링크 이동의 역할만 할 경우 placeholder 변경 필요없음 지정 변수
+        placeholder: '관련 사이트',
+    });
+</script>
+</body>
+</html>

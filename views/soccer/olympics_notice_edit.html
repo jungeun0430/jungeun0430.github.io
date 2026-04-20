@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang=ko>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.css">
+  <link rel="stylesheet" href="../../resources/lib/swiper/swiper.css">
+  <link rel="stylesheet" href="../../resources/css/views/soccer/olympics_notice_edit_soccer.css">
+
+  <!-- lib -->
+  <script src="../../resources/lib/jquery-3.6.1/jquery-3.6.1.js"></script>
+  <script src="../../resources/lib/jquery-ui-1.13.2/jquery-ui-1.13.2.js"></script>
+  <script src="../../resources/lib/swiper/swiper.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js'></script>
+
+  <!-- js -->
+  <!-- 헤더 함수 -->
+  <script src="../../resources/js/header.js"></script>
+  <!-- 글자크기 변환 -->
+  <script src="../../resources/js/text_size.js"></script>
+  <!-- 커스텀 셀렉트 함수  -->
+  <script src="../../resources/js/custom_select.js"></script>
+  <!-- 테이블 체크박스 연동 함수  -->
+  <script src="../../resources/js/table_check.js"></script>
+
+  <title>공지사항_작성</title>
+</head>
+<body data-text-size="normal">
+<!-- [웹 접근성] : 본문 바로가기 -->
+<a href="#main" id="skip-nav">본문 바로가기</a>
+<!-- 헤더 -->
+<header>
+    <!-- [사이드바] dim 처리 영역 -->
+    <div id="dim-overlay" class="dim" onclick="closeSidebar();"></div>
+
+    <div class="content-wrap" id="main-content">
+        <div class="header-left">
+            <!-- 로고 -->
+            <div class="header-logo-wrap">
+                <h1 class="header-logo">
+                    <a href="#" class="img">
+                        <img src="../../resources/images/logo/kspo_logo_soccer.svg" alt="한국체육산업개발주식회사 올팍축구장">
+                    </a>
+                </h1>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn rounded header-pc-only">KSPO&CO 바로가기</a><!-- [20260415] 수정 -->
+            </div>
+
+            <!-- 메뉴 -->
+            <nav class="sidebar" aria-label="메뉴">
+                <!-- PC / Tablet GNB -->
+                <ul class="header-pc-tablet-flex-only"><!-- [20260415] 수정 -->
+                    <li><a href="#">예약신청</a></li>
+                    <li><a href="#">신청방법안내</a></li>
+                    <li><a href="#">시설이용안내</a></li>
+                    <li><a href="#">오시는길</a></li>
+                </ul>
+
+                <!-- Mobile Sidebar -->
+                <div class="header-mo-flex-only"><!-- [20260415] 수정 -->
+                    <div class="sidebar-title-wrap">
+                        <a href="#" target="_blank" rel="noopener noreferrer">KSPO&CO 바로가기</a>
+                        <button type="button" class="close-btn" onclick="closeSidebar();">
+                            <span class="visually-hidden">닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="sidebar-menu-wrap">
+                        <div class="sidebar-intro">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요!</p>
+                            <!-- <a href="#" class="ico-txt-btn txt-ver login"><span class="txt">로그인</span></a> -->
+                            <a href="#" class="ico-txt-btn txt-ver logout"><span class="txt">로그아웃</span></a>
+                        </div>
+
+                        <ul class="sidebar-list header-mo-only"><!-- [20260415] 수정 -->
+                            <li><a href="#">예약신청</a></li>
+                            <li><a href="#">신청방법안내</a></li>
+                            <li><a href="#">시설이용안내</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+
+                        <ul class="sidebar-list ico-ver header-mo-only">
+                            <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                            <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                            <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                            <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- PC / Tablet 우측 버튼 -->
+        <div class="btn-wrap header-pc-tablet-flex-only">
+            <!-- <a href="#" class="ico-user"><span>로그인</span></a> -->
+            <a href="#" class="ico-logout"><span>로그아웃</span></a>
+            <a href="#" class="ico-bag"><span>장바구니</span></a>
+            <a href="#" class="ico-pay"><span>신청내역</span></a>
+            <button type="button" class="ico-hamburger top-btn" onclick="openMenu()">
+                <span>메뉴</span>
+            </button>
+
+            <!-- 전체 메뉴 팝업 -->
+            <div class="header-popup">
+                <div class="header-popup-inner">
+                    <div class="h-pop-head">
+                        <p>전체 메뉴</p>
+                        <button type="button" class="close-btn" onclick="closeMenu()">
+                            <span>닫기</span>
+                        </button>
+                    </div>
+
+                    <div class="h-pop-body">
+                        <div class="h-pop-user">
+                            <p class="txt-sm c-gray5 fw-semibold">홍길동님, 안녕하세요</p>
+                            <a href="#" class="under-line c-gray txt-xs">로그아웃</a>
+                        </div>
+
+                        <div class="h-pop-menu">
+                            <ul class="sidebar-list">
+                                <li><a href="#">예약신청</a></li>
+                                <li><a href="#">신청방법안내</a></li>
+                                <li><a href="#">시설이용안내</a></li>
+                                <li><a href="#">오시는길</a></li>
+                            </ul>
+
+                            <ul class="sidebar-list ico-ver">
+                                <li><a href="#" class="ico_sidebar user">회원정보수정</a></li>
+                                <li><a href="#" class="ico_sidebar payment">결제바구니</a></li>
+                                <li><a href="#" class="ico_sidebar enrollment">신청내역</a></li>
+                                <li><a href="olympics_notice.html" class="ico_sidebar notice">공지사항</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile 우측 버튼 -->
+        <div class="btn-wrap sm header-mo-flex-only">
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="장바구니 페이지 이동">
+                <img src="../../../resources/images/ico/ico_bag.svg" alt="">
+            </a>
+            <a href="#" class="ico-btn ico-pay size-sm" aria-label="결제 페이지 이동">
+                <img src="../../../resources/images/ico/ico_paper.svg" alt="">
+            </a>
+            <button type="button" class="ico-btn size-sm ico-hamburger" onclick="openSideBar()">
+                <span class="visually-hidden">메뉴 열기</span>
+            </button>
+        </div>
+    </div>
+</header>
+<!-- [공통] 글자 텍스트 아이콘 -->
+<div class="fixed-btn-wrap">
+  <button type="button" class="txt-size-btn sm" onclick="changeTextSize('small')">
+    <span class="visually-hidden">글씨 작게</span>
+  </button>
+  <button type="button" class="txt-size-btn rg" onclick="changeTextSize('normal')">
+    <span class="visually-hidden">글씨 보통</span>
+  </button>
+  <button type="button" class="txt-size-btn lg" onclick="changeTextSize('large')">
+    <span class="visually-hidden">글씨 크게</span>
+  </button>
+</div>
+<main id="main">
+  <!--  -->
+  <div class="inner-wrap sub-ver">
+    <!-- 브레드크럼브(경로) -->
+    <div class="flex-wrap end breadcrumb-wrap">
+      <ul class="breadcrumb">
+        <li class="home">메인 화면</li>
+        <li>올팍축구장</li>
+        <li class="active">공지사항</li>
+      </ul>
+    </div>
+    <!-- 페이지 제목 -->
+    <div class="title-wrap sub-ver lg">
+      <h2>공지사항</h2>
+    </div>
+
+    <!-- 공지사항 편집 관련 -->
+    <div class="custom-ui-table">
+      <!-- 구분 -->
+      <div class="row">
+        <div class="th">구분</div>
+        <div class="td mo-wrap">
+          <label class="select-wrap size-nm">
+            <select>
+              <option>올팍축구장</option>
+            </select>
+          </label>
+          <div class="notice-flex-wrap">
+            <label class="checkbox-wrap">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+              <span>공지</span>
+            </label>
+            <label class="checkbox-wrap">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+              <span>전체노출</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- 제목 -->
+      <div class="row">
+        <div class="th">제목</div>
+        <div class="td">
+          <label class="input-wrap size-full">
+            <input type="text" placeholder="제목을 입력해주세요">
+          </label>
+        </div>
+      </div>
+      <!-- 내용 -->
+      <div class="row">
+        <div class="th">내용</div>
+        <div class="td">
+          <!-- 에디터 삽입 시: style태그 지워주세요 -->
+          <div class="editor-wrap" style="display: flex;align-items:center;justify-content:center;color:#ababab;">
+            에디터 영역
+          </div>
+        </div>
+      </div>
+      <!-- 첨부파일 -->
+      <div class="row">
+        <div class="th">첨부파일</div>
+        <div class="td">
+          <div class="file-upload-wrap">
+            <div class="file-upload" data-max-files="3" data-max-size-mb="5">
+              <p class="file-guide">파일은 5개까지 첨부할 수 있으며, 각 파일별 용량은 10.0Mbytes를 넘을 수 없습니다.</p>
+              <div class="file-upload-empty">
+                <button type="button" class="btn xxsm bg-black file-select-btn">파일 선택</button>
+                <p class="file-empty-text">선택된 파일 없음</p>
+              </div>
+              <div class="file-upload-list">
+                <div class="file-upload-item">
+                  <span class="file-name download-text">ABCDEF.png</span>
+                  <button type="button" class="btn xxsm c-red outlined file-delete-btn">삭제</button>
+                </div>
+                <div class="file-upload-item">
+                  <span class="file-name download-text">ABCDEF.png</span>
+                  <button type="button" class="btn xxsm c-red outlined file-delete-btn">삭제</button>
+                </div>
+                <div class="file-upload-item">
+                  <span class="file-name download-text">ABCDEF.png</span>
+                  <button type="button" class="btn xxsm c-red outlined file-delete-btn">삭제</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 현재파일 -->
+      <div class="row">
+        <div class="th">현재파일</div>
+        <div class="td">
+          <div class="file-upload-wrap">
+            <div class="file-upload" data-max-files="3" data-max-size-mb="5">
+              <p class="file-guide">파일은 5개까지 첨부할 수 있으며, 각 파일별 용량은 10.0Mbytes를 넘을 수 없습니다.</p>
+              <div class="file-upload-empty">
+                <button type="button" class="btn xxsm bg-black file-select-btn">파일 선택</button>
+                <p class="file-empty-text">선택된 파일 없음</p>
+              </div>
+              <div class="file-upload-list" style="display:none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 버튼 -->
+    <div class="flex-wrap al-center center">
+      <button type="button" class="btn size-nm lg mo-turn-small bg-dark-primary br-dark-primary">저장</button>
+      <button type="button" class="btn size-nm lg mo-turn-small outlined br-dark-primary">취소</button>
+    </div>
+
+  </div>
+
+</main>
+<!-- 푸터 -->
+<footer>
+  <div class="content-wrap">
+    <div class="flex-wrap al-start gap4 between mo-col">
+      <ul class="footer-terms-list">
+        <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10701000000" target="_blank" class="txt-sm fw-bold c-blue">개인정보처리방침</a></li>
+        <li><a href="https://www.ksponco.or.kr/menu.es?mid=a10703000000" target="_blank" class="txt-sm fw-medium c-gray">이용약관</a></li>
+      </ul>
+      <div class="footer-select-wrap flex-wrap al-center gap8 w-auto">
+        <!-- 패밀리 사이트 : select 참조 변수명 = familySite -->
+        <div class="custom-select" data-options="familySite" data-select="footer">
+          <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-text"></span>
+          </button>
+          <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+        </div>
+        <!-- 관련사이트 : select 참조 변수명 = relatedSite -->
+        <div class="custom-select" data-options="relatedSite" data-select="footer">
+          <button type="button" class="select-toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-text"></span>
+          </button>
+          <ul class="select-list" role="listbox" aria-hidden="true"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-bottom flex-wrap al-end between mo-col mo-al-start">
+      <ul class="footer-info-list">
+        <li class="txt-sm fw-regular c-gray">사업자등록번호 : 215-81-12034</li>
+        <li class="txt-sm fw-regular c-gray">(05540) 서울특별시 송파구 올림픽로 424(방이동) 올림픽역도경기장 내</li>
+        <li class="copyright">COPYRIGHT 2025 © KSPO&CO ALL RIGHTS RESERVED.</li>
+      </ul>
+      <!-- 임시 안보임 처리 -->
+      <!--
+      <div class="certification-wrap">
+        <div class="img-box">
+          <img src="../../resources/images/certification/certification_privacy_protection_certified_site.svg" alt="개인정보우수사이트 인증" />
+        </div>
+      </div>
+      -->
+    </div>
+
+  </div>
+</footer>
+<script>
+    /*(function () {
+        function formatBytes(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+
+        function createFileUpload(root) {
+            var maxFiles    = parseInt(root.getAttribute('data-max-files'), 10) || 5;
+            var maxSizeMb   = parseFloat(root.getAttribute('data-max-size-mb')) || 10;
+            var maxSizeBytes = maxSizeMb * 1024 * 1024;
+
+            var selectBtn   = root.querySelector('.file-select-btn');
+            var countText   = root.querySelector('.file-count-text');
+            var list        = root.querySelector('.file-upload-list');
+            var emptyText   = root.querySelector('.file-empty-text');
+
+            if (!selectBtn || !list || !emptyText) {
+                console.warn('file-upload 필수 요소 누락', root);
+                return null;
+            }
+
+            var fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.multiple = true;
+            fileInput.style.display = 'none';
+            root.appendChild(fileInput);
+
+            var files = [];
+
+            function updateCountText() {
+                if (!countText) return;
+                countText.textContent = files.length > 0
+                    ? files.length + ' / ' + maxFiles + '개'
+                    : '';
+            }
+
+            function render() {
+                /!* 기존 아이템만 제거 (emptyText는 유지) *!/
+                var items = list.querySelectorAll('.file-upload-item');
+                Array.prototype.forEach.call(items, function (el) {
+                    list.removeChild(el);
+                });
+
+                if (files.length === 0) {
+                    emptyText.style.display = 'block';
+                    updateCountText();
+                    return;
+                }
+
+                emptyText.style.display = 'none';
+
+                files.forEach(function (file, index) {
+                    var item = document.createElement('div');
+                    item.className = 'file-upload-item';
+
+                    var nameSpan = document.createElement('span');
+                    nameSpan.className = 'file-name download-text';
+                    nameSpan.title = file.name;
+                    nameSpan.textContent = file.name;
+
+
+                    var delBtn = document.createElement('button');
+                    delBtn.type = 'button';
+                    delBtn.className = 'file-delete-btn btn xxsm c-red outlined';
+                    delBtn.textContent = '삭제';
+                    delBtn.addEventListener('click', function () {
+                        files.splice(index, 1);
+                        render();
+                    });
+
+                    item.appendChild(nameSpan);
+                    item.appendChild(sizeSpan);
+                    item.appendChild(delBtn);
+                    list.appendChild(item);
+                });
+
+                updateCountText();
+            }
+
+            function isDuplicate(file) {
+                return files.some(function (f) {
+                    return f.name === file.name
+                        && f.size === file.size
+                        && f.lastModified === file.lastModified;
+                });
+            }
+
+            selectBtn.addEventListener('click', function () {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', function (e) {
+                var selected = Array.prototype.slice.call(e.target.files);
+
+                for (var i = 0; i < selected.length; i++) {
+                    var file = selected[i];
+
+                    if (files.length >= maxFiles) {
+                        alert('파일은 최대 ' + maxFiles + '개까지 첨부할 수 있습니다.');
+                        break;
+                    }
+                    if (file.size > maxSizeBytes) {
+                        alert('"' + file.name + '" 파일이 ' + maxSizeMb + 'MB를 초과합니다. (' + formatBytes(file.size) + ')');
+                        continue;
+                    }
+                    if (isDuplicate(file)) {
+                        continue;
+                    }
+
+                    files.push(file);
+                }
+
+                fileInput.value = '';
+                render();
+            });
+
+            render();
+
+            return {
+                getFiles: function () { return files.slice(); },
+                clear: function () { files = []; render(); }
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var instances = [];
+            var uploadEls = document.querySelectorAll('.file-upload');
+            Array.prototype.forEach.call(uploadEls, function (el) {
+                var inst = createFileUpload(el);
+                if (inst) instances.push(inst);
+            });
+            window.fileUploadInstances = instances;
+        });
+    }());*/
+</script>
+<script>
+    /* [공통] Footer */
+    const footer1 = [
+        { value: '국민체육진흥공단',tag: 'a', href: 'http://www.kspo.or.kr/' },
+        { value: '문화체육관광부',tag: 'a', href: 'http://www.mcst.go.kr/main.jsp' },
+        { value: '경륜경정사업본부',tag: 'a', href: 'http://www.krace.or.kr/' },
+        { value: 'KCYCLE 경륜',tag: 'a', href: 'http://www.kcycle.or.kr/' },
+        { value: 'KBOAT 경정',tag: 'a', href: 'http://www.kboat.or.kr/' },
+        { value: '서울올림픽파크텔',tag: 'a', href: 'https://www.parktel.co.kr/' },
+        { value: '한국스포츠과학원',tag: 'a', href: 'http://www.sports.re.kr/' },
+        { value: '서울올림픽기념관',tag: 'a', href: 'https://88olympic.kspo.or.kr/' },
+        { value: '소마미술관',tag: 'a', href: 'https://soma.kspo.or.kr/' },
+        { value: '올림픽공원',tag: 'a', href: 'https://www.ksponco.or.kr/olympicpark' },
+        { value: '국민체력센터',tag: 'a', href: 'http://www.nfc.or.kr/' },
+        { value: '국민권익위원회',tag: 'a', href: 'http://www.acrc.go.kr/acrc/index.do"' },
+    ];
+    // 패밀리
+    const footer2 = [
+        { value: '한국체육산업개발(주)',tag: 'a', href: 'http://www.ksponco.or.kr/' },
+        { value: '올림픽공원스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparksports' },
+        { value: '올림픽수영장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparkswim' },
+        { value: '올림픽테니스장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparktennis' },
+        { value: '올팍축구장',tag: 'a', href: 'https://www.ksponco.or.kr/sports/olparksoccer' },
+        { value: '일산올림픽스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/ilsansports' },
+        { value: '분당올림픽스포츠센터',tag: 'a', href: 'https://www.ksponco.or.kr/sports/bundangsports' },
+        { value: '올림픽홀 평생교육원',tag: 'a', href: 'https://www.ksponco.or.kr/edu' },
+        // { value: '대관예약시스템',tag: 'a', href: '"https://www2.ksponco.or.kr/culture/index.do' }, // as-is 운영 , to-be 운영
+        { value: '대관예약시스템',tag: 'a', href: 'https://www.ksponco.or.kr/culture/index.do' }, // 테스트 운영
+    ]
+    initializeCustomSelect(document.querySelector('.custom-select[data-options="familySite"]'), footer2, {
+        up:true,
+        preventSelectionOnLink: true, // 링크 이동의 역할만 할 경우 placeholder 변경 필요없음 지정 변수
+        placeholder: '패밀리 사이트',
+    });
+    initializeCustomSelect(document.querySelector('.custom-select[data-options="relatedSite"]'), footer1, {
+        up:true,
+        preventSelectionOnLink: true,// 링크 이동의 역할만 할 경우 placeholder 변경 필요없음 지정 변수
+        placeholder: '관련 사이트',
+    });
+</script>
+</body>
+</html>
