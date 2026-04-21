@@ -1,0 +1,97 @@
+
+/*  날짜 달력 */
+.enrollment-wrap {display:flex;align-items:stretch;border-radius:4px;border:1px solid var(--border-color);overflow:hidden;}
+.fc-calender-ver {flex:1;}
+.schedule-check-list {width:360px;height: 506px;overflow-y:auto;background-color:var(--color-white);border-left:1px solid var(--border-color);}
+.schedule-check-list > ul > li {display:flex;align-items:center;justify-content:space-between;gap:4px;padding:18px 20px;}
+.schedule-check-list > ul > li + li {border-top:1px solid var(--border-color);}
+.schedule-check-list > ul > li > .checkbox-wrap .checkmark + span {font-weight:var(--fw-medium);}
+@media (max-width:1024px) {
+    .enrollment-wrap {flex-direction:column;background-color:initial;}
+    .schedule-check-list {width:100%;border-left:0;border-top:1px solid var(--border-color);height:auto;}
+}
+
+@media (max-width:767px) {
+
+    .schedule-check-list > ul > li {padding:12px;}
+    .schedule-check-list > ul > li > .checkbox-wrap{width:calc(100% - 57px);}
+    .schedule-check-list > ul > li > .checkbox-wrap .checkmark + span {display:inline-block;width:calc(100% - 24px);white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+}
+/* 달력 */
+/* 캘린더 */
+.fc .fc-toolbar.fc-header-toolbar {height:66px;margin-bottom:0;position:relative;padding:16px;background-color:var(--color-primary-dark);text-align:center;border-radius:4px 0 0 0;}
+.fc .fc-toolbar-title {font-size:var(--txt-size05);color:var(--color-white);font-weight:var(--fw-bold);}
+.fc .fc-toolbar-chunk:first-child {width:100%;}
+.fc .fc-toolbar-chunk:last-child {display:none;position:absolute;right:16px;top:50%;transform:translateY(-50%);}
+.fc .fc-view-harness {height:auto!important;}
+.fc .fc-scroller-liquid-absolute {position:relative!important;}
+.fc .fc-scrollgrid-sync-table {height:auto!important;}
+.fc .fc-daygrid-day {height: 196px !important;}
+.fc .fc-daygrid-body,
+.fc .fc-scrollgrid-section table,
+.fc .fc-scrollgrid-section table > tbody
+{width:100%!important;}
+/* 전체라인 */
+/*.fc .fc-dayGridTwoWeek-view.fc-view.fc-daygrid {border-width:0 1px 1px 1px;border-radius:0 0 0 4px!important;border-style:solid;border-color:var(--border-color);overflow: hidden;}*/
+.fc .fc-scrollgrid-section > td,
+.fc .fc-scrollgrid{border-width:0!important;}
+.fc-theme-standard .fc-scrollgrid,
+.fc-theme-standard td, .fc-theme-standard th {height:46px;border-color:var(--border-color);background-color:var(--color-white);}
+.fc-theme-standard th .fc-scrollgrid-sync-inner {height:100%;}
+.fc .fc-col-header-cell-cushion {height:100%;font-size:var(--txt-size02);color:var(--color-black);font-weight:var(--fw-medium);line-height:1.4;padding:10px;}
+.fc-theme-standard th.fc-day-sat .fc-col-header-cell-cushion {color:var(--color-primary);}
+.fc-theme-standard th.fc-day-sun .fc-col-header-cell-cushion {color:var(--color-red);}
+.fc .fc-daygrid-day-top {justify-content:center;margin-top:20px;}
+/* 일요일 */
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {min-height:0;position:absolute;left:12px;bottom:20px;width:calc(100% - 24px);margin-bottom:0;}
+.fc .fc-daygrid-day.fc-day-sun .fc-daygrid-day-number{color:var(--color-red);}
+.fc .fc-daygrid-day-number {font-size:var(--txt-size04);font-weight:var(--fw-medium);}
+.fc .fc-daygrid-event-harness {display:inline-block;width:100%;}
+.fc .fc-daygrid-event-harness > a {}
+.fc .fc-daygrid-event-harness + .fc-daygrid-event-harness {margin-top:4px!important;}
+/* 클릭한 날짜 */
+.fc .fc-daygrid-day.click-active {background-color:inherit;}
+.fc .fc-daygrid-day.click-active .fc-daygrid-day-number{position:relative;color:var(--color-white)!important;font-weight:var(--fw-bold);}
+.fc .fc-daygrid-day.click-active .fc-daygrid-day-number::after {content:'';width:44px;height:44px;border-radius:50%;background-color:var(--color-primary-dark);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:-1;}
+/* 오늘날짜 */
+.fc .fc-daygrid-day.fc-day-today {background-color:inherit;}
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number{position:relative;}
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number::before {content:'';width:6px;height:6px;border-radius:50%;background-color:var(--color-primary-dark);position:absolute;left:50%;top:0;transform:translateX(-50%);z-index:-1;}
+/* 비활성화 날짜 */
+.fc .fc-daygrid-day.is-disabled {pointer-events:none!important;}
+.fc .fc-daygrid-day.is-disabled .fc-daygrid-day-number,
+.fc .fc-daygrid-day.fc-day-sun.is-disabled .fc-daygrid-day-number{color:var(--color-gray);}
+.fc .fc-daygrid-day:not(.is-disabled) {cursor:pointer;}
+/* 간격 */
+.enrollment-wrap + .flex-wrap {margin-top:40px;}
+/* 뱃지 */
+.calendar-unit {font-size:var(--txt-size01);font-weight:var(--fw-medium);padding:4px;border-radius:4px;border-style:solid;border-width:1px;background-color:var(--color-white);}
+.calendar-unit .fc-event-title {width:100%;text-align:center;display:inline-block;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+.calendar-unit.blue {border-color:var(--color-primary);}
+.calendar-unit.blue .fc-event-title {color:var(--color-primary);font-weight:var(--fw-medium)!important;}
+.calendar-unit.gray {border-color:var(--color-gray5);}
+.calendar-unit.gray .fc-event-title {color:var(--color-gray5);font-weight:var(--fw-medium)!important;}
+.calendar-unit.disabled {border-color:var(--color-light-gray3);background-color:var(--color-light-gray3);}
+.calendar-unit.disabled .fc-event-title {color:var(--color-gray);font-weight:var(--fw-medium)!important;}
+.badge {min-width:69px;}
+@media (max-width:1024px) {
+    .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {width:calc(100% - 12px);left:6px;bottom:10px;}
+}
+@media (max-width:767px) {
+    .fc .fc-toolbar-title {font-size:var(--txt-size03);}
+    .fc .fc-toolbar.fc-header-toolbar {height:auto!important;padding:10px;}
+    .fc .fc-daygrid-day {height:60px!important;}
+    .fc-daygrid-day-events {display:none!important;}
+    .fc .fc-daygrid-day-top {margin-top:12px;}
+    .fc-theme-standard th {height:44px;}
+    .fc-theme-standard th:first-child {border-right:0;}
+    .fc-theme-standard th:last-child {border-left:0;}
+    .fc-theme-standard th + th:not(:last-child) {border-left:0;border-right:0;}
+    .fc .fc-col-header-cell-cushion {font-size:var(--txt-size02);}
+    .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number {font-size:var(--txt-size02);font-weight:var(--fw-medium);}
+    .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number::after {width:32px;height:32px;}
+
+    /* 간격 */
+    .enrollment-wrap + .flex-wrap {margin-top:40px;}
+    .badge {min-width:52px;}
+}

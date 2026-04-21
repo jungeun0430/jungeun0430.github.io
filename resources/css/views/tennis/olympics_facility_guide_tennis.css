@@ -15,3 +15,61 @@
     .gray-img-box + .sub-content-box {margin-top:20px;}
     .gray-comment-box + .sub-content-wrap {margin-top:20px;}
 }
+
+/* 코트 일일 이용요금 (mo) */
+.tennis-daily-wrap {padding:16px;border:1px solid var(--border-color);border-radius:4px;}
+.tennis-daily-wrap > ul > li {padding:16px 0;}
+.tennis-daily-wrap > ul > li:nth-child(1) {padding-top:0;}
+.tennis-daily-wrap > ul > li:last-child {padding-bottom:0;}
+.tennis-daily-wrap > ul > li + li {border-top:1px solid var(--border-color);}
+.tennis-daily-box > ul > li + li {margin-top:8px;}
+.tennis-daily-box > ul > li {display:flex;align-items:flex-start;}
+.tennis-daily-box > ul > li:not(.column) > span:first-child {display:inline-block;width:40px;}
+.tennis-daily-box > ul > li.column {flex-direction:column;align-items:flex-start;gap:6px;}
+.tennis-daily-box > ul > li.column > ul > li + li {margin-top:4px;}
+.tennis-daily-box .sm-badge {display:inline-block;min-width:40px;font-size:var(--txt-size02);text-align:center;color:var(--color-gray);font-weight:var(--fw-semi-bold);padding:4px;border-radius:4px;background-color:var(--bg-light);}
+.tennis-daily-box .sm-badge + * {margin-left:12px;}
+
+/* 테니스장 결제방법 카드 */
+.flex-wrap.ver-tennis {gap:12px;flex-wrap:wrap;}
+.card-box {min-width:360px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;border-radius:4px;padding:22px 111px 22px 24px;}
+.card-box > p {font-size:var(--txt-size04);color:var(--color-white);font-weight:var(--fw-bold);}
+.card-box > span {font-size:var(--txt-size02);color:var(--color-white);font-weight:var(--fw-medium);}
+.card-box.type-online {background:var(--color-primary) url("../../../images/views/tennis/type-online.svg") right 22px center no-repeat;background-size:63px 58px;}
+.card-box.type-visit {background:var(--color-primary-dark) url("../../../images/views/tennis/type-visit.svg") right 22px center no-repeat;background-size:63px 58px;}
+
+@media (max-width:767px) {
+    .card-box {min-width:0;width:100%;}
+}
+
+/* 테니스장 step 카드 */
+.step-card-wrap {margin-top:24px;}
+.step-card-wrap > ul {display: flex;align-items: center;gap: 72px;}
+.step-card-wrap > ul > li {flex: 1;position: relative;}
+.step-card-wrap > ul > li:not(:last-child)::after {content: '';position: absolute;top: 50%;right: -56px;width: 40px;height: 40px;transform: translateY(-50%);background: url("../../../images/ico/ico_arrow_step.svg") center center no-repeat;background-size: 40px 40px;}
+.step-card {display:flex;align-items:flex-start;flex-direction:column;padding:20px;position:relative;border:1px solid var(--border-color);border-radius:4px;background-color:var(--bg-light);background-position:right 20px top 28px;background-repeat:no-repeat;}
+.step-card > span:first-child {font-size:var(--txt-size01);font-weight:var(--fw-bold);color:var(--color-gray5);margin-bottom:16px;}
+.step-card > p {font-size:var(--txt-size04);font-weight:var(--fw-bold);color:var(--color-black);margin-bottom:8px;}
+.step-card > span:last-child {font-size:var(--txt-size02);font-weight:var(--fw-medium);color:var(--color-text);}
+.step-card.step1 {background-image:url("../../../images/views/tennis/step1.svg");background-size:46px 52px;}
+.step-card.step2 {background-image:url("../../../images/views/tennis/step2.svg");background-size:46px 52px;}
+.step-card.step3 {background-image:url("../../../images/views/tennis/step3.svg");background-size:46px 52px;}
+
+@media (max-width:1024px) {
+    .step-card-wrap {width: 100%;}
+    .step-card-wrap > ul {width: 100%;flex-direction: column;gap: 32px;}
+    .step-card-wrap > ul > li {width: 100%;flex: none;}
+    .step-card-wrap > ul > li:not(:last-child)::after {content: '';position: absolute;left: 50%;bottom: -28px;top: auto;right: auto;width: 24px;height: 24px;transform: translateX(-50%) rotate(90deg);background: url("../../../images/ico/ico_arrow_step.svg") center center no-repeat;background-size: 24px 24px;}
+
+    .step-card > span:first-child {font-size:var(--txt-size02);margin-bottom:8px;}
+    .step-card > p {margin-bottom:4px;}
+}
+.col-width1 {width:38%;}
+.col-width2 {width:40%;}
+.col-width3 {width:22%;}
+
+@media (max-width:767px) {
+    .col-width1 {width:33.3%;}
+    .col-width2 {width:33.3%;}
+    .col-width3 {width:33.3%;}
+}

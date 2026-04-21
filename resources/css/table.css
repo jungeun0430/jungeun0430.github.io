@@ -10,6 +10,7 @@
 .custom-table td + td {border-left:1px solid var(--table-border-color);}
 .custom-table tr + tr {border-top:1px solid var(--table-border-color);}
 .custom-table tr.no-br {border:0;}
+.custom-table th.bl,
 .custom-table td.bl {border-left:1px solid var(--table-border-color);}
 .custom-table thead {border-bottom:1px solid var(--table-border-color);}
 .th-wrap {display:flex;align-items:center;justify-content:center;text-align:center;font-size:var(--txt-size02);font-weight:var(--fw-bold);color:var(--table-text-color);}
@@ -42,6 +43,9 @@ tr.no-data .td-wrap {padding:40px 20px 60px;font-size:var(--txt-size04)}
     .custom-table.sm td {padding:12px;}
     /* 데이터 없을 때 */
     tr.no-data .td-wrap {padding:40px;font-size:var(--txt-size02)}
+    /* 테이블 작은 사이즈 */
+    .custom-table.mo-turn-sm th {padding:12px;}
+    .custom-table.mo-turn-sm td {padding:12px;}
 
 }
 
