@@ -123,12 +123,13 @@
 .fc .fc-daygrid-event-harness > a {}
 .fc .fc-daygrid-event-harness + .fc-daygrid-event-harness {margin-top:4px!important;}
 /* 클릭한 날짜 */
-/*.fc .fc-daygrid-day.click-active {background-color:var(--color-primary-light);border-radius:4px;}*/
-/*.fc .fc-daygrid-day.click-active .fc-daygrid-day-number {color:var(--color-white)!important;font-weight:var(--fw-bold);}*/
+.fc .fc-daygrid-day.click-active {background-color:inherit;}
+.fc .fc-daygrid-day.click-active .fc-daygrid-day-number{position:relative;color:var(--color-white)!important;font-weight:var(--fw-bold);}
+.fc .fc-daygrid-day.click-active .fc-daygrid-day-number::after {content:'';width:44px;height:44px;border-radius:50%;background-color:var(--color-primary-dark);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:-1;}
 /* 오늘날짜 */
 .fc .fc-daygrid-day.fc-day-today {background-color:inherit;}
-.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number{position:relative;color:var(--color-white)!important;font-weight:var(--fw-bold);}
-.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number::after {content:'';width:44px;height:44px;border-radius:50%;background-color:var(--color-primary-dark);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:-1;}
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number{position:relative;}
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number::before {content:'';width:6px;height:6px;border-radius:50%;background-color:var(--color-primary-dark);position:absolute;left:50%;top:0;transform:translateX(-50%);z-index:-1;}
 /* 비활성화 날짜 */
 .fc .fc-daygrid-day.is-disabled {pointer-events:none!important;}
 .fc .fc-daygrid-day.is-disabled .fc-daygrid-day-number,
