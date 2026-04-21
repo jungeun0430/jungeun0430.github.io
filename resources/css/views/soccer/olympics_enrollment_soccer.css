@@ -7,3 +7,56 @@
 @import "../../table.css";
 @import "../../responsive.css";
 /*-------------------------------------------------------------------*/
+
+/* 공용 라인 타이틀 */
+.line-text {min-height:28px;padding-left:10px;position:relative;font-size:var(--txt-size04);color:var(--color-black);font-weight:var(--fw-bold);}
+.line-text::before {content:"";width:3px;height:20px;background-color:var(--color-primary);position:absolute;left:0;top:4px;border-radius:2px;}
+
+/* 신청내역 - 영수증 보기 */
+.receipt-wrap {margin-top:16px;padding:24px;border:1px solid var(--border-color);border-radius:8px;background-color:var(--bg-light);}
+.receipt-wrap > .line-text {margin-bottom:12px;}
+.receipt-wrap .custom-table {margin:0;background-color:var(--color-white);border-radius:4px;overflow:hidden;}
+
+/* 신청내역 - 결제취소 환불 박스 */
+.refund-area {margin-top:16px;}
+.refund-area:empty {display:none;}
+.refund-box {padding:24px;border:1px solid var(--border-color);border-radius:8px;background-color:var(--color-white);}
+.refund-box + .refund-box {margin-top:16px;}
+.refund-box-title {font-size:var(--txt-size05);font-weight:var(--fw-bold);color:var(--color-black);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border-color);}
+.refund-box .gray-box {display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:20px;margin-bottom:0;background-color:var(--bg-light);}
+.refund-box .gray-box + .gray-box {margin-top:12px;}
+.refund-box .gray-box .line-text {margin-bottom:12px;}
+.refund-box .num-list {margin-top:8px;}
+.refund-box .agree-question {padding:12px 20px;margin-top:12px;}
+.refund-box .agree-question + .gray-box {margin-top:16px;}
+.refund-box > .flex-wrap.center {margin-top:24px;}
+
+/* 환불 정보 입력 폼 */
+.refund-form {display:flex;flex-direction:column;gap:16px;}
+.refund-form-row {display:flex;align-items:center;gap:16px;}
+.refund-form-label {flex:0 0 120px;font-size:var(--txt-size02);font-weight:var(--fw-semi-bold);color:var(--color-gray5);}
+.refund-form-field {flex:1;min-width:0;}
+.refund-reason-row {width:100%;}
+.refund-reason-row > .select-wrap {flex:1 1 200px;min-width:0;}
+.refund-reason-row > .input-wrap {flex:2 1 260px;min-width:0;}
+.credit-no-row,
+.credit-exp-row {width:100%;display:flex;gap:4px;flex-wrap:wrap;}
+.credit-no-row > .input-wrap {flex:1;min-width:0;}
+.credit-exp-row > .input-wrap {flex:1;min-width:0;}
+
+@media (max-width:767px) {
+    .line-text {min-height:22px;}
+    .line-text::before {top:2px;}
+    .receipt-wrap {padding:16px;margin-top:12px;}
+    .refund-box {padding:16px;}
+    .refund-box + .refund-box {margin-top:12px;}
+    .refund-box-title {font-size:var(--txt-size04);margin-bottom:12px;padding-bottom:8px;}
+    .refund-box .gray-box {padding:16px;}
+    .refund-box .agree-question {padding:8px 4px;margin-top:8px;}
+    .refund-form {gap:12px;}
+    .refund-form-row {flex-direction:column;align-items:stretch;gap:8px;}
+    .refund-form-label {flex:none;width:100%;font-size:var(--txt-size01);}
+    .refund-reason-row {flex-wrap:wrap;}
+    .refund-reason-row > .select-wrap,
+    .refund-reason-row > .input-wrap {flex:1 1 100%;}
+}
